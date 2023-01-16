@@ -29,7 +29,7 @@ for i in range(10000):
     bodyIndex = robotID,
     jointName = "Torso_FrontLeg",
     controlMode = p.POSITION_CONTROL,
-    targetPosition = random.random(), 
+    targetPosition = (random.random() * numpy.pi) - numpy.pi/2, 
     maxForce = 500)
     time.sleep(0.01)
     #print("Step Status: ", i)
