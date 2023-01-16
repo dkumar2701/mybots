@@ -5,7 +5,7 @@ class ROBOT:
     def __init__(self):
         self.robotID = p.loadURDF("body.urdf")
         
-        self.motors = {}
+        
         
     def Prepare_To_Sense(self):
         self.sensors = {}
@@ -15,3 +15,8 @@ class ROBOT:
     def Sense(self, t):
         for linkName, sensor in self.sensors.items():
             sensor.Get_Value(t)
+
+    def Prepare_To_Act(self):
+        self.motors = {}
+        for jointName in pyrosim.jointNamesToIndices:
+            self.sensors[jointName] = MOTOR(jointName)
