@@ -5,6 +5,7 @@ import time
 import numpy
 import constants as c
 import random
+"""
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.setGravity(0,0,-9.8)
@@ -38,3 +39,5 @@ p.disconnect()
 print(c.backLegSensorValues)
 numpy.save('data/backLegSensorValues.npy', c.backLegSensorValues)
 numpy.save('data/frontLegSensorValues.npy', c.frontLegSensorValues)
+"""
+pass
