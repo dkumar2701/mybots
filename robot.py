@@ -5,3 +5,5 @@ class ROBOT:
         self.sensors = {}
         self.motors = {}
         
+    def Prepare_To_Sense(self):
+        pass

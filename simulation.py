@@ -12,6 +12,7 @@ class SIMULATION:
         self.world = WORLD()
         self.robot = ROBOT()
         pyrosim.Prepare_To_Simulate(self.robot.robotID)
+        self.robot.Prepare_To_Sense()
 
     def Run(self):
         for i in range(1000):
