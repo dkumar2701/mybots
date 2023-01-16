@@ -24,13 +24,13 @@ for i in range(10000):
     jointName = "Torso_BackLeg",
     controlMode = p.POSITION_CONTROL,
     targetPosition = (random.random() * numpy.pi) - numpy.pi/2, 
-    maxForce = 500)
+    maxForce = 75)
     pyrosim.Set_Motor_For_Joint(
     bodyIndex = robotID,
     jointName = "Torso_FrontLeg",
     controlMode = p.POSITION_CONTROL,
     targetPosition = (random.random() * numpy.pi) - numpy.pi/2, 
-    maxForce = 500)
+    maxForce = 75)
     time.sleep(0.01)
     #print("Step Status: ", i)
 p.disconnect()
