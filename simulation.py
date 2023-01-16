@@ -23,7 +23,7 @@ class SIMULATION:
             self.robot.Sense(i)
             self.robot.Act(i)
             
-            time.sleep(1/240)
+            time.sleep(1/60)
             #print("Step Status: ", i)
     def __del__(self):
         for linkname, sensor in self.robot.sensors.items():

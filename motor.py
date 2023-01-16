@@ -23,5 +23,5 @@ class MOTOR:
         jointName = self.jointName,
         controlMode = p.POSITION_CONTROL,
         targetPosition = self.motorValues[t], 
-        maxForce = 75)
+        maxForce = 25)
         
