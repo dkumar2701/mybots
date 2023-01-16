@@ -5,6 +5,7 @@ import time
 import numpy
 import constants as c
 import random
+from simulation import SIMULATION
 """
 physicsClient = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -40,4 +41,4 @@ print(c.backLegSensorValues)
 numpy.save('data/backLegSensorValues.npy', c.backLegSensorValues)
 numpy.save('data/frontLegSensorValues.npy', c.frontLegSensorValues)
 """
-pass
+simulation = SIMULATION()
