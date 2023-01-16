@@ -28,13 +28,13 @@ for i in range(10000):
     bodyIndex = robotID,
     jointName = "Torso_BackLeg",
     controlMode = p.POSITION_CONTROL,
-    targetPosition = targetAngles[i], 
+    targetPosition = -targetAngles[i], 
     maxForce = 75)
     pyrosim.Set_Motor_For_Joint(
     bodyIndex = robotID,
     jointName = "Torso_FrontLeg",
     controlMode = p.POSITION_CONTROL,
-    targetPosition = targetAngles[i], 
+    targetPosition = -targetAngles[i], 
     maxForce = 75)
     time.sleep(0.01)
     #print("Step Status: ", i)
