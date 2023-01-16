@@ -9,7 +9,10 @@ class MOTOR:
 
     def Prepare_To_Act(self):
         self.amplitude = c.amplitudeBackLeg
-        self.frequency = c.frequencyBackLeg
+        if self.jointName == "Torso_BackLeg":
+            self.frequency = c.frequencyBackLeg/2
+        else:
+            self.frequency = c.frequencyBackLeg
         self.offset = c.phaseOffsetBackLeg
         self.motorValues = numpy.sin(self.frequency*c.x + self.offset) * self.amplitude
         
