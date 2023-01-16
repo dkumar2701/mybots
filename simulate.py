@@ -14,9 +14,12 @@ pyrosim.Prepare_To_Simulate(robotID)
 backLegSensorValues = numpy.zeros(10000)
 frontLegSensorValues = numpy.zeros(10000)
 x = numpy.linspace(0, 2* numpy.pi, 1000)
-targetAngles = numpy.sin(x) * numpy.pi/4
-#numpy.save('data/targetAngles.npy', targetAngles)
+amplitude = numpy.pi/4
+frequency = 10
+phaseOffset= 0
 
+targetAngles = numpy.sin(frequency*x + phaseOffset) * amplitude
+numpy.save('data/targetAngles.npy', targetAngles)
 for i in range(10000):
     p.stepSimulation()
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
