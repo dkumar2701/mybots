@@ -11,8 +11,8 @@ planeId = p.loadURDF("plane.urdf")
 robotID = p.loadURDF("body.urdf")
 p.loadSDF("world.sdf")
 pyrosim.Prepare_To_Simulate(robotID)
-backLegSensorValues = numpy.zeros(10000)
-frontLegSensorValues = numpy.zeros(10000)
+backLegSensorValues = numpy.zeros(1000)
+frontLegSensorValues = numpy.zeros(1000)
 x = numpy.linspace(0, 2* numpy.pi, 1000)
 amplitudeBackLeg = numpy.pi/8
 frequencyBackLeg = 10
@@ -26,7 +26,7 @@ targetAnglesFrontLeg = numpy.sin(frequencyFrontLeg*x + phaseOffsetFrontLeg) * am
 #numpy.save('data/targetAnglesBack.npy', targetAnglesBackLeg)
 #numpy.save('data/targetAnglesFront', targetAnglesFrontLeg)
 #exit()
-for i in range(10000):
+for i in range(1000):
     p.stepSimulation()
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
     frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
@@ -42,7 +42,7 @@ for i in range(10000):
     controlMode = p.POSITION_CONTROL,
     targetPosition = -targetAnglesFrontLeg[i], 
     maxForce = 75)
-    time.sleep(0.01)
+    time.sleep(1/240)
     #print("Step Status: ", i)
 p.disconnect()
 print(backLegSensorValues)
