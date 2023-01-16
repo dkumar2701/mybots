@@ -19,8 +19,8 @@ class SIMULATION:
             print(i)
             
             p.stepSimulation()
-            #c.backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-            #c.frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
+            self.robot.Sense(i)
+            
             #pyrosim.Set_Motor_For_Joint(
             #bodyIndex = robotID,
             #jointName = "Torso_BackLeg",
