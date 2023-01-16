@@ -7,13 +7,11 @@ import constants as c
 import random
 from simulation import SIMULATION
 """
-physicsClient = p.connect(p.GUI)
-p.setAdditionalSearchPath(pybullet_data.getDataPath())
-p.setGravity(0,0,-9.8)
+
 planeId = p.loadURDF("plane.urdf")
 robotID = p.loadURDF("body.urdf")
 p.loadSDF("world.sdf")
-pyrosim.Prepare_To_Simulate(robotID)
+
 
 #numpy.save('data/targetAnglesBack.npy', targetAnglesBackLeg)
 #numpy.save('data/targetAnglesFront', targetAnglesFrontLeg)
