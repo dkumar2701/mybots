@@ -34,5 +34,6 @@ class SIMULATION:
             #maxForce = 75)
             time.sleep(1/240)
             #print("Step Status: ", i)
-            
+    def __del__(self):
+        p.disconnect()
         
