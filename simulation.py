@@ -21,18 +21,7 @@ class SIMULATION:
             p.stepSimulation()
             self.robot.Sense(i)
             
-            #pyrosim.Set_Motor_For_Joint(
-            #bodyIndex = robotID,
-            #jointName = "Torso_BackLeg",
-            #controlMode = p.POSITION_CONTROL,
-            #targetPosition = -c.targetAnglesBackLeg[i], 
-            #maxForce = 75)
-            #pyrosim.Set_Motor_For_Joint(
-            #bodyIndex = robotID,
-            #jointName = "Torso_FrontLeg",
-            #controlMode = p.POSITION_CONTROL,
-            #targetPosition = -c.targetAnglesFrontLeg[i], 
-            #maxForce = 75)
+            
             time.sleep(1/240)
             #print("Step Status: ", i)
     def __del__(self):

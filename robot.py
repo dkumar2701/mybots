@@ -1,6 +1,7 @@
 import pybullet as p
 import pyrosim.pyrosim as pyrosim
 from sensor import SENSOR
+from motor import MOTOR
 class ROBOT:
     def __init__(self):
         self.robotID = p.loadURDF("body.urdf")
