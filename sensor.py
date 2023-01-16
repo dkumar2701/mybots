@@ -7,5 +7,4 @@ class SENSOR:
         
     def Get_Value(self, t):
         self.values[t] = pyrosim.Get_Touch_Sensor_Value_For_Link(self.linkName)
-        if t == numpy.size(self.values)- 1:
-                print(self.values)
+        

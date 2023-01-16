@@ -13,6 +13,7 @@ class SIMULATION:
         self.robot = ROBOT()
         pyrosim.Prepare_To_Simulate(self.robot.robotID)
         self.robot.Prepare_To_Sense()
+        self.robot.Prepare_To_Act()
 
     def Run(self):
         for i in range(1000):
@@ -20,7 +21,7 @@ class SIMULATION:
             
             p.stepSimulation()
             self.robot.Sense(i)
-            
+            self.robot.Act(i)
             
             time.sleep(1/240)
             #print("Step Status: ", i)
