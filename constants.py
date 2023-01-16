@@ -2,7 +2,7 @@ import numpy
 
 x = numpy.linspace(0, 2* numpy.pi, 1000)
 amplitudeBackLeg = numpy.pi/8
-frequencyBackLeg = 10
+frequencyBackLeg = 2
 phaseOffsetBackLeg= numpy.pi/2
 targetAnglesBackLeg = numpy.sin(frequencyBackLeg*x + phaseOffsetBackLeg) * amplitudeBackLeg
 
