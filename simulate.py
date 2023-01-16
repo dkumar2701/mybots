@@ -13,7 +13,10 @@ p.loadSDF("world.sdf")
 pyrosim.Prepare_To_Simulate(robotID)
 backLegSensorValues = numpy.zeros(10000)
 frontLegSensorValues = numpy.zeros(10000)
-
+x = numpy.linspace(0, 2* numpy.pi, 1000)
+targetAngles = numpy.sin(x)
+numpy.save('data/targetAngles.npy', targetAngles)
+exit()
 
 for i in range(10000):
     p.stepSimulation()
