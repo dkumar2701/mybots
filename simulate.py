@@ -20,3 +20,4 @@ for i in range(1000):
     #print("Step Status: ", i)
 p.disconnect()
 print(backLegSensorValues)
+numpy.save('data/test.npy', backLegSensorValues)
