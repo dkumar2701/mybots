@@ -29,7 +29,7 @@ class NEURAL_NETWORK:
         print("")
 
     def Get_Neuron_Names(self):
-        return self.neurons
+        return self.neurons.keys()
     
     def Update(self):
         for neuronName in self.neurons.keys():
