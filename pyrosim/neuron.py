@@ -53,7 +53,9 @@ class NEURON:
         return self.type == c.MOTOR_NEURON
 
     def Update_Sensor_Neuron(self):
-        pass
+        self.Set_Value(pyrosim.Get_Touch_Sensor_Value_For_Link(self.Get_Link_Name()))
+
+
     def Print(self):
 
         # self.Print_Name()
