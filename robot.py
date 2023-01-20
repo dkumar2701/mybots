@@ -17,6 +17,10 @@ class ROBOT:
         for linkName, sensor in self.sensors.items():
             sensor.Get_Value(t)
 
+
+    def Think(self):
+        pass
+
     def Prepare_To_Act(self):
         self.motors = {}
         for jointName in pyrosim.jointNamesToIndices:
