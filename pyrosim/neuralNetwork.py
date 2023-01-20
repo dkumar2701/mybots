@@ -27,6 +27,9 @@ class NEURAL_NETWORK:
         self.Print_Motor_Neuron_Values()
 
         print("")
+
+    def Get_Neuron_Names(self):
+        return self.neurons
     
     def Update(self):
         for neuronName in self.neurons.keys():
