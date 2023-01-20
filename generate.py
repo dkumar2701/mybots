@@ -14,4 +14,11 @@ def Generate_Body():
     
     pyrosim.End()
 
+def Generate_Brain():
+   #Generate Brain
+    pyrosim.Start_NeuralNetwork("brain.nndf")
+    pyrosim.End()
+
+
 Generate_Body()
+Generate_Brain()
