@@ -5,4 +5,4 @@ class HILLCLIMBER:
         self.parent = SOLUTION()
     
     def Evolve(self):
-        pass
+        self.parent.Evaluate()

@@ -7,3 +7,4 @@ for i in range(5):
 """
 
 hc = HILLCLIMBER()
+HILLCLIMBER.Evolve()
