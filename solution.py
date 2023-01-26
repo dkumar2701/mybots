@@ -1,3 +1,4 @@
+import numpy
 class SOLUTION:
     def __init__(self):
-        pass
+        self.weights = numpy.random.rand(3,2)
