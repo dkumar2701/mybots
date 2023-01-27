@@ -44,8 +44,9 @@ class ROBOT:
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
         print(xCoordinateOfLinkZero)
-        f = open("fitness" + solutionID + ".txt", "w")
+        f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(xCoordinateOfLinkZero))
         f.close()
+        os.system("rename tmp" + solutionID + ".txt fitness"+ solutionID +".txt")
         
                 

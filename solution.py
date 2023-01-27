@@ -2,6 +2,7 @@ import numpy
 import pyrosim.pyrosim as pyrosim
 import os
 import random
+import time
 
 class SOLUTION:
     def __init__(self, nextAvailableID):
@@ -16,6 +17,8 @@ class SOLUTION:
         self.Create_Body()
         self.Create_Brain()
         os.system("start /B python3 simulate.py " + directOrGUI + " " + str(self.myID) + " " )
+        while not os.path.exists("fitness" + str(self.myID) + ".txt"):
+            time.sleep(0.01)
         f = open("fitness" + str(self.myID) + ".txt", "r")
         self.fitness = float(f.read())
         print("Fitness: ", self.fitness, "\n")
