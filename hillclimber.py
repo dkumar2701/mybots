@@ -24,7 +24,9 @@ class HILLCLIMBER:
         self.child.Mutate()
         print("Parent Weights: ", self.parent.weights, "\n")
         print("Child Weights: ", self.child.weights, "\n")
+        exit()
 
+        
     def Select(self):
         pass
     
