@@ -16,8 +16,9 @@ class SOLUTION:
         self.Create_Body()
         self.Create_Brain()
         os.system("start /B python3 simulate.py " + directOrGUI + " " + str(self.myID) + " " )
-        f = open("fitness.txt", "r")
+        f = open("fitness" + str(self.myID) + ".txt", "r")
         self.fitness = float(f.read())
+        print("Fitness: ", self.fitness, "\n")
         #print("Read: ", self.fitness)
 
     def Mutate(self):
