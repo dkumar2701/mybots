@@ -26,6 +26,9 @@ class SIMULATION:
             
             time.sleep(1/1000)
             print("Step Status: ", i)
+
+    def Get_Fitness(self):
+        pass
             
     def __del__(self):
         for linkname, sensor in self.robot.sensors.items():
