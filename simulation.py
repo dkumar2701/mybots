@@ -28,7 +28,7 @@ class SIMULATION:
             print("Step Status: ", i)
 
     def Get_Fitness(self):
-        pass
+        self.robot.Get_Fitness()
             
     def __del__(self):
         for linkname, sensor in self.robot.sensors.items():
