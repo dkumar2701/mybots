@@ -14,7 +14,7 @@ class SOLUTION:
         os.system("python simulate.py")
         f = open("fitness.txt", "r")
         self.fitness = float(f.read())
-        print("Read: ", self.fitness)
+        #print("Read: ", self.fitness)
 
     def Mutate(self):
         randomRow = random.randint(0, 2)

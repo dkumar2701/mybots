@@ -25,7 +25,7 @@ class SIMULATION:
             self.robot.Act(i)
             
             time.sleep(1/1000)
-            print("Step Status: ", i)
+            #print("Step Status: ", i)
 
     def Get_Fitness(self):
         self.robot.Get_Fitness()
