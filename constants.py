@@ -1,6 +1,6 @@
 import numpy
 
-numberOfGenerations = 2
+numberOfGenerations = 10
 x = numpy.linspace(0, 2* numpy.pi, 1000)
 amplitudeBackLeg = numpy.pi/4
 frequencyBackLeg = 2
