@@ -32,7 +32,7 @@ class SOLUTION:
         pyrosim.Send_Sensor_Neuron(name = 2, linkName= "FrontLeg")
         pyrosim.Send_Motor_Neuron(name = 3, jointName= "Torso_BackLeg")
         pyrosim.Send_Motor_Neuron(name = 4, jointName= "Torso_FrontLeg")
-        for sensor in range(3):
-            for motor in range(3, 5):
-                pyrosim.Send_Synapse( sourceNeuronName= sensor, targetNeuronName= motor, weight= (random.random() * 2) - 1)
+        for currentRow in range(3):
+            for currentColumn in range(2):
+                pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn, weight= self.weights[currentRow][currentColumn])
         pyrosim.End()
