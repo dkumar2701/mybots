@@ -32,4 +32,7 @@ class HILLCLIMBER:
             self.parent = self.child
         else:
             self.parent = self.parent
+
+    def Show_Best(self):
+        self.parent.Evaluate("GUI")
     

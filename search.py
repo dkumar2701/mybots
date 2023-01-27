@@ -8,3 +8,4 @@ for i in range(5):
 
 hc = HILLCLIMBER()
 hc.Evolve()
+hc.Show_Best()
