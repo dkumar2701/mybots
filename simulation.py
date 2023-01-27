@@ -6,6 +6,7 @@ import pybullet_data
 import time
 class SIMULATION:
     def __init__(self, directOrGui):
+        self.directOrGui = directOrGui
         if directOrGui == "DIRECT":
             self.physicsClient = p.connect(p.DIRECT)
         else: 
@@ -27,7 +28,8 @@ class SIMULATION:
             self.robot.Think()
             self.robot.Act(i)
             
-            time.sleep(1/1000)
+            if self.directOrGui == "GUI":
+                time.sleep(1/1000)
             #print("Step Status: ", i)
 
     def Get_Fitness(self):
