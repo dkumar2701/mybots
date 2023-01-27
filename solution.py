@@ -1,5 +1,6 @@
 import numpy
 import pyrosim.pyrosim as pyrosim
+import os
 
 class SOLUTION:
     def __init__(self):
@@ -9,6 +10,7 @@ class SOLUTION:
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
+        os.system("python simulate.py")
 
     def Create_World(self):
         #Generate World
