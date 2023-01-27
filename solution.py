@@ -6,7 +6,9 @@ class SOLUTION:
         self.weights = (numpy.random.rand(3,2) *2) - 1
         
     def Evaluate(self):
-        pass
+        self.Create_World()
+        self.Create_Body()
+        self.Create_Brain()
 
     def Create_World(self):
         #Generate World
