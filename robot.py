@@ -38,5 +38,5 @@ class ROBOT:
                 self.motors[jointName].Set_Value(self.robotID, desiredAngle)
 
     def Get_Fitness(self):
-        pass
+        stateOfLinkZero = p.getLinkState(self.robot,0)
                 
