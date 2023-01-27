@@ -21,7 +21,7 @@ class HILLCLIMBER:
         self.child = copy.deepcopy(self.parent)
 
     def Mutate(self):
-        pass
+        self.child.Mutate()
 
     def Select(self):
         pass
