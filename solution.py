@@ -7,6 +7,9 @@ class SOLUTION:
     def __init__(self, nextAvailableID):
         self.weights = (numpy.random.rand(3,2) *2) - 1
         self.myID = nextAvailableID
+
+    def Set_ID(self, ID):
+        self.myID = ID
         
     def Evaluate(self, directOrGUI):
         self.Create_World()
