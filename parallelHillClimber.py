@@ -29,8 +29,9 @@ class PARALLEL_HILL_CLIMBER:
         
         
         self.Spawn()
-        """
+        
         self.Mutate()
+        """
         self.child.Evaluate("DIRECT")
         self.Print()
         self.Select()
@@ -46,7 +47,8 @@ class PARALLEL_HILL_CLIMBER:
         
         
     def Mutate(self):
-        self.child.Mutate()
+        for i in self.children.keys():
+            self.children[i].Mutate()
 
     def Print(self):
         print("Parent Fitness: ", self.parent.fitness, "  Child Fitness: ", self.child.fitness)
