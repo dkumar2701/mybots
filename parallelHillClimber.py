@@ -51,11 +51,12 @@ class PARALLEL_HILL_CLIMBER:
             self.children[i].Mutate()
 
     def Print(self):
+        print("\n")
         for i in self.parents.keys():  
-            print("\n")
-            print("Parent Fitness: ", self.parents[i].fitness, "  Child Fitness: ", self.children[i].fitness)
-            print("\n")
+            print("Parent Fitness_", i, ": ", self.parents[i].fitness, "  Child Fitness_", i, ": ", self.children[i].fitness)
+        print("\n")
 
+        
     def Select(self):
         for i in self.parents.keys():
 

@@ -13,8 +13,9 @@ class SOLUTION:
         self.myID = ID      
         
     def Start_Simulation(self, directOrGUI):
-        self.Create_World()
-        self.Create_Body()
+        if self.myID == 0:
+            self.Create_World()
+            self.Create_Body()
         self.Create_Brain()
         os.system("start /B python3 simulate.py " + directOrGUI + " " + str(self.myID) + " " )
 
