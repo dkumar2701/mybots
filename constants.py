@@ -4,7 +4,7 @@ numberOfGenerations = 10
 populationSize = 10
 numSensorNeurons = 9
 numMotorNeurons = 8
-motorJointRange = 0.5
+motorJointRange = 0.35
 """
 x = numpy.linspace(0, 2* numpy.pi, 1000)
 amplitudeBackLeg = numpy.pi/4
