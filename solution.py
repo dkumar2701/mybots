@@ -21,10 +21,12 @@ class SOLUTION:
     def Wait_For_Simulation_To_End(self):
         while not os.path.exists("fitness" + str(self.myID) + ".txt"):
             time.sleep(0.01)
+        
         f = open("fitness" + str(self.myID) + ".txt", "r")
         self.fitness = float(f.read())
-        os.system("del fitness"+ str(self.myID) + ".txt")
+        f.close()
         print("Fitness: ", self.fitness, "\n")
+        os.system("del fitness" + str(self.myID)+".txt")
         #print("Read: ", self.fitness)
 
     def Mutate(self):
