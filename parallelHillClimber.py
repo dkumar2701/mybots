@@ -15,7 +15,7 @@ class PARALLEL_HILL_CLIMBER:
     
     def Evolve(self):
         
-        self.Evaluate(self.parents, True)
+        self.Evaluate(self.parents, False)
         
         
         #self.parent.Evaluate("GUI")
