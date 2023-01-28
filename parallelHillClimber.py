@@ -15,10 +15,8 @@ class PARALLEL_HILL_CLIMBER:
     
     def Evolve(self):
         
-        for i in range(c.populationSize):
-            self.parents[i].Start_Simulation("DIRECT")
-        for i in range(c.populationSize):
-            self.parents[i].Wait_For_Simulation_To_End()
+        self.Evaluate(self.parents)
+        exit()
         
         #self.parent.Evaluate("GUI")
         for currentGeneration in range (c.numberOfGenerations):
@@ -58,6 +56,12 @@ class PARALLEL_HILL_CLIMBER:
             self.parent = self.child
         else:
             self.parent = self.parent
+
+    def Evaluate(self, solutions):
+        for i in range(c.populationSize):
+            solutions[i].Start_Simulation("GUI")
+        for i in range(c.populationSize):
+            solutions[i].Wait_For_Simulation_To_End()
 
     def Show_Best(self):
         #self.parent.Evaluate("GUI")
