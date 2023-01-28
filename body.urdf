@@ -66,7 +66,7 @@
         <visual>
             <origin xyz="0 0.5 0" rpy="0 0 0"/>
             <geometry>
-                <box size="1 1 1" />
+                <box size="0.2 1 0.2" />
             </geometry>
             <material name="Cyan">
                 <color rgba="0 1.0 1.0 1.0"/>
@@ -75,7 +75,7 @@
         <collision>
             <origin xyz="0 0.5 0" rpy="0 0 0"/>
             <geometry>
-                <box size="1 1 1" />
+                <box size="0.2 1 0.2" />
             </geometry>
         </collision>
     </link>
