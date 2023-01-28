@@ -20,7 +20,7 @@ class SIMULATION:
         self.robot.Prepare_To_Act()
 
     def Run(self):
-        for i in range(500):
+        for i in range(1000):
             #print(i)
             
             p.stepSimulation()
