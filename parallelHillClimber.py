@@ -71,5 +71,5 @@ class PARALLEL_HILL_CLIMBER:
             solutions[i].Wait_For_Simulation_To_End()
 
     def Show_Best(self):
-        #self.parent.Evaluate("GUI")
-        pass
+        for i in range(c.populationSize):
+            self.parents[i].Start_Simulation("GUI")
