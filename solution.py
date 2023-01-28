@@ -25,7 +25,7 @@ class SOLUTION:
         f = open("fitness" + str(self.myID) + ".txt", "r")
         self.fitness = float(f.read())
         f.close()
-        print("Fitness"+ str(self.myID)+": ", self.fitness, "\n")
+        #print("Fitness"+ str(self.myID)+": ", self.fitness, "\n")
         os.system("del fitness" + str(self.myID)+".txt")
         #print("Read: ", self.fitness)
 
