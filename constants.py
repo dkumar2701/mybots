@@ -2,8 +2,8 @@ import numpy
 
 numberOfGenerations = 1
 populationSize = 1
-numSensorNeurons = 5
-numMotorNeurons = 4
+numSensorNeurons = 9
+numMotorNeurons = 8
 """
 x = numpy.linspace(0, 2* numpy.pi, 1000)
 amplitudeBackLeg = numpy.pi/4
