@@ -65,4 +65,4 @@ class SOLUTION:
                 pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+c.numSensorNeurons, 
                     weight= self.weights[currentRow][currentColumn])
         pyrosim.End()
-        exit()
+        
