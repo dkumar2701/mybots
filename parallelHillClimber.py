@@ -15,24 +15,24 @@ class PARALLEL_HILL_CLIMBER:
     
     def Evolve(self):
         
-        self.Evaluate(self.parents)
+        self.Evaluate(self.parents, True)
         
         
         #self.parent.Evaluate("GUI")
         for currentGeneration in range (c.numberOfGenerations):
-            self.Evolve_For_One_Generation()
+            self.Evolve_For_One_Generation(currentGeneration)
         
 
-    def Evolve_For_One_Generation(self):
+    def Evolve_For_One_Generation(self, currentGeneration):
         
         
         self.Spawn()
         
         self.Mutate()
 
-        self.Evaluate(self.children)
+        self.Evaluate(self.children, False)
         
-        self.Print()
+        self.Print(currentGeneration)
         
         self.Select()
         
@@ -50,8 +50,9 @@ class PARALLEL_HILL_CLIMBER:
         for i in self.children.keys():
             self.children[i].Mutate()
 
-    def Print(self):
+    def Print(self, currentGeneration):
         print("\n")
+        print("CURRENT GENERATION: ", currentGeneration)
         for i in self.parents.keys():  
             print("Parent Fitness_", i, ": ", self.parents[i].fitness, "  Child Fitness_", i, ": ", self.children[i].fitness)
         print("\n")
@@ -65,11 +66,19 @@ class PARALLEL_HILL_CLIMBER:
             else:
                 self.parents[i] = self.parents[i]
 
-    def Evaluate(self, solutions):
-        for i in range(c.populationSize):
-            solutions[i].Start_Simulation("DIRECT")
-        for i in range(c.populationSize):
-            solutions[i].Wait_For_Simulation_To_End()
+    def Evaluate(self, solutions, firstbool):
+        if firstbool:
+            solutions[0].Start_Simulation("GUI")
+            solutions[0].Wait_For_Simulation_To_End()
+            for i in range(1, c.populationSize):
+                solutions[i].Start_Simulation("DIRECT")
+            for i in range(1, c.populationSize):
+                solutions[i].Wait_For_Simulation_To_End()
+        else:
+            for i in range(c.populationSize):
+                solutions[i].Start_Simulation("DIRECT")
+            for i in range(c.populationSize):
+                solutions[i].Wait_For_Simulation_To_End()
 
     def Show_Best(self):
         best_fitness_idx = 0
