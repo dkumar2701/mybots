@@ -56,7 +56,7 @@ class PARALLEL_HILL_CLIMBER:
             print("Parent Fitness_", i, ": ", self.parents[i].fitness, "  Child Fitness_", i, ": ", self.children[i].fitness)
         print("\n")
 
-        
+
     def Select(self):
         for i in self.parents.keys():
 
@@ -79,4 +79,5 @@ class PARALLEL_HILL_CLIMBER:
                 best_fitness = self.parents[i]
                 best_fitness_idx = i
         
+        print("\n BEST FITNESS: ", best_fitness.fitness, "\n")
         self.parents[best_fitness_idx].Start_Simulation("GUI")
