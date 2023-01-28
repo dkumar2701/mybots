@@ -33,9 +33,9 @@ class PARALLEL_HILL_CLIMBER:
         self.Evaluate(self.children)
         
         self.Print()
-        """
+        
         self.Select()
-        """
+        
             
     def Spawn(self):
         self.children = {}
@@ -57,10 +57,12 @@ class PARALLEL_HILL_CLIMBER:
             print("\n")
 
     def Select(self):
-        if self.parent.fitness > self.child.fitness:
-            self.parent = self.child
-        else:
-            self.parent = self.parent
+        for i in self.parents.keys():
+
+            if self.parents[i].fitness > self.children[i].fitness:
+                self.parents[i] = self.children[i]
+            else:
+                self.parents[i] = self.parents[i]
 
     def Evaluate(self, solutions):
         for i in range(c.populationSize):
