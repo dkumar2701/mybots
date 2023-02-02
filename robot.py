@@ -55,12 +55,9 @@ class ROBOT:
         for key, value in sensorVals.items():
             meanLegs[key] = np.mean(value)
         meanOfAll = np.mean(list(meanLegs.values()))
-        print("SensorVals: ", meanOfAll, "\n")
-
-        exit()
         #print(xCoordinateOfLinkZero)
         f = open("tmp" + solutionID + ".txt", "w")
-        f.write(str(yPosition))
+        f.write(str(meanOfAll))
         f.close()
         os.rename("tmp"+str(solutionID)+".txt" , "fitness"+str(solutionID)+".txt")
         
