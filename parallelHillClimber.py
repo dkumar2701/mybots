@@ -66,17 +66,25 @@ class PARALLEL_HILL_CLIMBER:
                 self.parents[i] = self.children[i]
             else:
                 self.parents[i] = self.parents[i]
-
+        
     def Evaluate(self, solutions, firstbool):
         if firstbool:
+            """
             solutions[0].Start_Simulation("GUI")
             solutions[0].Wait_For_Simulation_To_End()
             self.firstfitness = self.parents[0].fitness
-            
-            for i in range(1, c.populationSize):
+            """
+            for i in range(c.populationSize):
                 solutions[i].Start_Simulation("DIRECT")
-            for i in range(1, c.populationSize):
+            for i in range(c.populationSize):
                 solutions[i].Wait_For_Simulation_To_End()
+            bestFirst_fitness_idx = 0
+            bestFirst_fitness = self.parents[0]
+            for i in range(1, c.populationSize):
+                if (self.parents[i].fitness > bestFirst_fitness.fitness):
+                    bestFirst_fitness = self.parents[i]
+                    bestFirst_fitness_idx = i
+            self.bestFirst_fitness = bestFirst_fitness
         else:
             for i in range(c.populationSize):
                 solutions[i].Start_Simulation("DIRECT")
@@ -91,6 +99,7 @@ class PARALLEL_HILL_CLIMBER:
                 best_fitness = self.parents[i]
                 best_fitness_idx = i
         
-        print("\nFIRST FITNESS: ", self.firstfitness, "\n")
+        print("\nFIRST FITNESS: ", self.bestFirst_fitness.fitness, "\n")
+        self.bestFirst_fitness.Start_Simulation("GUI")
         print("\n BEST FITNESS: ", best_fitness.fitness, "\n")
         self.parents[best_fitness_idx].Start_Simulation("GUI")
