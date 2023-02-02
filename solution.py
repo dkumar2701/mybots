@@ -40,12 +40,15 @@ class SOLUTION:
     def Create_World(self):
         #Generate World
         pyrosim.Start_SDF("world.sdf")
-        #pyrosim.Send_Cube(name="Box", pos=[-2, 2, 0.5] , size=[1, 1, 1])  
+        pyrosim.Send_Cube(name="Box", pos=[0, 1.5, 0.5] , size=[5, 1, 1])  
         pyrosim.End()
 
     def Create_Body(self):
         #Generate Robot
         pyrosim.Start_URDF("body.urdf")
+        pyrosim.Send_Cube(name="Torso", pos=[0, 0, 1] , size=[1, 0.5, 0.5])  
+        
+        """
         pyrosim.Send_Cube(name="Torso", pos=[0, 0, 1.2] , size=[1, 1, 1])  
         pyrosim.Send_Joint(name = "Torso_BackLeg" , parent= "Torso" , child = "BackLeg" , type = "revolute", position = [0, -0.5, 1.2], jointAxis = "1 0 0")
         pyrosim.Send_Cube(name="BackLeg", pos=[0, -0.5, 0] , size=[0.2, 1, 0.2])  
@@ -82,7 +85,7 @@ class SOLUTION:
         pyrosim.Send_Joint(name = "RightLowerLeg_RightFoot", parent = "RightLowerLeg", child="RightFoot", type="revolute", position = [0, 0, -1], 
             jointAxis= "0 1 0")
         pyrosim.Send_Cube(name="RightFoot", pos= [0, 0, -0.1], size=[0.75, 0.75, 0.2])
-        
+        """
         
         
         
