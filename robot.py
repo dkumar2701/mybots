@@ -51,10 +51,14 @@ class ROBOT:
         sensorVals["FrontLowerLeg"] = self.sensors["FrontLowerLeg"].values
         sensorVals["LeftLowerLeg"] = self.sensors["LeftLowerLeg"].values
         sensorVals["RightLowerLeg"] = self.sensors["RightLowerLeg"].values
-        meanLegs = {}
+        #meanLegs = {}
+        sensorBigArray =  np.zeros((0, sensorVals["BackLowerLeg"].shape[0]))
         for key, value in sensorVals.items():
-            meanLegs[key] = np.mean(value)
-        meanOfAll = np.mean(list(meanLegs.values()))
+            sensorBigArray = np.vstack((sensorBigArray, value))
+        meanArray = np.mean(sensorBigArray, axis = 0)
+        print("meanArray: ", meanArray, "\n")
+        #All negative -1 means mean across all is -1
+        exit()
         #print(xCoordinateOfLinkZero)
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(meanOfAll))
