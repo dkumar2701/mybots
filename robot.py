@@ -71,11 +71,10 @@ class ROBOT:
                     airTime = currairTime
                 currairTime = 0
         #All negative -1 means mean across all is -1
-        print("Airtime: ", airTime, "\n")
-        exit()
+        #print("Airtime: ", airTime, "\n")
         #print(xCoordinateOfLinkZero)
         f = open("tmp" + solutionID + ".txt", "w")
-        f.write(str(meanOfAll))
+        f.write(str(airTime))
         f.close()
         os.rename("tmp"+str(solutionID)+".txt" , "fitness"+str(solutionID)+".txt")
         
