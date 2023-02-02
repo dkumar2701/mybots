@@ -4,10 +4,11 @@ numberOfGenerations = 10
 populationSize = 10
 numSensorNeurons = 9
 numMotorNeurons = 8
-motorJointRange = 0.75
+motorJointRange = 0.6
 totalStep = 1000
 verticalWeight = 10
 airTimeWeight = 1
+maxForce = 50
 """
 x = numpy.linspace(0, 2* numpy.pi, 1000)
 amplitudeBackLeg = numpy.pi/4
