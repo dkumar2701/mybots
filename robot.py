@@ -50,7 +50,8 @@ class ROBOT:
     def Get_Fitness(self, solutionID):
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotID)
         basePosition = basePositionAndOrientation[0]
-        zPosition = basePosition[2]
+        yPosition = basePosition[1]
+
         sensorVals = {}
         sensorVals["BackFoot"] = self.sensors["BackFoot"].values
         sensorVals["FrontFoot"] = self.sensors["FrontFoot"].values
@@ -80,7 +81,7 @@ class ROBOT:
         #print(xCoordinateOfLinkZero)
         #print("Zposns: ", self.zPositions, "\n")
         maxZ = np.max(self.zPositions)
-        fitness = (c.airTimeWeight * airTime) + (c.verticalWeight * maxZ) 
+        fitness = ((c.airTimeWeight * airTime) + (c.verticalWeight * maxZ)) * yPosition
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(fitness))
         f.close()
