@@ -6,8 +6,9 @@ numSensorNeurons = 4
 numMotorNeurons = 12
 motorJointRange = 0.6
 totalStep = 1000
-verticalWeight = 10
-airTimeWeight = 2
+verticalWeight = 2
+airTimeWeight = 10
+yWeight = 20
 maxForce = 100
 """
 x = numpy.linspace(0, 2* numpy.pi, 1000)

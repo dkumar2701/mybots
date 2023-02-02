@@ -51,7 +51,8 @@ class ROBOT:
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotID)
         basePosition = basePositionAndOrientation[0]
         yPosition = basePosition[1]
-
+        #For jumping
+        """
         sensorVals = {}
         sensorVals["BackFoot"] = self.sensors["BackFoot"].values
         sensorVals["FrontFoot"] = self.sensors["FrontFoot"].values
@@ -81,14 +82,17 @@ class ROBOT:
         #print(xCoordinateOfLinkZero)
         #print("Zposns: ", self.zPositions, "\n")
         maxZ = np.max(self.zPositions)
-        fitness = ((c.airTimeWeight * airTime) + (c.verticalWeight * maxZ)) * yPosition
+        """
+        fitness = yPosition
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(fitness))
         f.close()
         os.rename("tmp"+str(solutionID)+".txt" , "fitness"+str(solutionID)+".txt")
+        """
         f = open("arraytmp"+ solutionID + ".txt", "w")
         f.write(str(meanArray))
         f.close()
         os.rename("arraytmp"+str(solutionID)+".txt" , "array"+str(solutionID)+".txt")
+        """
         
                 
