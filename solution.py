@@ -46,12 +46,15 @@ class SOLUTION:
     def Create_Body(self):
         #Generate Robot
         pyrosim.Start_URDF("body.urdf")
-        pyrosim.Send_Cube(name="Torso", pos=[0, 0, 1.2] , size=[1, 2, 1])
+        pyrosim.Send_Cube(name="Torso", pos=[0, 0, 1.2] , size=[1, 2, 0.5])
         #first 4 legs
-        pyrosim.Send_Joint(name = "Torso_RightBack" , parent= "Torso" , child = "RightBack" , type = "revolute", position = [-0.25, -0.5, 0.7], jointAxis = "0 1 0")
+        pyrosim.Send_Joint(name = "Torso_RightBack" , parent= "Torso" , child = "RightBack" , type = "revolute", position = [-0.25, -0.5, 0.95], jointAxis = "0 1 0")
         pyrosim.Send_Cube(name="RightBack", pos=[0, 0, -0.25] , size=[0.2, 0.2, 0.5])  
-        pyrosim.Send_Joint(name = "Torso_RightFront" , parent= "Torso" , child = "RightFront" , type = "revolute", position = [0.25, -0.5, 0.7], jointAxis = "0 1 0")
+        pyrosim.Send_Joint(name = "Torso_RightFront" , parent= "Torso" , child = "RightFront" , type = "revolute", position = [0.25, -0.5, 0.95], jointAxis = "0 1 0")
         pyrosim.Send_Cube(name="RightFront", pos=[0, 0, -0.25] , size=[0.2, 0.2, 0.5])  
+        pyrosim.Send_Joint(name = "Torso_LeftBack" , parent= "Torso" , child = "LeftBack" , type = "revolute", position = [-0.25, 0.5, 0.95], jointAxis = "0 1 0")
+        pyrosim.Send_Cube(name="LeftBack", pos=[0, 0, -0.25] , size=[0.2, 0.2, 0.5])  
+        
         
         """
         pyrosim.Send_Cube(name="Torso", pos=[0, 0, 1.2] , size=[1, 1, 1])  
