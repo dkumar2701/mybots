@@ -55,7 +55,6 @@ class SOLUTION:
             position = [0, legLength, 0 ], jointAxis = "1 0 0")
         pyrosim.Send_Cube(name="FLLower", pos=[0, 0, -legLength/2] , size=[0.2, 0.2, legLength])
         
-
         pyrosim.Send_Joint(name = "Torso_FrontRight" , parent= "Torso" , child = "FrontRight" , type = "revolute", 
             position = [0.25,0.25, legLength ], jointAxis = "1 0 0")
         pyrosim.Send_Cube(name="FrontRight", pos=[0, legLength/2, 0] , size=[0.2, legLength, 0.2])
@@ -76,6 +75,20 @@ class SOLUTION:
         pyrosim.Send_Joint(name = "BackRight_BRLower" , parent= "BackRight" , child = "BRLower" , type = "revolute", 
             position = [0, -legLength, 0 ], jointAxis = "1 0 0")
         pyrosim.Send_Cube(name="BRLower", pos=[0, 0, -legLength/2] , size=[0.2, 0.2, legLength])
+
+        pyrosim.Send_Joint(name = "Torso_Left" , parent= "Torso" , child = "Left" , type = "revolute", 
+            position = [-0.5, 0, legLength ], jointAxis = "0 1 0")
+        pyrosim.Send_Cube(name="Left", pos=[-legLength/2, 0, 0] , size=[legLength, 0.2, 0.2])
+        pyrosim.Send_Joint(name = "Left_LeftLower" , parent= "Left" , child = "LeftLower" , type = "revolute", 
+            position = [-legLength, 0, 0 ], jointAxis = "1 0 0")
+        pyrosim.Send_Cube(name="LeftLower", pos=[0, 0, -legLength/2] , size=[0.2, 0.2, legLength])
+
+        pyrosim.Send_Joint(name = "Torso_Right" , parent= "Torso" , child = "Right" , type = "revolute", 
+            position = [0.5, 0, legLength ], jointAxis = "0 1 0")
+        pyrosim.Send_Cube(name="Right", pos=[legLength/2, 0, 0] , size=[legLength, 0.2, 0.2])
+        pyrosim.Send_Joint(name = "Right_RightLower" , parent= "Right" , child = "RightLower" , type = "revolute", 
+            position = [legLength, 0, 0 ], jointAxis = "1 0 0")
+        pyrosim.Send_Cube(name="RightLower", pos=[0, 0, -legLength/2] , size=[0.2, 0.2, legLength])
         
         
         
@@ -83,7 +96,7 @@ class SOLUTION:
 
     def Create_Brain(self):  
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
-        
+        """
         pyrosim.Send_Sensor_Neuron(name = 0, linkName= "FLLower")
         pyrosim.Send_Sensor_Neuron(name = 1, linkName= "FRLower")
         pyrosim.Send_Sensor_Neuron(name = 2, linkName= "BLLower")
@@ -101,5 +114,6 @@ class SOLUTION:
             for currentColumn in range(c.numMotorNeurons):
                 pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+c.numSensorNeurons, 
                     weight= self.weights[currentRow][currentColumn])
+                    """
         pyrosim.End()
         
