@@ -101,5 +101,6 @@ class PARALLEL_HILL_CLIMBER:
         
         print("\nFIRST FITNESS: ", self.bestFirst_fitness.fitness, "\n")
         self.bestFirst_fitness.Start_Simulation("GUI")
+        self.bestFirst_fitness.Wait_For_Simulation_To_End()
         print("\n BEST FITNESS: ", best_fitness.fitness, "\n")
         self.parents[best_fitness_idx].Start_Simulation("GUI")

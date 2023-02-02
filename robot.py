@@ -80,7 +80,7 @@ class ROBOT:
         #print(xCoordinateOfLinkZero)
         #print("Zposns: ", self.zPositions, "\n")
         maxZ = np.max(self.zPositions)
-        fitness = (c.airTimeWeight * airTime) * (c.verticalWeight * maxZ) 
+        fitness = (c.airTimeWeight * airTime) + (c.verticalWeight * maxZ) 
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(fitness))
         f.close()
