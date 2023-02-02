@@ -46,6 +46,11 @@ class SOLUTION:
     def Create_Body(self):
         #Generate Robot
         pyrosim.Start_URDF("body.urdf")
+        pyrosim.Send_Cube(name="Torso", pos=[0, 0, 1.2] , size=[1, 2, 1])
+        pyrosim.Send_Joint(name = "Torso_RightBack" , parent= "Torso" , child = "RightBack" , type = "revolute", position = [-0.25, -0.5, 0.7], jointAxis = "0 1 0")
+        pyrosim.Send_Cube(name="RightBack", pos=[0, 0, -0.25] , size=[0.2, 0.2, 0.5])  
+        
+        """
         pyrosim.Send_Cube(name="Torso", pos=[0, 0, 1.2] , size=[1, 1, 1])  
         pyrosim.Send_Joint(name = "Torso_BackLeg" , parent= "Torso" , child = "BackLeg" , type = "revolute", position = [0, -0.5, 1.2], jointAxis = "1 0 0")
         pyrosim.Send_Cube(name="BackLeg", pos=[0, -0.5, 0] , size=[0.2, 1, 0.2])  
@@ -82,7 +87,7 @@ class SOLUTION:
         pyrosim.Send_Joint(name = "RightLowerLeg_RightFoot", parent = "RightLowerLeg", child="RightFoot", type="revolute", position = [0, 0, -1], 
             jointAxis= "0 1 0")
         pyrosim.Send_Cube(name="RightFoot", pos= [0, 0, -0.1], size=[0.75, 0.75, 0.2])
-        
+        """
         
         
         
@@ -90,6 +95,7 @@ class SOLUTION:
 
     def Create_Brain(self):  
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
+        """
         pyrosim.Send_Sensor_Neuron(name = 0, linkName= "Torso")
         pyrosim.Send_Sensor_Neuron(name = 1, linkName= "BackLeg")
         pyrosim.Send_Sensor_Neuron(name = 2, linkName= "FrontLeg")
@@ -120,5 +126,6 @@ class SOLUTION:
             for currentColumn in range(c.numMotorNeurons):
                 pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+c.numSensorNeurons, 
                     weight= self.weights[currentRow][currentColumn])
+        """
         pyrosim.End()
         
