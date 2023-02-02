@@ -56,7 +56,7 @@ class ROBOT:
         for key, value in sensorVals.items():
             sensorBigArray = np.vstack((sensorBigArray, value))
         meanArray = np.mean(sensorBigArray, axis = 0)
-        print("meanArray: ", meanArray, "\n")
+        #print("meanArray: ", meanArray, "\n")
         airTime = 0
         currairTime = 0
         contiguous=False
