@@ -1,7 +1,7 @@
 import numpy
 
-numberOfGenerations = 10
-populationSize = 10
+numberOfGenerations = 5
+populationSize = 3
 numSensorNeurons = 13
 numMotorNeurons = 12
 motorJointRange = 0.6
