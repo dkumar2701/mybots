@@ -54,7 +54,8 @@ class SOLUTION:
         pyrosim.Send_Cube(name="RightFront", pos=[0, 0, -0.25] , size=[0.2, 0.2, 0.5])  
         pyrosim.Send_Joint(name = "Torso_LeftBack" , parent= "Torso" , child = "LeftBack" , type = "revolute", position = [-0.25, 0.5, 0.95], jointAxis = "0 1 0")
         pyrosim.Send_Cube(name="LeftBack", pos=[0, 0, -0.25] , size=[0.2, 0.2, 0.5])  
-        
+        pyrosim.Send_Joint(name = "Torso_LeftFront" , parent= "Torso" , child = "LeftFront" , type = "revolute", position = [0.25, 0.5, 0.95], jointAxis = "0 1 0")
+        pyrosim.Send_Cube(name="LeftFront", pos=[0, 0, -0.25] , size=[0.2, 0.2, 0.5])  
         
         """
         pyrosim.Send_Cube(name="Torso", pos=[0, 0, 1.2] , size=[1, 1, 1])  
