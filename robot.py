@@ -17,12 +17,17 @@ class ROBOT:
         
     def Prepare_To_Sense(self):
         self.sensors = {}
+        self.zPositions = np.zeros(c.totalStep)
+        
         for linkName in pyrosim.linkNamesToIndices:
             self.sensors[linkName] = SENSOR(linkName)
 
     def Sense(self, t):
         for linkName, sensor in self.sensors.items():
             sensor.Get_Value(t)
+        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotID)
+        basePosition = basePositionAndOrientation[0]
+        self.zPositions[t] = basePosition[2]
 
 
     def Think(self):
@@ -45,7 +50,7 @@ class ROBOT:
     def Get_Fitness(self, solutionID):
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotID)
         basePosition = basePositionAndOrientation[0]
-        yPosition = basePosition[2]
+        zPosition = basePosition[2]
         sensorVals = {}
         sensorVals["BackLowerLeg"] = self.sensors["BackLowerLeg"].values
         sensorVals["FrontLowerLeg"] = self.sensors["FrontLowerLeg"].values
@@ -56,7 +61,7 @@ class ROBOT:
         for key, value in sensorVals.items():
             sensorBigArray = np.vstack((sensorBigArray, value))
         meanArray = np.mean(sensorBigArray, axis = 0)
-        #print("meanArray: ", meanArray, "\n")
+        print("meanArray: ", meanArray, "\n")
         airTime = 0
         currairTime = 0
         contiguous=False
@@ -71,8 +76,11 @@ class ROBOT:
                     airTime = currairTime
                 currairTime = 0
         #All negative -1 means mean across all is -1
-        #print("Airtime: ", airTime, "\n")
+        print("Airtime: ", airTime, "\n")
         #print(xCoordinateOfLinkZero)
+        print("Zposns: ", self.zPositions, "\n")
+        exit()
+        #fitness = (c.airTimeWeight * airTime) * (c.verticalWeight * zPosition) 
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(airTime))
         f.close()
