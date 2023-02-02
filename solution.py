@@ -40,7 +40,8 @@ class SOLUTION:
     def Create_World(self):
         #Generate World
         pyrosim.Start_SDF("world.sdf")
-        pyrosim.Send_Cube(name="Box", pos=[0, 2, 0.5] , size=[5, 1, 1])  
+        pyrosim.Send_Cube(name="Box", pos=[0, 2, 0.25] , size=[5, 1, 0.5], mass=1000)
+        pyrosim.Send_Cube(name="Box", pos=[0, 3, 0.5] , size=[5, 1, 1], mass=1000)  
         pyrosim.End()
 
     def Create_Body(self):
