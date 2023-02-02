@@ -2,7 +2,7 @@ import numpy
 
 numberOfGenerations = 5
 populationSize = 3
-numSensorNeurons = 13
+numSensorNeurons = 4
 numMotorNeurons = 12
 motorJointRange = 0.6
 totalStep = 1000
