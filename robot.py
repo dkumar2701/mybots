@@ -77,5 +77,9 @@ class ROBOT:
         f.write(str(airTime))
         f.close()
         os.rename("tmp"+str(solutionID)+".txt" , "fitness"+str(solutionID)+".txt")
+        f = open("arraytmp"+ solutionID + ".txt", "w")
+        f.write(str(meanArray))
+        f.close()
+        os.rename("arraytmp"+str(solutionID)+".txt" , "array"+str(solutionID)+".txt")
         
                 

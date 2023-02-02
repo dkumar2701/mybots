@@ -29,6 +29,7 @@ class SOLUTION:
         f.close()
         #print("Fitness"+ str(self.myID)+": ", self.fitness, "\n")
         os.system("del fitness" + str(self.myID)+".txt")
+        os.system("del array" + str(self.myID)+".txt")
         #print("Read: ", self.fitness)
 
     def Mutate(self):
