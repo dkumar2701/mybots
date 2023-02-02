@@ -54,7 +54,8 @@ class ROBOT:
         meanLegs = {}
         for key, value in sensorVals.items():
             meanLegs[key] = np.mean(value)
-        print("SensorVals: ", list(meanLegs.values()), "\n")
+        meanOfAll = np.mean(list(meanLegs.values()))
+        print("SensorVals: ", meanOfAll, "\n")
 
         exit()
         #print(xCoordinateOfLinkZero)
