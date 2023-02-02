@@ -5,6 +5,7 @@ from motor import MOTOR
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 import os
 import constants as c
+import numpy as np
 
 class ROBOT:
     def __init__(self, solutionID):
@@ -50,7 +51,10 @@ class ROBOT:
         sensorVals["FrontLowerLeg"] = self.sensors["FrontLowerLeg"].values
         sensorVals["LeftLowerLeg"] = self.sensors["LeftLowerLeg"].values
         sensorVals["RightLowerLeg"] = self.sensors["RightLowerLeg"].values
-        print("SensorVals: ", sensorVals, "\n")
+        meanLegs = {}
+        for key, value in sensorVals.items():
+            meanLegs[key] = np.mean(value)
+        print("SensorVals: ", list(meanLegs.values()), "\n")
 
         exit()
         #print(xCoordinateOfLinkZero)
