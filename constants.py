@@ -2,8 +2,8 @@ import numpy
 
 numberOfGenerations = 1
 populationSize = 1
-numSensorNeurons = 9
-numMotorNeurons = 8
+numSensorNeurons = 13
+numMotorNeurons = 12
 motorJointRange = 0.6
 totalStep = 1000
 verticalWeight = 10
