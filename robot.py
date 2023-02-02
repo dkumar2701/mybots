@@ -57,7 +57,21 @@ class ROBOT:
             sensorBigArray = np.vstack((sensorBigArray, value))
         meanArray = np.mean(sensorBigArray, axis = 0)
         print("meanArray: ", meanArray, "\n")
+        airTime = 0
+        currairTime = 0
+        contiguous=False
+        for i in range(c.totalStep):
+            if meanArray[i] == -1:
+                currairTime += 1
+                if contiguous == False:
+                    contiguous = True
+            elif meanArray[i] != -1 & contiguous:
+                contiguous = False
+                if currairTime > airTime:
+                    airTime = currairTime
+                currairTime = 0
         #All negative -1 means mean across all is -1
+        print("Airtime: ", airTime, "\n")
         exit()
         #print(xCoordinateOfLinkZero)
         f = open("tmp" + solutionID + ".txt", "w")
