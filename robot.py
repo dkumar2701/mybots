@@ -45,6 +45,14 @@ class ROBOT:
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotID)
         basePosition = basePositionAndOrientation[0]
         yPosition = basePosition[2]
+        sensorVals = {}
+        sensorVals["BackLowerLeg"] = self.sensors["BackLowerLeg"].values
+        sensorVals["FrontLowerLeg"] = self.sensors["FrontLowerLeg"].values
+        sensorVals["LeftLowerLeg"] = self.sensors["LeftLowerLeg"].values
+        sensorVals["RightLowerLeg"] = self.sensors["RightLowerLeg"].values
+        print("SensorVals: ", sensorVals, "\n")
+
+        exit()
         #print(xCoordinateOfLinkZero)
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(yPosition))

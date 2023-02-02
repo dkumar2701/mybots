@@ -5,6 +5,7 @@ populationSize = 1
 numSensorNeurons = 9
 numMotorNeurons = 8
 motorJointRange = 0.35
+totalStep = 1000
 """
 x = numpy.linspace(0, 2* numpy.pi, 1000)
 amplitudeBackLeg = numpy.pi/4
