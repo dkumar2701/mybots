@@ -52,12 +52,12 @@ class ROBOT:
         basePosition = basePositionAndOrientation[0]
         zPosition = basePosition[2]
         sensorVals = {}
-        sensorVals["BackLowerLeg"] = self.sensors["BackLowerLeg"].values
-        sensorVals["FrontLowerLeg"] = self.sensors["FrontLowerLeg"].values
-        sensorVals["LeftLowerLeg"] = self.sensors["LeftLowerLeg"].values
-        sensorVals["RightLowerLeg"] = self.sensors["RightLowerLeg"].values
+        sensorVals["BackFoot"] = self.sensors["BackFoot"].values
+        sensorVals["FrontFoot"] = self.sensors["FrontFoot"].values
+        sensorVals["LeftFoot"] = self.sensors["LeftFoot"].values
+        sensorVals["RightFoot"] = self.sensors["RightFoot"].values
         #meanLegs = {}
-        sensorBigArray =  np.zeros((0, sensorVals["BackLowerLeg"].shape[0]))
+        sensorBigArray =  np.zeros((0, sensorVals["BackFoot"].shape[0]))
         for key, value in sensorVals.items():
             sensorBigArray = np.vstack((sensorBigArray, value))
         meanArray = np.mean(sensorBigArray, axis = 0)
