@@ -61,7 +61,7 @@ class ROBOT:
         for key, value in sensorVals.items():
             sensorBigArray = np.vstack((sensorBigArray, value))
         meanArray = np.mean(sensorBigArray, axis = 0)
-        print("meanArray: ", meanArray, "\n")
+        #print("meanArray: ", meanArray, "\n")
         airTime = 0
         currairTime = 0
         contiguous=False
@@ -76,13 +76,13 @@ class ROBOT:
                     airTime = currairTime
                 currairTime = 0
         #All negative -1 means mean across all is -1
-        print("Airtime: ", airTime, "\n")
+        #print("Airtime: ", airTime, "\n")
         #print(xCoordinateOfLinkZero)
-        print("Zposns: ", self.zPositions, "\n")
-        exit()
-        #fitness = (c.airTimeWeight * airTime) * (c.verticalWeight * zPosition) 
+        #print("Zposns: ", self.zPositions, "\n")
+        maxZ = np.max(self.zPositions)
+        fitness = (c.airTimeWeight * airTime) * (c.verticalWeight * maxZ) 
         f = open("tmp" + solutionID + ".txt", "w")
-        f.write(str(airTime))
+        f.write(str(fitness))
         f.close()
         os.rename("tmp"+str(solutionID)+".txt" , "fitness"+str(solutionID)+".txt")
         f = open("arraytmp"+ solutionID + ".txt", "w")
