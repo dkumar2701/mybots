@@ -91,6 +91,7 @@ class SOLUTION:
     def Create_Brain(self):  
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
         """
+        
         pyrosim.Send_Sensor_Neuron(name = 0, linkName= "Torso")
         pyrosim.Send_Sensor_Neuron(name = 1, linkName= "BackLeg")
         pyrosim.Send_Sensor_Neuron(name = 2, linkName= "FrontLeg")
@@ -100,7 +101,7 @@ class SOLUTION:
         pyrosim.Send_Sensor_Neuron(name = 6, linkName= "FrontLowerLeg")
         pyrosim.Send_Sensor_Neuron(name = 7, linkName= "LeftLowerLeg")
         pyrosim.Send_Sensor_Neuron(name = 8, linkName= "RightLowerLeg")
-        """
+        
         pyrosim.Send_Sensor_Neuron(name = 0, linkName= "BackFoot")
         pyrosim.Send_Sensor_Neuron(name = 1, linkName= "FrontFoot")
         pyrosim.Send_Sensor_Neuron(name = 2, linkName= "LeftFoot")
@@ -122,5 +123,6 @@ class SOLUTION:
             for currentColumn in range(c.numMotorNeurons):
                 pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+c.numSensorNeurons, 
                     weight= self.weights[currentRow][currentColumn])
+        """
         pyrosim.End()
         
