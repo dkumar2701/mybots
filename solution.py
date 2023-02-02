@@ -96,11 +96,13 @@ class SOLUTION:
 
     def Create_Brain(self):  
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
-        """
+        
         pyrosim.Send_Sensor_Neuron(name = 0, linkName= "FLLower")
         pyrosim.Send_Sensor_Neuron(name = 1, linkName= "FRLower")
         pyrosim.Send_Sensor_Neuron(name = 2, linkName= "BLLower")
         pyrosim.Send_Sensor_Neuron(name = 3, linkName= "BRLower")
+        pyrosim.Send_Sensor_Neuron(name = 4, linkName= "LeftLower")
+        pyrosim.Send_Sensor_Neuron(name = 4, linkName= "RightLower")
 
         pyrosim.Send_Motor_Neuron(name = 4, jointName= "Torso_FrontLeft")
         pyrosim.Send_Motor_Neuron(name = 5, jointName= "Torso_FrontRight")
@@ -110,10 +112,15 @@ class SOLUTION:
         pyrosim.Send_Motor_Neuron(name = 9, jointName= "FrontRight_FRLower")
         pyrosim.Send_Motor_Neuron(name = 10, jointName= "BackLeft_BLLower")
         pyrosim.Send_Motor_Neuron(name = 11, jointName= "BackRight_BRLower")
+        pyrosim.Send_Motor_Neuron(name = 12, jointName= "Torso_Left")
+        pyrosim.Send_Motor_Neuron(name = 13, jointName= "Left_LeftLower")
+        pyrosim.Send_Motor_Neuron(name = 14, jointName= "Torso_Right")
+        pyrosim.Send_Motor_Neuron(name = 15, jointName= "Right_RightLower")
+        
         for currentRow in range(c.numSensorNeurons):
             for currentColumn in range(c.numMotorNeurons):
                 pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+c.numSensorNeurons, 
                     weight= self.weights[currentRow][currentColumn])
-                    """
+                    
         pyrosim.End()
         
