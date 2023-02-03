@@ -99,7 +99,7 @@ class SOLUTION:
 
     def Create_Brain(self):  
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
-        """
+        
         pyrosim.Send_Sensor_Neuron(name = 0, linkName= "FLLower")
         pyrosim.Send_Sensor_Neuron(name = 1, linkName= "FRLower")
         pyrosim.Send_Sensor_Neuron(name = 2, linkName= "BLLower")
@@ -125,6 +125,6 @@ class SOLUTION:
             for currentColumn in range(c.numMotorNeurons):
                 pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+c.numSensorNeurons, 
                     weight= self.weights[currentRow][currentColumn])
-        """    
+        
         pyrosim.End()
         
