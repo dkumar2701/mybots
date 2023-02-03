@@ -3,7 +3,7 @@
         <pose>0 2 0.25 0 0 0 </pose>
         <link name="Box">
             <inertial>
-                <mass>1000</mass>
+                <mass>1000000</mass>
                 <inertia>
                     <ixx>0.083</ixx>
                     <ixy>0.0</ixy>
@@ -16,14 +16,14 @@
             <collision>
                 <geometry>
                    <box>
-                      <size>5 1 0.5</size>
+                      <size>100 1 0.5</size>
                    </box>
                 </geometry>
             </collision>
             <visual>
                 <geometry>
                    <box>
-                      <size>5 1 0.5</size>
+                      <size>100 1 0.5</size>
                    </box>
                 </geometry>
             </visual>
