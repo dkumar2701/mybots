@@ -1,15 +1,15 @@
 import numpy
 
-numberOfGenerations = 1
-populationSize = 1
+numberOfGenerations = 20
+populationSize = 20
 numSensorNeurons = 6
 numMotorNeurons = 12
-motorJointRange = 0.6
+motorJointRange = 0.75
 totalStep = 1000
 verticalWeight = 2
 airTimeWeight = 10
 yWeight = 20
-maxForce = 100
+maxForce = 75
 """
 x = numpy.linspace(0, 2* numpy.pi, 1000)
 amplitudeBackLeg = numpy.pi/4
