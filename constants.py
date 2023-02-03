@@ -1,11 +1,11 @@
 import numpy
 
-numberOfGenerations = 1
-populationSize = 1
+numberOfGenerations = 30
+populationSize = 15
 numSensorNeurons = 5
 numMotorNeurons = 11
 motorJointRange = 1.0
-totalStep = 2000
+totalStep = 2500
 verticalWeight = 2
 airTimeWeight = 10
 yWeight = 2

@@ -86,7 +86,7 @@ class ROBOT:
         #print("Zposns: ", self.zPositions, "\n")
         maxZ = np.max(self.zPositions)
         
-        fitness = yPosition*c.yWeight + maxZ - np.abs(xPosition) 
+        fitness = yPosition*c.yWeight - np.abs(xPosition) #+ maxZ 
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(fitness))
         f.close()
