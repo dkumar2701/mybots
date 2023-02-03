@@ -79,13 +79,14 @@ class ROBOT:
                 if currairTime > airTime:
                     airTime = currairTime
                 currairTime = 0
+        """
         #All negative -1 means mean across all is -1
         #print("Airtime: ", airTime, "\n")
         #print(xCoordinateOfLinkZero)
         #print("Zposns: ", self.zPositions, "\n")
         maxZ = np.max(self.zPositions)
-        """
-        fitness = yPosition + zPosition - np.abs(xPosition) 
+        
+        fitness = yPosition*c.yWeight + maxZ - np.abs(xPosition) 
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(fitness))
         f.close()

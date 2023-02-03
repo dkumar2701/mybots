@@ -105,6 +105,7 @@ class SOLUTION:
         pyrosim.Send_Sensor_Neuron(name = 3, linkName= "BRLower")
         pyrosim.Send_Sensor_Neuron(name = 4, linkName= "LeftLower")
         pyrosim.Send_Sensor_Neuron(name = 5, linkName= "RightLower")
+        
 
         pyrosim.Send_Motor_Neuron(name = 6, jointName= "Torso_FrontLeft")
         pyrosim.Send_Motor_Neuron(name = 7, jointName= "Torso_FrontRight")

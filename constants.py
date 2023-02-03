@@ -8,7 +8,7 @@ motorJointRange = 1.25
 totalStep = 2000
 verticalWeight = 2
 airTimeWeight = 10
-yWeight = 20
+yWeight = 10
 maxForce = 75
 """
 x = numpy.linspace(0, 2* numpy.pi, 1000)
