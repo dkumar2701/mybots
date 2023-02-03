@@ -2,6 +2,7 @@ from world import WORLD
 from robot import ROBOT
 import pybullet as p
 import pyrosim.pyrosim as pyrosim
+import constants as c
 import pybullet_data
 import time
 class SIMULATION:
@@ -20,7 +21,7 @@ class SIMULATION:
         self.robot.Prepare_To_Act()
 
     def Run(self):
-        for i in range(1000):
+        for i in range(c.totalStep):
             #print(i)
             
             p.stepSimulation()
@@ -29,7 +30,7 @@ class SIMULATION:
             self.robot.Act(i)
             
             if self.directOrGui == "GUI":
-                time.sleep(1/1000)
+                time.sleep(1/c.totalStep)
             #print("Step Status: ", i)
 
     def Get_Fitness(self, solutionID):
