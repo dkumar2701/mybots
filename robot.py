@@ -51,6 +51,8 @@ class ROBOT:
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotID)
         basePosition = basePositionAndOrientation[0]
         yPosition = basePosition[1]
+        zPosition = basePosition[2]
+        xPosition = basePosition[0]
         #For jumping
         """
         sensorVals = {}
@@ -83,7 +85,7 @@ class ROBOT:
         #print("Zposns: ", self.zPositions, "\n")
         maxZ = np.max(self.zPositions)
         """
-        fitness = yPosition
+        fitness = yPosition + zPosition - np.abs(xPosition) 
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(fitness))
         f.close()
