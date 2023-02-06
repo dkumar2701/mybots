@@ -2,6 +2,7 @@ from solution import SOLUTION
 import constants as c
 import copy
 import os
+import random
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
@@ -78,13 +79,8 @@ class PARALLEL_HILL_CLIMBER:
                 solutions[i].Start_Simulation("DIRECT")
             for i in range(c.populationSize):
                 solutions[i].Wait_For_Simulation_To_End()
-            bestFirst_fitness_idx = 0
-            bestFirst_fitness = self.parents[0]
-            for i in range(1, c.populationSize):
-                if (self.parents[i].fitness > bestFirst_fitness.fitness):
-                    bestFirst_fitness = self.parents[i]
-                    bestFirst_fitness_idx = i
-            self.bestFirst_fitness = bestFirst_fitness
+            randomid = random.randrange(c.populationSize)
+            self.bestFirst_fitness = self.parents[randomid]
         else:
             for i in range(c.populationSize):
                 solutions[i].Start_Simulation("DIRECT")
