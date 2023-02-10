@@ -40,7 +40,7 @@ class SOLUTION:
     def Create_World(self):
         #Generate World
         pyrosim.Start_SDF("world.sdf")
-        pyrosim.Send_Cube(name="Box", pos=[0, 2, 0.25] , size=[10, 1, 0.5], mass=1000000)
+        #pyrosim.Send_Cube(name="Box", pos=[0, 2, 0.25] , size=[10, 1, 0.5], mass=1000000)
         #pyrosim.Send_Cube(name="Box", pos=[0, 3, 0.5] , size=[5, 1, 1], mass=1000)  
         pyrosim.End()
 
@@ -50,7 +50,7 @@ class SOLUTION:
         width = 2
         pyrosim.Start_URDF("body.urdf")
         pyrosim.Send_Cube(name="Torso", pos=[0, -1, legLength] , size=[0.5,width , 0.5])  
-
+    
         pyrosim.Send_Joint(name = "Torso_FrontLeft" , parent= "Torso" , child = "FrontLeft" , type = "revolute", 
             position = [-0.25, -1+(width/2 - 0.1), legLength ], jointAxis = "0 1 0")
         pyrosim.Send_Cube(name="FrontLeft", pos=[-legLength/2, 0, 0] , size=[legLength, 0.2, 0.2])
