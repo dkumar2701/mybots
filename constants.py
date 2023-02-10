@@ -8,7 +8,7 @@ minlen = 1
 maxlen = 10
 
 
-numberOfGenerations = 1
+numberOfGenerations = 0
 populationSize = 1
 numSensorNeurons = 5
 numMotorNeurons = 11
