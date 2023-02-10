@@ -46,89 +46,27 @@ class SOLUTION:
 
     def Create_Body(self):
         #Generate Robot
-        legLength = 0.75
-        width = 2
         pyrosim.Start_URDF("body.urdf")
-        pyrosim.Send_Cube(name="Torso", pos=[0, -1, legLength] , size=[0.5,width , 0.5])  
+        pyrosim.Send_Cube(name="Torso", pos=[0, 0, 1] , size=[2, 2 , 2])  
     
-        pyrosim.Send_Joint(name = "Torso_FrontLeft" , parent= "Torso" , child = "FrontLeft" , type = "revolute", 
-            position = [-0.25, -1+(width/2 - 0.1), legLength ], jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name="FrontLeft", pos=[-legLength/2, 0, 0] , size=[legLength, 0.2, 0.2])
-        pyrosim.Send_Joint(name = "FrontLeft_FLLower" , parent= "FrontLeft" , child = "FLLower" , type = "revolute", 
-            position = [-legLength, 0, 0 ], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="FLLower", pos=[0, 0, -legLength/2] , size=[0.2, 0.2, legLength])
-        
-        pyrosim.Send_Joint(name = "Torso_FrontRight" , parent= "Torso" , child = "FrontRight" , type = "revolute", 
-            position = [0.25, -1+(width/2 - 0.1), legLength ], jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name="FrontRight", pos=[legLength/2, 0, 0] , size=[legLength, 0.2, 0.2])
-        pyrosim.Send_Joint(name = "FrontRight_FRLower" , parent= "FrontRight" , child = "FRLower" , type = "revolute", 
-            position = [legLength, 0, 0 ], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="FRLower", pos=[0, 0, -legLength/2] , size=[0.2, 0.2, legLength])
-        
-        pyrosim.Send_Joint(name = "Torso_BackLeft" , parent= "Torso" , child = "BackLeft" , type = "revolute", 
-            position = [-0.25, -1-(width/2 - 0.1), legLength ], jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name="BackLeft", pos=[-legLength/2, 0, 0] , size=[legLength, 0.2, 0.2])
-        pyrosim.Send_Joint(name = "BackLeft_BLLower" , parent= "BackLeft" , child = "BLLower" , type = "revolute", 
-            position = [-legLength, 0, 0 ], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="BLLower", pos=[0, 0, -legLength/2] , size=[0.2, 0.2, legLength])
-
-        pyrosim.Send_Joint(name = "Torso_BackRight" , parent= "Torso" , child = "BackRight" , type = "revolute", 
-            position = [0.25, -1-(width/2 - 0.1), legLength ], jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name="BackRight", pos=[legLength/2, 0, 0] , size=[legLength, 0.2, 0.2])
-        pyrosim.Send_Joint(name = "BackRight_BRLower" , parent= "BackRight" , child = "BRLower" , type = "revolute", 
-            position = [legLength, 0, 0 ], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="BRLower", pos=[0, 0, -legLength/2] , size=[0.2, 0.2, legLength])
-
-        pyrosim.Send_Joint(name = "Torso_Left" , parent= "Torso" , child = "Left" , type = "revolute", 
-            position = [0, -1-(width/2), legLength], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="Left", pos=[0, -legLength/2, 0] , size=[0.2,legLength, 0.2])
-        pyrosim.Send_Joint(name = "Left_LeftLower" , parent= "Left" , child = "LeftLower" , type = "revolute", 
-            position = [0, -legLength, 0 ], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="LeftLower", pos=[0, 0, -legLength/2] , size=[0.2, 0.2, legLength])
-        pyrosim.Send_Joint(name = "LeftLower_Tail" , parent= "LeftLower" , child = "Tail" , type = "revolute", 
-            position = [0, 0, -legLength+0.1 ], jointAxis = "0 1 0")
-        pyrosim.Send_Cube(name="Tail", pos=[0, 0, 0] , size=[legLength, 0.2, 0.2])
-        """
-        pyrosim.Send_Joint(name = "Torso_Right" , parent= "Torso" , child = "Right" , type = "revolute", 
-            position = [0, -1+(width/2), legLength], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="Right", pos=[0, legLength/2, 0] , size=[0.2,legLength, 0.2])
-        pyrosim.Send_Joint(name = "Right_RightLower" , parent= "Right" , child = "RightLower" , type = "revolute", 
-            position = [0, legLength, 0 ], jointAxis = "1 0 0")
-        pyrosim.Send_Cube(name="RightLower", pos=[0, 0, -legLength/2] , size=[0.2, 0.2, legLength])
-        """
-        
+        #pyrosim.Send_Joint(name = "Torso_FrontLeft" , parent= "Torso" , child = "FrontLeft" , type = "revolute", 
+         #   position = [-0.25, -1+(width/2 - 0.1), legLength ], jointAxis = "0 1 0")
         
         pyrosim.End()
 
     def Create_Brain(self):  
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
         
-        pyrosim.Send_Sensor_Neuron(name = 0, linkName= "FLLower")
-        pyrosim.Send_Sensor_Neuron(name = 1, linkName= "FRLower")
-        pyrosim.Send_Sensor_Neuron(name = 2, linkName= "BLLower")
-        pyrosim.Send_Sensor_Neuron(name = 3, linkName= "BRLower")
-        pyrosim.Send_Sensor_Neuron(name = 4, linkName= "Tail")
         #pyrosim.Send_Sensor_Neuron(name = 5, linkName= "RightLower")
         
 
-        pyrosim.Send_Motor_Neuron(name = 5, jointName= "Torso_FrontLeft")
-        pyrosim.Send_Motor_Neuron(name = 6, jointName= "Torso_FrontRight")
-        pyrosim.Send_Motor_Neuron(name = 7, jointName= "Torso_BackLeft")
-        pyrosim.Send_Motor_Neuron(name = 8, jointName= "Torso_BackRight")
-        pyrosim.Send_Motor_Neuron(name = 9, jointName= "FrontLeft_FLLower")
-        pyrosim.Send_Motor_Neuron(name = 10, jointName= "FrontRight_FRLower")
-        pyrosim.Send_Motor_Neuron(name = 11, jointName= "BackLeft_BLLower")
-        pyrosim.Send_Motor_Neuron(name = 12, jointName= "BackRight_BRLower")
-        pyrosim.Send_Motor_Neuron(name = 13, jointName= "Torso_Left")
-        pyrosim.Send_Motor_Neuron(name = 14, jointName= "Left_LeftLower")
-        pyrosim.Send_Motor_Neuron(name = 15, jointName= "LeftLower_Tail")
         #pyrosim.Send_Motor_Neuron(name = 16, jointName= "Torso_Right")
         #pyrosim.Send_Motor_Neuron(name = 17, jointName= "Right_RightLower")
-        
+        """
         for currentRow in range(c.numSensorNeurons):
             for currentColumn in range(c.numMotorNeurons):
                 pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+c.numSensorNeurons, 
                     weight= self.weights[currentRow][currentColumn])
-        
+        """
         pyrosim.End()
         
