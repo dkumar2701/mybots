@@ -47,7 +47,7 @@ class SOLUTION:
     def Create_Body(self):
         #Generate Robot
         pyrosim.Start_URDF("body.urdf")
-        pyrosim.Send_Cube(name="Torso", pos=[0, 0, 1] , size=[2, 2 , 2])  
+        pyrosim.Send_Cube(name="Torso", pos=[0, 0, 1] , size=[0.5, 0.5 , 0.5])  
     
         #pyrosim.Send_Joint(name = "Torso_FrontLeft" , parent= "Torso" , child = "FrontLeft" , type = "revolute", 
          #   position = [-0.25, -1+(width/2 - 0.1), legLength ], jointAxis = "0 1 0")

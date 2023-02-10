@@ -1,5 +1,10 @@
 import numpy
 
+#For Random Body
+maxdim = 2
+mindim = 0.5
+
+
 numberOfGenerations = 1
 populationSize = 1
 numSensorNeurons = 5
