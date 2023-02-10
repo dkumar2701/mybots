@@ -4,6 +4,9 @@ import numpy
 maxdim = 2
 mindim = 0.5
 
+minlen = 1
+maxlen = 10
+
 
 numberOfGenerations = 1
 populationSize = 1
