@@ -1,8 +1,8 @@
 import numpy
 
 #For Random Body
-maxdim = 1.5
-mindim = 0.5
+maxdim = 1
+mindim = 0.25
 
 minlen = 2
 maxlen = 6

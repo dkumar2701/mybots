@@ -60,7 +60,7 @@ class SOLUTION:
         zdiff = c.maxdim/2
         
         jointDir = ["1 0 0", "0 1 0", "0 0 1"]
-        print("The Sensors: ", self.sensorTrue, "\n")
+        #print("The Sensors: ", self.sensorTrue, "\n")
 
         pyrosim.Start_URDF("body.urdf")
         #Create connecting blocks
@@ -100,19 +100,20 @@ class SOLUTION:
     def Create_Brain(self):  
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
         
-        
+        sensorCount = 0
+        motorCount = self.numSensorNeurons
         for i in range(self.blockNum):
             if self.sensorTrue[i]:
-                pyrosim.Send_Sensor_Neuron(name = i, linkName = str(i))
+                pyrosim.Send_Sensor_Neuron(name = sensorCount, linkName = str(i))
+                sensorCount +=1
             if i < self.blockNum - 1:
-                pyrosim.Send_Motor_Neuron(name = i+self.numSensorNeurons, jointName= str(i)+"_"+str(i+1))
+                pyrosim.Send_Motor_Neuron(name = motorCount, jointName= str(i)+"_"+str(i+1))
+                motorCount += 1
 
-        print("CurrentWeights: ", self.weights, "\n")
+       
         
         for currentRow in range(self.numSensorNeurons):
             for currentColumn in range(self.numMotorNeurons):
-                print("CurrentSensor: ", currentRow, "\n")
-                print("CurrentMotor: ", currentColumn, "\n")
                 pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+self.numSensorNeurons, 
                     weight= self.weights[currentRow][currentColumn])
         
