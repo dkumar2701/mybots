@@ -12,6 +12,7 @@ class SOLUTION:
         self.sensorTrue = numpy.random.randint(0, 2, size=self.blockNum)
         self.myID = nextAvailableID
 
+
     def Set_ID(self, ID):
         self.myID = ID      
         
@@ -97,6 +98,15 @@ class SOLUTION:
     def Create_Brain(self):  
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
         
+        numSensorNeurons = 0
+        numMotorNeurons = 0
+        for i in range(self.blockNum):
+            if self.sensorTrue[i]:
+                pyrosim.Send_Sensor_Neuron(name = i, linkname = str(i))
+                numSensorNeurons+= 1
+            if i < self.blockNum - 1:
+                pyrosim.Send_Motor_Neuron(name = )
+            
         #pyrosim.Send_Sensor_Neuron(name = 5, linkName= "RightLower")
         
 
