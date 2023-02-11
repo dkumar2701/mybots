@@ -38,8 +38,8 @@ class SOLUTION:
         #print("Read: ", self.fitness)
 
     def Mutate(self):
-        randomRow = random.randint(0, c.numSensorNeurons -1)
-        randomColumn = random.randint(0, c.numMotorNeurons -1)
+        randomRow = random.randint(0, self.numSensorNeurons -1)
+        randomColumn = random.randint(0, self.numMotorNeurons -1)
         self.weights[randomRow, randomColumn] = random.random() *2-1
 
     def Create_World(self):
@@ -104,20 +104,20 @@ class SOLUTION:
         for i in range(self.blockNum):
             if self.sensorTrue[i]:
                 pyrosim.Send_Sensor_Neuron(name = i, linkname = str(i))
-                numSensorNeurons+= 1
             if i < self.blockNum - 1:
-                pyrosim.Send_Motor_Neuron(name = )
+                pyrosim.Send_Motor_Neuron(name = i+self.numSensorNeurons, jointName= str(i)+"_"+str(i+1))
             
+        for currentRow in range(self.numSensorNeurons):
+            for currentColumn in range(self.numMotorNeurons):
+                pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+self.numSensorNeurons, 
+                    weight= self.weights[currentRow][currentColumn])
         #pyrosim.Send_Sensor_Neuron(name = 5, linkName= "RightLower")
         
 
         #pyrosim.Send_Motor_Neuron(name = 16, jointName= "Torso_Right")
         #pyrosim.Send_Motor_Neuron(name = 17, jointName= "Right_RightLower")
-        """
-        for currentRow in range(c.numSensorNeurons):
-            for currentColumn in range(c.numMotorNeurons):
-                pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+c.numSensorNeurons, 
-                    weight= self.weights[currentRow][currentColumn])
-        """
+        
+        
+        
         pyrosim.End()
         
