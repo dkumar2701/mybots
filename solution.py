@@ -50,7 +50,7 @@ class SOLUTION:
         if self.sensorTrue[i] == 1:
             return "Green"
         else:
-            return "Blue"
+            return "Cyan"
 
     def Create_Body(self):
         #Generate Robot
@@ -70,7 +70,7 @@ class SOLUTION:
                 blockpos = [0, 0, zdiff]
             else:
                 blockpos = [0, -ysize/2, 0]
-            pyrosim.Send_Cube(name= str(i), pos=blockpos , size=[xsize, ysize , zsize])
+            pyrosim.Send_Cube(name= str(i), pos=blockpos , size=[xsize, ysize , zsize], color = self.Determine_Color(i))
 
             #lastSize = [xsize, ysize, zsize]
                 
