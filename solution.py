@@ -103,14 +103,19 @@ class SOLUTION:
         
         for i in range(self.blockNum):
             if self.sensorTrue[i]:
-                pyrosim.Send_Sensor_Neuron(name = i, linkname = str(i))
+                pyrosim.Send_Sensor_Neuron(name = i, linkName = str(i))
             if i < self.blockNum - 1:
                 pyrosim.Send_Motor_Neuron(name = i+self.numSensorNeurons, jointName= str(i)+"_"+str(i+1))
-            
+
+        print("CurrentWeights: ", self.weights, "\n")
+        
         for currentRow in range(self.numSensorNeurons):
             for currentColumn in range(self.numMotorNeurons):
+                print("CurrentSensor: ", currentRow, "\n")
+                print("CurrentMotor: ", currentColumn, "\n")
                 pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+self.numSensorNeurons, 
                     weight= self.weights[currentRow][currentColumn])
+        
         #pyrosim.Send_Sensor_Neuron(name = 5, linkName= "RightLower")
         
 
