@@ -7,9 +7,11 @@ import constants as c
 
 class SOLUTION:
     def __init__(self, nextAvailableID):
-        self.weights = (numpy.random.rand(c.numSensorNeurons,c.numMotorNeurons) *2) - 1
         self.blockNum = random.randint(c.minlen, c.maxlen)
         self.sensorTrue = numpy.random.randint(0, 2, size=self.blockNum)
+        self.numSensorNeurons = numpy.sum(self.sensorTrue)
+        self.numMotorNeurons = self.blockNum - 1
+        self.weights = (numpy.random.rand(self.numSensorNeurons,self.numMotorNeurons) *2) - 1
         self.myID = nextAvailableID
 
 
@@ -98,8 +100,7 @@ class SOLUTION:
     def Create_Brain(self):  
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
         
-        numSensorNeurons = 0
-        numMotorNeurons = 0
+        
         for i in range(self.blockNum):
             if self.sensorTrue[i]:
                 pyrosim.Send_Sensor_Neuron(name = i, linkname = str(i))
