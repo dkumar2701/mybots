@@ -8,6 +8,8 @@ import constants as c
 class SOLUTION:
     def __init__(self, nextAvailableID):
         self.weights = (numpy.random.rand(c.numSensorNeurons,c.numMotorNeurons) *2) - 1
+        self.blockNum = random.randint(c.minlen, c.maxlen)
+        self.sensorTrue = numpy.random.randint(0, 2, size=self.blockNum)
         self.myID = nextAvailableID
 
     def Set_ID(self, ID):
@@ -44,14 +46,48 @@ class SOLUTION:
         #pyrosim.Send_Cube(name="Box", pos=[0, 3, 0.5] , size=[5, 1, 1], mass=1000)  
         pyrosim.End()
 
+    def Determine_Color(self, i):
+        if self.sensorTrue[i] == 1:
+            return "Green"
+        else:
+            return "Blue"
+
     def Create_Body(self):
         #Generate Robot
-        height = c.maxdim/2
-        blockNum = random.randint(c.minlen, c.maxlen)
+        zdiff = c.maxdim/2
         
+        jointDir = ["1 0 0", "0 1 0", "0 0 1"]
+        print("The Sensors: ", self.sensorTrue, "\n")
 
         pyrosim.Start_URDF("body.urdf")
-        pyrosim.Send_Cube(name="Torso", pos=[0, 0, 1] , size=[0.5, 0.5 , 0.5])  
+        #Create connecting blocks
+        
+        for i in range(self.blockNum):
+            xsize = random.uniform(c.mindim, c.maxdim)
+            ysize = random.uniform(c.mindim, c.maxdim)
+            zsize = random.uniform(c.mindim, c.maxdim)
+            if i == 0:
+                blockpos = [0, 0, zdiff]
+            else:
+                blockpos = [0, -ysize/2, 0]
+            pyrosim.Send_Cube(name= str(i), pos=blockpos , size=[xsize, ysize , zsize])
+
+            #lastSize = [xsize, ysize, zsize]
+                
+            
+            #Create joints if we are not in the last block (all revolute and X axis)
+            if i < self.blockNum-1:
+                thisAxisidx = random.randint(0,2)
+                if i==0:
+                    jointPos = [0, -ysize/2, zdiff]
+                else:
+                    jointPos = [0, -ysize, 0]
+                pyrosim.Send_Joint(name = str(i) + "_" + str(i+1), parent= str(i), child= str(i+1),
+                                       type="revolute", position= jointPos, jointAxis= jointDir[thisAxisidx])
+                    
+        
+
+          
     
         #pyrosim.Send_Joint(name = "Torso_FrontLeft" , parent= "Torso" , child = "FrontLeft" , type = "revolute", 
          #   position = [-0.25, -1+(width/2 - 0.1), legLength ], jointAxis = "0 1 0")

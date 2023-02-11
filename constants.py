@@ -1,11 +1,11 @@
 import numpy
 
 #For Random Body
-maxdim = 2
+maxdim = 1.5
 mindim = 0.5
 
-minlen = 1
-maxlen = 10
+minlen = 2
+maxlen = 6
 
 
 numberOfGenerations = 0
