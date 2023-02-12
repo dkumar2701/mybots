@@ -1,13 +1,9 @@
-# Assignment 5
+# Assignment 6
 
-My code generates a robot that evolves to climb a small wall. After some trial and error (because we are not yet evolving bodies), I found that a long body for the robot with legs to its sides (like a crocodile) worked the best. The robot also has a tail, which I have noticed helps it jump over the wall.
+My code is built on the evolution code from previous assignments and thus running search.py will still print out a fitness based on the current fitness function, which can be ignored for this assignment. Running search.py will generate a random jointed, motorized, innervated, sensorized snake with a length between 2 and 6 blocks. Each block has random dimensions, each of which may be between 0.25 and 1. Additionally, each block has a 50% chance of being a sensor, in which case its color will be green rather than the standard blue. Each robot has at least 1 sensor. The axis of each joint is also randomly chosen between the x, y, and z direction. Snakes are created at a height tall enough for the maximum dimension of a block, thus preventing clipping into the ground.
 
 TO RUN THE CODE:
 
-Run search.py. The current settings are 30 generations with a population size of 15.
+To see random snakes, run search.py multiple times. 
 
-The fitness function I am using optimizes for largest fitness, where fitness = yPosition*c.yWeight - np.abs(xPosition).
-
-the yPosition is used because I want the robot to move in the positive y direction, over the obstacle. c.yWeight is a constant used to increase the importance of the yPosition in the fitness function. I also subtract the absolute value of the xPosition to prevent the robot from accidentally going around the obstacle. 
-
-Additionally, there is an optional part of the fitness function (that I do not use currently) that increases fitness based on the maximum height of the robot. This was calculated by keeping track of teh robot's z-position in every frame.
+The current settings are 0 generations with a population size of 1. Because this is still build on the evolution code, running search.py will create two simulations, each with a randomly generated snake. The current code makes the first and second snake only differ by block dimensions, so to create fully random snakes, run search.py again and ignore the second simulation that appears.
