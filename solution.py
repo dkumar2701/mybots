@@ -10,6 +10,9 @@ class SOLUTION:
         self.blockNum = random.randint(c.minlen, c.maxlen)
         self.sensorTrue = numpy.random.randint(0, 2, size=self.blockNum)
         self.numSensorNeurons = numpy.sum(self.sensorTrue)
+        if self.numSensorNeurons == 0:
+            oneSensor = random.randint(0, self.blockNum - 1)
+            self.sensorTrue[oneSensor] = 1
         self.numMotorNeurons = self.blockNum - 1
         self.weights = (numpy.random.rand(self.numSensorNeurons,self.numMotorNeurons) *2) - 1
         self.myID = nextAvailableID
