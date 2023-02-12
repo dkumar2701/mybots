@@ -4,6 +4,6 @@ My code is built on the evolution code from previous assignments and thus runnin
 
 TO RUN THE CODE:
 
-To see random snakes run search.py multiple times. 
+To see random snakes, run search.py multiple times. 
 
 The current settings are 0 generations with a population size of 1. Because this is still build on the evolution code, running search.py will create two simulations, each with a randomly generated snake. The current code makes the first and second snake only differ by block dimensions, so to create fully random snakes, run search.py again and ignore the second simulation that appears.
