@@ -13,6 +13,7 @@ class SOLUTION:
         if self.numSensorNeurons == 0:
             oneSensor = random.randint(0, self.blockNum - 1)
             self.sensorTrue[oneSensor] = 1
+            self.numSensorNeurons = 1
         self.numMotorNeurons = self.blockNum - 1
         self.weights = (numpy.random.rand(self.numSensorNeurons,self.numMotorNeurons) *2) - 1
         self.myID = nextAvailableID
