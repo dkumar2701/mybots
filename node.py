@@ -27,8 +27,10 @@ class NODE:
                     currentidx += 1
 
     def connect(self, otherNode):
-        self.direction = self.findDirection(self, otherNode) #Find side to add on to
-        otherNode.connections[self.direction] = 1 #update previous node connection directions
+        self.Othersdirection = self.findDirection(self, otherNode) #Find side to add on to
+        otherNode.connections[self.Othersdirection] = 1 #update previous node connection directions
+        thisNodeDirection = (self.Othersdirection + 3) % 6
+        self.connections[thisNodeDirection] = 1 #update this node's connection direction in opposite dir
         self.previousNode = otherNode
         otherNode.numConnections += 1 #Check if the otherNode is a full block
         if otherNode.numConnections == 6:

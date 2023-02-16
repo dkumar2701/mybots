@@ -113,13 +113,13 @@ class SOLUTION:
                     blockpos = [0, -node.ysize/2, 0]
                 elif node.direction == 5:
                     blockpos = [0, 0, -node.zsize/2]
-            pyrosim.Send_Cube(name= str(i), pos=blockpos , size=[node.xsize, node.ysize , node.zsize], color = self.Determine_Color(node))
+            pyrosim.Send_Cube(name= str(node.ID), pos=blockpos , size=[node.xsize, node.ysize , node.zsize], color = self.Determine_Color(node))
 
             #lastSize = [xsize, ysize, zsize]
                 
             
             #Create joints if we are not in the last block (all revolute and X axis)
-            if i < self.blockNum-1:
+            if node.id < self.blockNum-1:
                 thisAxisidx = random.randint(0,2)
                 if i==0:
                     jointPos = [0, -ysize/2, zdiff]
