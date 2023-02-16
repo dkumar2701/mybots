@@ -88,22 +88,22 @@ class SOLUTION:
                     self.availableBlocks.remove(nodeToConnect.ID)
 
     def blockMiddle(self, node):
-        prevJoint = node.previousNode.jointPos
+        blockMiddle = [0, 0, 0]
         prevDirection = node.previousNode.direction
         if prevDirection == 0: #add prevNode's xsize/2
-            prevJoint[0] = prevJoint[0] + node.previousNode.xsize/2
+            blockMiddle[0] = node.previousNode.xsize/2
         elif prevDirection == 1: #add prevNode's ysize/2
-            prevJoint[1] = prevJoint[1] + node.previousNode.ysize/2
+            blockMiddle[1] = node.previousNode.ysize/2
         elif prevDirection == 2: #add prevNode's zsize/2
-            prevJoint[2] = prevJoint[2] + node.previousNode.zsize/2
+            blockMiddle[2] = node.previousNode.zsize/2
         elif prevDirection == 3: #add prevNode's -xsize/2
-            prevJoint[0] = prevJoint[0] - node.previousNode.xsize/2
+            blockMiddle[0] = -node.previousNode.xsize/2
         elif prevDirection == 4: #add prevNode's -ysize/2
-            prevJoint[1] = prevJoint[1] - node.previousNode.ysize/2
+            blockMiddle[1] = -node.previousNode.ysize/2
         elif prevDirection == 5: #add prevNode's -zsize/2
-            prevJoint[2] = prevJoint[2] - node.previousNode.zsize/2
+            blockMiddle[2] = -node.previousNode.zsize/2
         
-        return prevJoint
+        return blockMiddle
     def Create_Body(self):
         #Create the connections:
         self.Add_Connections()
