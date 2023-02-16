@@ -26,7 +26,7 @@ class SOLUTION:
         self.numMotorNeurons = self.blockNum - 1
         self.weights = (numpy.random.rand(self.numSensorNeurons,self.numMotorNeurons) *2) - 1
         self.myID = nextAvailableID
-        self.availableBlocks = list(range(self.blockNum)) #create a list of the available block IDS
+        self.availableBlocks = list(range(1)) #create a list of the available block IDS
 
 
     def Set_ID(self, ID):
@@ -82,6 +82,7 @@ class SOLUTION:
             if node.ID != 0:
                 nodeToConnect = self.nodeList(self.connect_TO())
                 node.connect(nodeToConnect)
+                self.availableBlocks.append(node.ID)
                 if nodeToConnect.full:
                     self.availableBlocks.remove(nodeToConnect.ID)
 
