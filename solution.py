@@ -209,13 +209,13 @@ class SOLUTION:
                 pyrosim.Send_Motor_Neuron(name = motorCount, jointName= str(node.previousNode.ID)+"_"+str(node.ID))
                 motorCount += 1
 
-        """
+        
         
         for currentRow in range(self.numSensorNeurons):
             for currentColumn in range(self.numMotorNeurons):
                 pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+self.numSensorNeurons, 
                     weight= self.weights[currentRow][currentColumn])
-        """
+        
         #pyrosim.Send_Sensor_Neuron(name = 5, linkName= "RightLower")
         
 
