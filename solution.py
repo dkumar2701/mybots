@@ -26,7 +26,7 @@ class SOLUTION:
         self.numMotorNeurons = self.blockNum - 1
         self.weights = (numpy.random.rand(self.numSensorNeurons,self.numMotorNeurons) *2) - 1
         self.myID = nextAvailableID
-        self.availableBlocks = self.nodeList.copy() #create a list of the available blocks
+        self.availableBlocks = list(range(self.blockNum)) #create a list of the available block IDS
 
 
     def Set_ID(self, ID):
@@ -68,6 +68,23 @@ class SOLUTION:
             return "Green"
         else:
             return "Cyan"
+
+    #Decide which node to connect to based on the available options
+    def connect_TO(self):
+        numOptions = len(self.availableBlocks)
+        idxChosen = random.randint(0, numOptions - 1)
+        nodeIDtoConnect = self.availableBlocks[idxChosen]
+        return nodeIDtoConnect
+
+    #Call node.connect on each node after the first one
+    def Add_Connections(self):
+        for node in self.nodeList:
+            if node.ID != 0:
+                nodeToConnect = self.nodeList(self.connect_TO())
+                node.connect(nodeToConnect)
+                if nodeToConnect.full:
+                    self.availableBlocks.remove(nodeToConnect.ID)
+
 
     def Create_Body(self):
         #Generate Robot

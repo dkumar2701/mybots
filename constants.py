@@ -7,6 +7,7 @@ mindim = 0.25
 minlen = 2
 maxlen = 6
 
+zdiff = 3
 
 numberOfGenerations = 0
 populationSize = 1
