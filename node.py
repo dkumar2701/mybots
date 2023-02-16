@@ -36,6 +36,7 @@ class NODE:
         #print("\nDirection: ", self.direction + 6)
         thisNodeDirection = (self.direction + 3) % 6
         self.connections[thisNodeDirection] = 1 #update this node's connection direction in opposite dir
+        self.numConnections += 1
         self.previousNode = otherNode
         otherNode.numConnections += 1 #Check if the otherNode is a full block
         if otherNode.numConnections == 6:
