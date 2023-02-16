@@ -63,8 +63,8 @@ class SOLUTION:
         #pyrosim.Send_Cube(name="Box", pos=[0, 3, 0.5] , size=[5, 1, 1], mass=1000)  
         pyrosim.End()
 
-    def Determine_Color(self, i):
-        if self.sensorTrue[i] == 1:
+    def Determine_Color(self, node):
+        if node.isSensor == 1:
             return "Green"
         else:
             return "Cyan"
@@ -101,9 +101,19 @@ class SOLUTION:
             if node.ID == 0:
                 blockpos = [0, 0, zdiff]
             else:
-
-                blockpos = [0, -ysize/2, 0]
-            pyrosim.Send_Cube(name= str(i), pos=blockpos , size=[xsize, ysize , zsize], color = self.Determine_Color(i))
+                if node.direction == 0:
+                    blockpos = [node.xsize/2, 0, 0]
+                elif node.direction == 1:
+                    blockpos = [0, node.ysize/2, 0]
+                elif node.direction == 2:
+                    blockpos = [0, 0, node.zsize/2]
+                elif node.direction == 3:
+                    blockpos = [-node.xsize/2, 0, 0]
+                elif node.direction == 4:
+                    blockpos = [0, -node.ysize/2, 0]
+                elif node.direction == 5:
+                    blockpos = [0, 0, -node.zsize/2]
+            pyrosim.Send_Cube(name= str(i), pos=blockpos , size=[node.xsize, node.ysize , node.zsize], color = self.Determine_Color(node))
 
             #lastSize = [xsize, ysize, zsize]
                 
