@@ -7,6 +7,9 @@ class NODE:
         self.numConnections = 0
         self.full = False
         self.ID = ID
+        self.chainedto0 = False
+        if self.ID == 0:
+            self.chainedto0 = True
         #These connections are an array that corresponds to directions [x, y, z, -x, -y, -z]
         self.connections = np.zeros(6)
         #Create the block properties:
@@ -19,17 +22,33 @@ class NODE:
 
 
     def findDirection(self, otherNode):
-        indexWanted = random.randint(0, 5-otherNode.numConnections)
-        currentidx = 0
+        directionList = []
         for i in range(6):
             if otherNode.connections[i] == 0:
-                if currentidx == indexWanted:
-                    return i
+                directionList.append(i)
+        
+        if otherNode.connections[4] == 0 and otherNode.chainedto0:
+            newlist = [4]
+            directionList.remove(4)
+            weightlist = []
+            newlist = newlist + directionList
+            for i in range(len(newlist)):
+                if i == 0:
+                    weightlist.append(100)
                 else:
-                    currentidx += 1
+                    weightlist.append(1)
+            return random.choices(newlist, weights= weightlist, k=1)[0]
+        else:
+            weightlist = [1] * len(directionList)
+            return random.choices(directionList, weights= weightlist, k=1)[0]
+            
+
+
 
     def connect(self, otherNode):
         self.direction = self.findDirection(otherNode) #Find side to add on to
+        if self.direction == 4 and otherNode.chainedto0:
+            self.chainedto0 = True
         #print("\nThis direction: ", self.direction)
         otherNode.connections[self.direction] = 1 #update previous node connection directions
         print("\nNode ID: ", self.ID)
