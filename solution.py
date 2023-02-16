@@ -113,7 +113,7 @@ class SOLUTION:
         jointDir = ["1 0 0", "0 1 0", "0 0 1"]
         #print("The Sensors: ", self.sensorTrue, "\n")
 
-        pyrosim.Start_URDF("body.urdf")
+        pyrosim.Start_URDF("body" + str(self.myID) + ".urdf")
         #Create connecting blocks
         
         for node in self.nodeList:
@@ -198,18 +198,18 @@ class SOLUTION:
 
     def Create_Brain(self):  
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
-        """
+        
         sensorCount = 0
         motorCount = self.numSensorNeurons
-        for i in range(self.blockNum):
-            if self.sensorTrue[i]:
-                pyrosim.Send_Sensor_Neuron(name = sensorCount, linkName = str(i))
+        for node in self.nodeList:
+            if node.isSensor:
+                pyrosim.Send_Sensor_Neuron(name = sensorCount, linkName = str(node.ID))
                 sensorCount +=1
-            if i < self.blockNum - 1:
-                pyrosim.Send_Motor_Neuron(name = motorCount, jointName= str(i)+"_"+str(i+1))
+            if node.ID != 0:
+                pyrosim.Send_Motor_Neuron(name = motorCount, jointName= str(node.previousNode.ID)+"_"+str(node.ID))
                 motorCount += 1
 
-       
+        """
         
         for currentRow in range(self.numSensorNeurons):
             for currentColumn in range(self.numMotorNeurons):
