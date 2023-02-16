@@ -8,8 +8,11 @@ class NODE:
         self.full = False
         self.ID = ID
         self.chainedto0 = False
+        self.lastChain = False
         if self.ID == 0:
             self.chainedto0 = True
+            self.lastChain = True
+        
         #These connections are an array that corresponds to directions [x, y, z, -x, -y, -z]
         self.connections = np.zeros(6)
         #Create the block properties:
@@ -49,6 +52,8 @@ class NODE:
         self.direction = self.findDirection(otherNode) #Find side to add on to
         if self.direction == 4 and otherNode.chainedto0:
             self.chainedto0 = True
+            self.lastChain = True
+            otherNode.lastChain = False
         #print("\nThis direction: ", self.direction)
         otherNode.connections[self.direction] = 1 #update previous node connection directions
         print("\nNode ID: ", self.ID)

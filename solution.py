@@ -12,12 +12,14 @@ class SOLUTION:
         self.sensorTrue = numpy.random.randint(0, 2, size=self.blockNum)
         self.numSensorNeurons = 0
         self.nodeList = list(range(self.blockNum))
+        self.ID_node = {}
         #Add nodes to the nodeList
         for i in range(self.blockNum):
             currentNode = NODE(i)
             if currentNode.isSensor == 1:
                 self.numSensorNeurons += 1
             self.nodeList[i] = currentNode
+            self.ID_node[i] = currentNode
         if self.numSensorNeurons == 0:
             oneSensor = random.randint(0, self.blockNum - 1)
             sensorNode = self.nodeList[oneSensor]
@@ -72,8 +74,14 @@ class SOLUTION:
     #Decide which node to connect to based on the available options
     def connect_TO(self):
         numOptions = len(self.availableBlocks)
-        idxChosen = random.randint(0, numOptions - 1)
-        nodeIDtoConnect = self.availableBlocks[idxChosen]
+        optionList = list(range(numOptions))
+        weightlist = []
+        for i in range(numOptions):
+            if self.ID_node[self.availableBlocks[i]].lastChain:
+                weightlist.append(100)
+            else:
+                weightlist.append(1)
+        nodeIDtoConnect = random.choices(optionList, weights=weightlist, k=1)[0]
         return nodeIDtoConnect
 
     #Call node.connect on each node after the first one
