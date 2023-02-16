@@ -89,7 +89,7 @@ class SOLUTION:
 
     def Create_Body(self):
         #Generate Robot
-        zdiff = c.maxdim/2
+        zdiff = c.zdiff
         
         jointDir = ["1 0 0", "0 1 0", "0 0 1"]
         #print("The Sensors: ", self.sensorTrue, "\n")
@@ -97,13 +97,11 @@ class SOLUTION:
         pyrosim.Start_URDF("body.urdf")
         #Create connecting blocks
         
-        for i in range(self.blockNum):
-            xsize = random.uniform(c.mindim, c.maxdim)
-            ysize = random.uniform(c.mindim, c.maxdim)
-            zsize = random.uniform(c.mindim, c.maxdim)
-            if i == 0:
+        for node in self.nodeList:
+            if node.ID == 0:
                 blockpos = [0, 0, zdiff]
             else:
+
                 blockpos = [0, -ysize/2, 0]
             pyrosim.Send_Cube(name= str(i), pos=blockpos , size=[xsize, ysize , zsize], color = self.Determine_Color(i))
 
