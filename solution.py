@@ -80,7 +80,8 @@ class SOLUTION:
     def Add_Connections(self):
         for node in self.nodeList:
             if node.ID != 0:
-                nodeToConnect = self.nodeList(self.connect_TO())
+                nodeToConnect = self.nodeList[self.connect_TO()]
+                #print("\nNode to Connect: ", nodeToConnect)
                 node.connect(nodeToConnect)
                 self.availableBlocks.append(node.ID)
                 if nodeToConnect.full:
