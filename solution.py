@@ -4,19 +4,29 @@ import os
 import random
 import time
 import constants as c
+from node import NODE 
 
 class SOLUTION:
     def __init__(self, nextAvailableID):
         self.blockNum = random.randint(c.minlen, c.maxlen)
         self.sensorTrue = numpy.random.randint(0, 2, size=self.blockNum)
-        self.numSensorNeurons = numpy.sum(self.sensorTrue)
+        self.numSensorNeurons = 0
+        self.nodeList = list(range(self.blockNum))
+        #Add nodes to the nodeList
+        for i in range(self.blockNum):
+            currentNode = NODE(i)
+            if currentNode.isSensor == 1:
+                self.numSensorNeurons += 1
+            self.nodeList[i] = currentNode
         if self.numSensorNeurons == 0:
             oneSensor = random.randint(0, self.blockNum - 1)
-            self.sensorTrue[oneSensor] = 1
+            sensorNode = self.nodeList[oneSensor]
+            sensorNode.isSensor = 1
             self.numSensorNeurons = 1
         self.numMotorNeurons = self.blockNum - 1
         self.weights = (numpy.random.rand(self.numSensorNeurons,self.numMotorNeurons) *2) - 1
         self.myID = nextAvailableID
+        self.availableBlocks = self.nodeList.copy() #create a list of the available blocks
 
 
     def Set_ID(self, ID):
@@ -103,7 +113,7 @@ class SOLUTION:
 
     def Create_Brain(self):  
         pyrosim.Start_NeuralNetwork("brain" + str(self.myID) + ".nndf")
-        
+        """
         sensorCount = 0
         motorCount = self.numSensorNeurons
         for i in range(self.blockNum):
@@ -120,7 +130,7 @@ class SOLUTION:
             for currentColumn in range(self.numMotorNeurons):
                 pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+self.numSensorNeurons, 
                     weight= self.weights[currentRow][currentColumn])
-        
+        """
         #pyrosim.Send_Sensor_Neuron(name = 5, linkName= "RightLower")
         
 
