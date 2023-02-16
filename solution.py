@@ -104,6 +104,8 @@ class SOLUTION:
         
         return prevJoint
     def Create_Body(self):
+        #Create the connections:
+        self.Add_Connections()
         #Generate Robot
         zdiff = c.zdiff
         
