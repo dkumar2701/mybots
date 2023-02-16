@@ -35,9 +35,10 @@ class NODE:
             directionList.remove(4)
             weightlist = []
             newlist = newlist + directionList
+            #Prefer to attach in the -y direction
             for i in range(len(newlist)):
                 if i == 0:
-                    weightlist.append(100)
+                    weightlist.append(1)
                 else:
                     weightlist.append(1)
             return random.choices(newlist, weights= weightlist, k=1)[0]

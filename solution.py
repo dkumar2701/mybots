@@ -76,6 +76,7 @@ class SOLUTION:
         numOptions = len(self.availableBlocks)
         optionList = list(range(numOptions))
         weightlist = []
+        #Prefer to add to the last chained block (when node prefers any direction, this becomes the root block)
         for i in range(numOptions):
             if self.ID_node[self.availableBlocks[i]].lastChain:
                 weightlist.append(100)
