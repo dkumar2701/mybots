@@ -13,7 +13,9 @@ class NODE:
         self.xsize = random.uniform(c.mindim, c.maxdim)
         self.ysize = random.uniform(c.mindim, c.maxdim)
         self.zsize = random.uniform(c.mindim, c.maxdim)
+        self.jointPos = [0, 0, 0]
         self.isSensor = random.randint(0,1) #50% chance block is a sensor
+        
 
 
     def findDirection(self, otherNode):
@@ -27,9 +29,9 @@ class NODE:
                     currentidx += 1
 
     def connect(self, otherNode):
-        self.Othersdirection = self.findDirection(self, otherNode) #Find side to add on to
-        otherNode.connections[self.Othersdirection] = 1 #update previous node connection directions
-        thisNodeDirection = (self.Othersdirection + 3) % 6
+        self.direction = self.findDirection(self, otherNode) #Find side to add on to
+        otherNode.connections[self.direction] = 1 #update previous node connection directions
+        thisNodeDirection = (self.direction + 3) % 6
         self.connections[thisNodeDirection] = 1 #update this node's connection direction in opposite dir
         self.previousNode = otherNode
         otherNode.numConnections += 1 #Check if the otherNode is a full block

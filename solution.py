@@ -86,7 +86,23 @@ class SOLUTION:
                 if nodeToConnect.full:
                     self.availableBlocks.remove(nodeToConnect.ID)
 
-
+    def blockMiddle(self, node):
+        prevJoint = node.previousNode.jointPos
+        prevDirection = node.previousNode.direction
+        if prevDirection == 0: #add prevNode's xsize/2
+            prevJoint[0] = prevJoint[0] + node.previousNode.xsize/2
+        elif prevDirection == 1: #add prevNode's ysize/2
+            prevJoint[1] = prevJoint[1] + node.previousNode.ysize/2
+        elif prevDirection == 2: #add prevNode's zsize/2
+            prevJoint[2] = prevJoint[2] + node.previousNode.zsize/2
+        elif prevDirection == 3: #add prevNode's -xsize/2
+            prevJoint[0] = prevJoint[0] - node.previousNode.xsize/2
+        elif prevDirection == 4: #add prevNode's -ysize/2
+            prevJoint[1] = prevJoint[1] - node.previousNode.ysize/2
+        elif prevDirection == 5: #add prevNode's -zsize/2
+            prevJoint[2] = prevJoint[2] - node.previousNode.zsize/2
+        
+        return prevJoint
     def Create_Body(self):
         #Generate Robot
         zdiff = c.zdiff
@@ -103,31 +119,70 @@ class SOLUTION:
             else:
                 if node.direction == 0:
                     blockpos = [node.xsize/2, 0, 0]
+                    if node.previousNode.ID == 0:
+                        node.jointPos = [node.previousNode.xsize/2, 0, zdiff]
+                    else:
+                        blockprevMiddle = self.blockMiddle(node)
+                        blockprevMiddle[0] = blockprevMiddle[0] + node.previousNode.xsize/2
+                        node.jointPos = blockprevMiddle
                 elif node.direction == 1:
                     blockpos = [0, node.ysize/2, 0]
+                    if node.previousNode.ID == 0:
+                        node.jointPos = [0, node.previousNode.ysize/2, zdiff]
+                    else:
+                        blockprevMiddle = self.blockMiddle(node)
+                        blockprevMiddle[1] = blockprevMiddle[1] + node.previousNode.ysize/2
+                        node.jointPos = blockprevMiddle
                 elif node.direction == 2:
                     blockpos = [0, 0, node.zsize/2]
+                    if node.previousNode.ID == 0:
+                        node.jointPos = [0, 0, zdiff + node.previousNode.zsize/2]
+                    else:
+                        blockprevMiddle = self.blockMiddle(node)
+                        blockprevMiddle[2] = blockprevMiddle[2] + node.previousNode.zsize/2
+                        node.jointPos = blockprevMiddle
                 elif node.direction == 3:
                     blockpos = [-node.xsize/2, 0, 0]
+                    if node.previousNode.ID == 0:
+                        node.jointPos = [-node.previousNode.xsize/2, 0, zdiff]
+                    else:
+                        blockprevMiddle = self.blockMiddle(node)
+                        blockprevMiddle[0] = blockprevMiddle[0] - node.previousNode.xsize/2
+                        node.jointPos = blockprevMiddle
                 elif node.direction == 4:
                     blockpos = [0, -node.ysize/2, 0]
+                    if node.previousNode.ID == 0:
+                        node.jointPos = [0, -node.previousNode.ysize/2, zdiff]
+                    else:
+                        blockprevMiddle = self.blockMiddle(node)
+                        blockprevMiddle[1] = blockprevMiddle[1] - node.previousNode.ysize/2
+                        node.jointPos = blockprevMiddle
                 elif node.direction == 5:
                     blockpos = [0, 0, -node.zsize/2]
+                    if node.previousNode.ID == 0:
+                        node.jointPos = [0, 0, zdiff - node.previousNode.zsize/2]
+                    else:
+                        blockprevMiddle = self.blockMiddle(node)
+                        blockprevMiddle[2] = blockprevMiddle[2] - node.previousNode.zsize/2
+                        node.jointPos = blockprevMiddle
+                pyrosim.Send_Joint(name = str(node.previousNode.ID) + "_" + str(node.ID),
+                                    parent= str(node.previousNode.ID), child= str(node.ID),
+                                    type= "revolute", position= node.jointPos, jointAxis= jointDir[thisAxisidx])
             pyrosim.Send_Cube(name= str(node.ID), pos=blockpos , size=[node.xsize, node.ysize , node.zsize], color = self.Determine_Color(node))
 
             #lastSize = [xsize, ysize, zsize]
                 
-            
+            """
             #Create joints if we are not in the last block (all revolute and X axis)
-            if node.id < self.blockNum-1:
+            if node.ID < self.blockNum-1:
                 thisAxisidx = random.randint(0,2)
-                if i==0:
+                if node.ID==0:
                     jointPos = [0, -ysize/2, zdiff]
                 else:
                     jointPos = [0, -ysize, 0]
                 pyrosim.Send_Joint(name = str(i) + "_" + str(i+1), parent= str(i), child= str(i+1),
                                        type="revolute", position= jointPos, jointAxis= jointDir[thisAxisidx])
-                    
+            """      
         
 
           
