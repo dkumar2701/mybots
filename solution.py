@@ -165,6 +165,7 @@ class SOLUTION:
                         blockprevMiddle = self.blockMiddle(node)
                         blockprevMiddle[2] = blockprevMiddle[2] - node.previousNode.zsize/2
                         node.jointPos = blockprevMiddle
+                thisAxisidx = random.randint(0,2)
                 pyrosim.Send_Joint(name = str(node.previousNode.ID) + "_" + str(node.ID),
                                     parent= str(node.previousNode.ID), child= str(node.ID),
                                     type= "revolute", position= node.jointPos, jointAxis= jointDir[thisAxisidx])
