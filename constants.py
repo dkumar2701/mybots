@@ -10,8 +10,8 @@ maxlen = 6
 zdiff = 3
 
 #Constants for preferring last chain and preference of direction
-preferLastChain = 100
-preferattachY = 100
+preferLastChain = 10
+preferattachY = 5
 
 numberOfGenerations = 0
 populationSize = 1
