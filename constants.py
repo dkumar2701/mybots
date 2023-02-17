@@ -11,7 +11,7 @@ zdiff = 3
 
 #Constants for preferring last chain and preference of direction
 preferLastChain = 100
-preferattachY = 1
+preferattachY = 100
 
 numberOfGenerations = 0
 populationSize = 1
