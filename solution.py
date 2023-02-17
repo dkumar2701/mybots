@@ -79,7 +79,7 @@ class SOLUTION:
         #Prefer to add to the last chained block (when node prefers any direction, this becomes the root block)
         for i in range(numOptions):
             if self.ID_node[self.availableBlocks[i]].lastChain:
-                weightlist.append(100)
+                weightlist.append(c.preferLastChain)
             else:
                 weightlist.append(1)
         nodeIDtoConnect = random.choices(optionList, weights=weightlist, k=1)[0]

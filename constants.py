@@ -9,6 +9,10 @@ maxlen = 6
 
 zdiff = 3
 
+#Constants for preferring last chain and preference of direction
+preferLastChain = 100
+preferattachY = 1
+
 numberOfGenerations = 0
 populationSize = 1
 numSensorNeurons = 5

@@ -38,7 +38,7 @@ class NODE:
             #Prefer to attach in the -y direction
             for i in range(len(newlist)):
                 if i == 0:
-                    weightlist.append(1)
+                    weightlist.append(c.preferattachY)
                 else:
                     weightlist.append(1)
             return random.choices(newlist, weights= weightlist, k=1)[0]
