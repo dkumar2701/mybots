@@ -20,7 +20,9 @@ class NODE:
         self.ysize = random.uniform(c.mindim, c.maxdim - (self.ID/6))
         self.zsize = random.uniform(c.mindim, c.maxdim - (self.ID/6))
         self.jointPos = [0, 0, 0]
-        self.isSensor = random.randint(0,1) #50% chance block is a sensor
+        sensorChoices = [0, 1]
+        sensorweights = [1,2]
+        self.isSensor = random.choices(sensorChoices, weights=sensorweights, k=1)[0] #2/3 chance block is a sensor
         
 
 
@@ -64,7 +66,7 @@ class NODE:
         self.numConnections += 1
         self.previousNode = otherNode
         otherNode.numConnections += 1 #Check if the otherNode is a full block
-        if otherNode.numConnections == 6:
+        if otherNode.numConnections == 4:
             otherNode.full = True
         
 
