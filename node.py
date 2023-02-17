@@ -16,9 +16,9 @@ class NODE:
         #These connections are an array that corresponds to directions [x, y, z, -x, -y, -z]
         self.connections = np.zeros(6)
         #Create the block properties:
-        self.xsize = random.uniform(c.mindim, c.maxdim)
-        self.ysize = random.uniform(c.mindim, c.maxdim)
-        self.zsize = random.uniform(c.mindim, c.maxdim)
+        self.xsize = random.uniform(c.mindim, c.maxdim - (self.ID/6))
+        self.ysize = random.uniform(c.mindim, c.maxdim - (self.ID/6))
+        self.zsize = random.uniform(c.mindim, c.maxdim - (self.ID/6))
         self.jointPos = [0, 0, 0]
         self.isSensor = random.randint(0,1) #50% chance block is a sensor
         

@@ -4,8 +4,8 @@ import numpy
 maxdim = 1
 mindim = 0.25
 
-minlen = 2
-maxlen = 6
+minlen = 3
+maxlen = 7
 
 zdiff = 3
 
