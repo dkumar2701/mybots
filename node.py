@@ -16,9 +16,13 @@ class NODE:
         #These connections are an array that corresponds to directions [x, y, z, -x, -y, -z]
         self.connections = np.zeros(6)
         #Create the block properties:
-        self.xsize = random.uniform(c.mindim, c.maxdim - (self.ID/6))
-        self.ysize = random.uniform(c.mindim, c.maxdim - (self.ID/6))
-        self.zsize = random.uniform(c.mindim, c.maxdim - (self.ID/6))
+        if random.randint(0,1) == 1:
+            subtractval = 0
+        else: 
+            subtractval = self.ID/6
+        self.xsize = random.uniform(c.mindim, c.maxdim - subtractval)
+        self.ysize = random.uniform(c.mindim, c.maxdim - subtractval)
+        self.zsize = random.uniform(c.mindim, c.maxdim - subtractval)
         self.jointPos = [0, 0, 0]
         sensorChoices = [0, 1]
         sensorweights = [1,2]
