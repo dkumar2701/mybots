@@ -5,13 +5,13 @@ maxdim = 1
 mindim = 0.25
 
 minlen = 3
-maxlen = 7
+maxlen = 10
 
 zdiff = 3
 
 #Constants for preferring last chain and preference of direction
 preferLastChain = 2
-preferattachY = 4
+preferattachY = 3
 
 numberOfGenerations = 0
 populationSize = 1

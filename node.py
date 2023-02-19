@@ -63,7 +63,7 @@ class NODE:
             otherNode.lastChain = False
         #print("\nThis direction: ", self.direction)
         otherNode.connections[self.direction] = 1 #update previous node connection directions
-        print("\nNode ID: ", self.ID)
+        #print("\nNode ID: ", self.ID)
         #print("\nDirection: ", self.direction + 6)
         thisNodeDirection = (self.direction + 3) % 6
         self.connections[thisNodeDirection] = 1 #update this node's connection direction in opposite dir
