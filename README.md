@@ -6,7 +6,9 @@ Run the _runRandomBody.py_ file. This creates a new solution class of ID 0 (a ra
 My code is primarily in the solution.py and node.py files, and correspond to the SOLUTION class (which creates a random robot) and the NODE class (which creates a random link, this readme will use NODE and link interchangeably). Code for the rest of the files was completed following the ludobots tutorials at www.reddit.com/r/ludobots. 
 
 Below is a diagram showing conceptually how these brains and bodies are connected:
+![Long image 02-20-2023 17 31](https://user-images.githubusercontent.com/68355843/220213085-07b2da2f-8ddd-428a-8910-ea943626556f.jpg)
 
+All joints have motor neurons and every sensor neuron is synapsed to all motor neurons.
 
 Each NODE object has the following attributes:
 - numConnections = the number of other links attached to this NODE object.
