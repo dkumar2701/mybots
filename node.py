@@ -19,7 +19,7 @@ class NODE:
         if random.randint(0,1) == 1:
             subtractval = 0
         else: 
-            subtractval = self.ID/6
+            subtractval = self.ID/10
         self.xsize = random.uniform(c.mindim, c.maxdim - subtractval)
         self.ysize = random.uniform(c.mindim, c.maxdim - subtractval)
         self.zsize = random.uniform(c.mindim, c.maxdim - subtractval)
