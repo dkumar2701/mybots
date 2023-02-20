@@ -1,9 +1,16 @@
-# Assignment 6
-
-My code is built on the evolution code from previous assignments and thus running search.py will still print out a fitness based on the current fitness function, which can be ignored for this assignment. Running search.py will generate a random jointed, motorized, innervated, sensorized snake with a length between 2 and 6 blocks. Each block has random dimensions, each of which may be between 0.25 and 1. Additionally, each block has a 50% chance of being a sensor, in which case its color will be green rather than the standard blue. Each robot has at least 1 sensor. Each sensor neuron is connected to a motor neuron by a synapse. The axis of each joint is also randomly chosen between the x, y, and z direction. Snakes are created at a height tall enough for the maximum dimension of a block, thus preventing clipping into the ground.
+# Assignment 7
 
 TO RUN THE CODE:
+Run the _runRandomBody.py_ file. This creates a new solution class of ID 0 (a random robot) and plays a simulation for this robot. This assignment does not include evolution, so each time this file is run, a new random robot is created
 
-To see random snakes, run search.py multiple times. 
+My code is primarily in the solution.py and node.py files, and correspond to the SOLUTION class (which creates a random robot) and the NODE class (which creates a random link, this readme will use NODE and link interchangeably). Code for the rest of the files was completed following the ludobots tutorials at www.reddit.com/r/ludobots. 
 
-The current settings are 0 generations with a population size of 1. Because this is still build on the evolution code, running search.py will create two simulations, each with a randomly generated snake. The current code makes the first and second snake only differ by block dimensions, so to create fully random snakes, run search.py again and ignore the second simulation that appears.
+Each NODE object has the following parameters:
+- numConnections = the number of other links attached to this NODE object.
+- full = boolean identifying if this node is "full" of links and thus no other links may be attached. A node is "full" if numConnections == 4
+- ID = an ID for this node object
+- chainedto0 = boolean identifying if this node is part of the chain from the first node in the -y direction.
+- lastChain = boolean identifying if this node is the last of its chain. This and chainedto0 are used to weight the robot creation into having a more elongated shape.
+- 
+
+
