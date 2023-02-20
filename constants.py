@@ -5,19 +5,19 @@ maxdim = 1
 mindim = 0.25
 
 minlen = 3
-maxlen = 10
+maxlen = 7
 
 zdiff = 3
 
 #Constants for preferring last chain and preference of direction
 preferLastChain = 2
-preferattachY = 3
+preferattachY = 4
 
 numberOfGenerations = 0
 populationSize = 1
 numSensorNeurons = 5
 numMotorNeurons = 11
-motorJointRange = 1
+motorJointRange = 0.75
 totalStep = 2500
 verticalWeight = 2
 airTimeWeight = 10
