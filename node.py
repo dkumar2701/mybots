@@ -70,7 +70,7 @@ class NODE:
         self.numConnections += 1
         self.previousNode = otherNode
         otherNode.numConnections += 1 #Check if the otherNode is a full block
-        if otherNode.numConnections == 4:
+        if otherNode.numConnections == 3:
             otherNode.full = True
         
 
