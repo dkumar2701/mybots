@@ -4,10 +4,10 @@ import numpy
 maxdim = 1
 mindim = 0.25
 
-minlen = 7
+minlen = 3
 maxlen = 7
 
-zdiff = 3
+zdiff = 2
 
 #Constants for preferring last chain and preference of direction
 preferLastChain = 2
