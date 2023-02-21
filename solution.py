@@ -96,6 +96,8 @@ class SOLUTION:
                 self.availableBlocks.append(node.ID)
                 if nodeToConnect.full:
                     self.availableBlocks.remove(nodeToConnect.ID)
+                if len(self.availableBlocks) == 5: 
+                    self.availableBlocks.pop(0)
 
     def blockMiddle(self, node):
         blockMiddle = [0, 0, 0]

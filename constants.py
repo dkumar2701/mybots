@@ -11,13 +11,13 @@ zdiff = 2
 
 #Constants for preferring last chain and preference of direction
 preferLastChain = 3
-preferattachY = 6
+preferattachY = 2
 
 numberOfGenerations = 0
 populationSize = 1
 numSensorNeurons = 5
 numMotorNeurons = 11
-motorJointRange = 0.75
+motorJointRange = 0.5
 totalStep = 2500
 verticalWeight = 2
 airTimeWeight = 10
