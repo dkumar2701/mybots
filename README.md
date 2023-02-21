@@ -1,7 +1,7 @@
 # Assignment 7
 
 TO RUN THE CODE:
-Run the _runRandomBody.py_ file. This creates a new solution class of ID 0 (a random robot) and plays a simulation for this robot. This assignment does not include evolution, so each time this file is run, a new random robot is created
+Run the _runRandomBody.py_ file. This creates a new solution class of ID 0 (a random robot) and plays a simulation for this robot. This assignment does not include evolution, so each time this file is run, a new random robot is created. The "preferLastChain" and "preferLastY" constants in constants.py can be changed to make the robot more or less snake-like.
 
 My code is primarily in the solution.py and node.py files, and correspond to the SOLUTION class (which creates a random robot) and the NODE class (which creates a random link, this readme will use NODE and link interchangeably). Code for the rest of the files was completed following the ludobots tutorials at www.reddit.com/r/ludobots and pyrosim was used for robot simulations. 
 
