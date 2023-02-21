@@ -12,7 +12,7 @@ All joints have motor neurons and every sensor neuron is synapsed to all motor n
 
 Each NODE object has the following attributes:
 - numConnections = the number of other links attached to this NODE object.
-- full = boolean identifying if this node is "full" of links and thus no other links may be attached. A node is "full" if numConnections == 4
+- full = boolean identifying if this node is "full" of links and thus no other links may be attached. A node is "full" if numConnections == 3
 - ID = an ID for this node object
 - chainedto0 = boolean identifying if this node is part of the chain from the first node in the -y direction.
 - lastChain = boolean identifying if this node is the last of its chain. This and chainedto0 are used to weight the robot creation into having a more elongated shape.
