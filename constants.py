@@ -4,14 +4,14 @@ import numpy
 maxdim = 1
 mindim = 0.25
 
-minlen = 3
+minlen = 4
 maxlen = 7
 
 zdiff = 2
 
 #Constants for preferring last chain and preference of direction
-preferLastChain = 2
-preferattachY = 5
+preferLastChain = 3
+preferattachY = 6
 
 numberOfGenerations = 0
 populationSize = 1
