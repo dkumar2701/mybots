@@ -124,11 +124,13 @@ class PARALLEL_HILL_CLIMBER:
         x = np.arange(c.numberOfGenerations + 1)
         y = self.bestEachGen
         #plotting
+        """
         plt.title("Best Fitness of Each Generation")
         plt.xlabel("Generation Number")
         plt.ylabel("Fitness")
         plt.plot(x, y, color = "green")
         plt.show()
+        """
         
 
     def TotalFitnesstxt(self):
