@@ -89,7 +89,7 @@ class ROBOT:
         #print("Zposns: ", self.zPositions, "\n")
         
         
-        fitness = self.yPositions[c.totalStep -1] - self.yPositions[0]
+        fitness = self.yPositions[c.totalStep -1] - self.yPositions[50]
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(fitness))
         f.close()
