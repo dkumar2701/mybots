@@ -14,6 +14,7 @@ class PARALLEL_HILL_CLIMBER:
         self.parents = {}
         self.nextAvailableID = 0
         self.fitnessArray = np.zeros((c.numberOfGenerations+1, c.populationSize))
+        self.bestEachGen = np.zeros((c.numberOfGenerations+1))
         for i in range (c.populationSize):
             self.parents[i] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
@@ -104,13 +105,22 @@ class PARALLEL_HILL_CLIMBER:
                 best_fitness_idx = i
         self.bestLast_fitness = best_fitness
         self.TotalFitnesstxt()
+        self.plotTheBest()
         print("\nFIRST FITNESS: ", self.bestFirst_fitness.fitness, "\n")
         self.bestFirst_fitness.Start_Simulation("GUI")
         self.bestFirst_fitness.Wait_For_Simulation_To_End()
         print("\n BEST FITNESS: ", self.bestLast_fitness.fitness, "\n")
         self.bestLast_fitness.Start_Simulation("GUI")
+        self.bestLast_fitness.Wait_For_Simulation_To_End()
         
-    
+
+    def plotTheBest(self):
+        for i in range(c.numberOfGenerations + 1):
+            self.bestEachGen[i] = np.max(self.fitnessArray[i])
+        bestFile = open('BestEachGen.txt', 'w')
+        bestFile.write(str(self.bestEachGen))
+        bestFile.close()
+
     def TotalFitnesstxt(self):
         myFile = open('TotalFitnessArray.txt', 'w')
         myFile.write(str(self.fitnessArray))
