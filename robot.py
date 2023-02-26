@@ -11,7 +11,7 @@ class ROBOT:
     def __init__(self, solutionID):
         self.robotID = p.loadURDF("body" + solutionID + ".urdf")
         self.nn = NEURAL_NETWORK("brain" + solutionID + ".nndf")
-        os.system("del brain" + solutionID + ".nndf")
+        #os.system("del brain" + solutionID + ".nndf")
         
         
         
