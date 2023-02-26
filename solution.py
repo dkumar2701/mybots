@@ -77,6 +77,14 @@ class SOLUTION:
             self.numSensorNeurons += 1
             newrow = (numpy.random.rand(1, self.numMotorNeurons) *2) -1
             self.weights = numpy.vstack((self.weights, newrow))
+        #add connections
+        newNodetoConnect = self.nodeList[self.connect_TO()]
+        newNode.connect(newNodetoConnect)
+        self.availableBlocks.append(newNode.ID)
+        if newNodetoConnect.full:
+            self.availableBlocks.remove(newNodetoConnect.ID)
+        if len(self.availableBlocks == 5):
+            self.availableBlocks.pop(0)
 
 
 
