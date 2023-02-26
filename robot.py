@@ -20,6 +20,7 @@ class ROBOT:
         self.zPositions = np.zeros(c.totalStep)
         
         for linkName in pyrosim.linkNamesToIndices:
+            print("Linkname: " + linkName + "\n")
             self.sensors[linkName] = SENSOR(linkName)
 
     def Sense(self, t):
@@ -31,6 +32,7 @@ class ROBOT:
 
 
     def Think(self):
+        #print("Thinking \n")
         self.nn.Update()
         #self.nn.Print()
        

@@ -20,8 +20,10 @@ class SIMULATION:
         pyrosim.Prepare_To_Simulate(self.robot.robotID)
         self.robot.Prepare_To_Sense()
         self.robot.Prepare_To_Act()
+        print("RAN INIT" + str(solutionID))
 
     def Run(self):
+        print("Running RUN"+ str(self.robot.robotID))
         for i in range(c.totalStep):
             #print(i)
             
