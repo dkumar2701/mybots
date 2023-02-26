@@ -18,7 +18,7 @@ class ROBOT:
         
     def Prepare_To_Sense(self):
         self.sensors = {}
-        self.zPositions = np.zeros(c.totalStep)
+        self.yPositions = np.zeros(c.totalStep)
         
         for linkName in pyrosim.linkNamesToIndices:
             #print("Linkname: " + linkName + "\n")
@@ -29,7 +29,7 @@ class ROBOT:
             sensor.Get_Value(t)
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotID)
         basePosition = basePositionAndOrientation[0]
-        self.zPositions[t] = basePosition[2]
+        self.yPositions[t] = basePosition[1]
 
 
     def Think(self):
@@ -87,9 +87,9 @@ class ROBOT:
         #print("Airtime: ", airTime, "\n")
         #print(xCoordinateOfLinkZero)
         #print("Zposns: ", self.zPositions, "\n")
-        maxZ = np.max(self.zPositions)
         
-        fitness = xPosition
+        
+        fitness = self.yPositions[c.totalStep -1] - self.yPositions[0]
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(fitness))
         f.close()
