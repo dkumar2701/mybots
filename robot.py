@@ -21,7 +21,7 @@ class ROBOT:
         self.zPositions = np.zeros(c.totalStep)
         
         for linkName in pyrosim.linkNamesToIndices:
-            print("Linkname: " + linkName + "\n")
+            #print("Linkname: " + linkName + "\n")
             self.sensors[linkName] = SENSOR(linkName)
 
     def Sense(self, t):

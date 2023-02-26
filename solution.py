@@ -9,7 +9,8 @@ from node import NODE
 class SOLUTION:
     def __init__(self, nextAvailableID):
         self.blockNum = random.randint(c.minlen, c.maxlen)
-        print("Number of nodes: ", self.blockNum, "\n")
+        if(nextAvailableID < c.populationSize):
+            print("Number of nodes", str(nextAvailableID), ": ", self.blockNum, "\n")
         self.sensorTrue = numpy.random.randint(0, 2, size=self.blockNum)
         self.numSensorNeurons = 0
         self.nodeList = list(range(self.blockNum))
