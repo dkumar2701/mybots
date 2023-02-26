@@ -97,7 +97,7 @@ class PARALLEL_HILL_CLIMBER:
             for i in range(c.populationSize):
                 solutions[i].Wait_For_Simulation_To_End()
 
-    def Show_Best(self):
+    def Show_Best(self, show = True):
         best_fitness_idx = 0
         best_fitness = self.parents[0]
         for i in range(1, c.populationSize):
@@ -106,16 +106,17 @@ class PARALLEL_HILL_CLIMBER:
                 best_fitness_idx = i
         self.bestLast_fitness = best_fitness
         self.TotalFitnesstxt()
-        self.plotTheBest()
-        print("\nFIRST FITNESS: ", self.bestFirst_fitness.fitness, "\n")
-        self.bestFirst_fitness.Start_Simulation("GUI")
-        self.bestFirst_fitness.Wait_For_Simulation_To_End()
-        print("\n BEST FITNESS: ", self.bestLast_fitness.fitness, "\n")
-        self.bestLast_fitness.Start_Simulation("GUI")
-        self.bestLast_fitness.Wait_For_Simulation_To_End()
+        self.plotTheBest(show)
+        if(show):
+            print("\nFIRST FITNESS: ", self.bestFirst_fitness.fitness, "\n")
+            self.bestFirst_fitness.Start_Simulation("GUI")
+            self.bestFirst_fitness.Wait_For_Simulation_To_End()
+            print("\n BEST FITNESS: ", self.bestLast_fitness.fitness, "\n")
+            self.bestLast_fitness.Start_Simulation("GUI")
+            self.bestLast_fitness.Wait_For_Simulation_To_End()
         
 
-    def plotTheBest(self):
+    def plotTheBest(self, show):
         for i in range(c.numberOfGenerations + 1):
             self.bestEachGen[i] = np.max(self.fitnessArray[i])
         bestFile = open('BestEachGen.txt', 'w')
@@ -124,13 +125,13 @@ class PARALLEL_HILL_CLIMBER:
         x = np.arange(c.numberOfGenerations + 1)
         y = self.bestEachGen
         #plotting
-        """
-        plt.title("Best Fitness of Each Generation")
-        plt.xlabel("Generation Number")
-        plt.ylabel("Fitness")
-        plt.plot(x, y, color = "green")
-        plt.show()
-        """
+        if (show):
+            plt.title("Best Fitness of Each Generation")
+            plt.xlabel("Generation Number")
+            plt.ylabel("Fitness")
+            plt.plot(x, y, color = "green")
+            plt.show()
+       
         
 
     def TotalFitnesstxt(self):
