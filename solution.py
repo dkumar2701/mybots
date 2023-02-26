@@ -83,8 +83,9 @@ class SOLUTION:
         self.availableBlocks.append(newNode.ID)
         if newNodetoConnect.full:
             self.availableBlocks.remove(newNodetoConnect.ID)
-        if len(self.availableBlocks == 5):
+        if len(self.availableBlocks) ==5:
             self.availableBlocks.pop(0)
+        self.blockNum +=1
 
 
 
