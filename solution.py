@@ -181,10 +181,10 @@ class SOLUTION:
                         blockprevMiddle[2] = blockprevMiddle[2] - node.previousNode.zsize/2
                         node.jointPos = blockprevMiddle
                 thisAxisidx = random.randint(0,2)
-                pyrosim.Send_Joint(name = str(node.previousNode.ID) + "_" + str(node.ID),
-                                    parent= str(node.previousNode.ID), child= str(node.ID),
+                pyrosim.Send_Joint(name = "Node"+ str(node.previousNode.ID) + "_" + "Node" + str(node.ID),
+                                    parent= "Node" + str(node.previousNode.ID), child= "Node" + str(node.ID),
                                     type= "revolute", position= node.jointPos, jointAxis= jointDir[thisAxisidx])
-            pyrosim.Send_Cube(name= str(node.ID), pos=blockpos , size=[node.xsize, node.ysize , node.zsize], color = self.Determine_Color(node))
+            pyrosim.Send_Cube(name= "Node" + str(node.ID), pos=blockpos , size=[node.xsize, node.ysize , node.zsize], color = self.Determine_Color(node))
 
             #lastSize = [xsize, ysize, zsize]
                 
@@ -215,10 +215,10 @@ class SOLUTION:
         motorCount = self.numSensorNeurons
         for node in self.nodeList:
             if node.isSensor:
-                pyrosim.Send_Sensor_Neuron(name = sensorCount, linkName = str(node.ID))
+                pyrosim.Send_Sensor_Neuron(name = sensorCount, linkName = "Node" + str(node.ID))
                 sensorCount +=1
             if node.ID != 0:
-                pyrosim.Send_Motor_Neuron(name = motorCount, jointName= str(node.previousNode.ID)+"_"+str(node.ID))
+                pyrosim.Send_Motor_Neuron(name = motorCount, jointName= "Node" + str(node.previousNode.ID)+"_"+ "Node" + str(node.ID))
                 motorCount += 1
 
         
