@@ -12,7 +12,7 @@ class ROBOT:
         self.robotID = p.loadURDF("body" + solutionID + ".urdf")
         self.nn = NEURAL_NETWORK("brain" + solutionID + ".nndf")
         #os.system("del brain" + solutionID + ".nndf")
-        #os.system("del body" + solutionID + ".urdf")
+        os.system("del body" + solutionID + ".urdf")
         
         
         
