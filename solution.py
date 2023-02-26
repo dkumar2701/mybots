@@ -61,6 +61,26 @@ class SOLUTION:
         randomRow = random.randint(0, self.numSensorNeurons -1)
         randomColumn = random.randint(0, self.numMotorNeurons -1)
         self.weights[randomRow, randomColumn] = random.random() *2-1
+        #Add another block
+        self.AddNewNode()
+
+    def AddNewNode(self):
+        #creating new node
+        newNode = NODE(self.blockNum)
+        self.nodeList.append(newNode)
+        self.ID_node[self.blockNum] = newNode
+        self.numMotorNeurons += 1
+        #add new column of size numSensors for the new motor neuron
+        newcol = (numpy.random.rand(self.numSensorNeurons, 1) *2) -1
+        self.weights = numpy.hstack((self.weights, newcol))
+        if (newNode.isSensor):
+            self.numSensorNeurons += 1
+            newrow = (numpy.random.rand(1, self.numMotorNeurons) *2) -1
+            self.weights = numpy.vstack((self.weights, newrow))
+
+
+
+        
 
     def Create_World(self):
         #Generate World
