@@ -3,6 +3,7 @@ import constants as c
 import copy
 import os
 import random
+import numpy as np
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
@@ -12,6 +13,7 @@ class PARALLEL_HILL_CLIMBER:
         os.system("del body*.urdf")
         self.parents = {}
         self.nextAvailableID = 0
+        self.fitnessArray = np.zeros((c.numberOfGenerations+1, c.populationSize))
         for i in range (c.populationSize):
             self.parents[i] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
@@ -37,7 +39,7 @@ class PARALLEL_HILL_CLIMBER:
         
         self.Print(currentGeneration)
         
-        self.Select()
+        self.Select(currentGeneration)
         
             
     def Spawn(self):
@@ -58,16 +60,21 @@ class PARALLEL_HILL_CLIMBER:
         print("CURRENT GENERATION: ", currentGeneration)
         for i in self.parents.keys():  
             print("Parent Fitness_", i, ": ", self.parents[i].fitness, "  Child Fitness_", i, ": ", self.children[i].fitness)
+            self.fitnessArray[currentGeneration, i] = self.parents[i].fitness
+            
         print("\n")
 
 
-    def Select(self):
+
+    def Select(self, currentGeneration):
         for i in self.parents.keys():
 
             if self.parents[i].fitness < self.children[i].fitness:
                 self.parents[i] = self.children[i]
             else:
                 self.parents[i] = self.parents[i]
+            if currentGeneration == c.numberOfGenerations -1:
+                self.fitnessArray[currentGeneration+1, i] = self.parents[i].fitness
         
     def Evaluate(self, solutions, firstbool):
         if firstbool:
@@ -96,9 +103,15 @@ class PARALLEL_HILL_CLIMBER:
                 best_fitness = self.parents[i]
                 best_fitness_idx = i
         self.bestLast_fitness = best_fitness
-        
+        self.TotalFitnesstxt()
         print("\nFIRST FITNESS: ", self.bestFirst_fitness.fitness, "\n")
         self.bestFirst_fitness.Start_Simulation("GUI")
         self.bestFirst_fitness.Wait_For_Simulation_To_End()
         print("\n BEST FITNESS: ", self.bestLast_fitness.fitness, "\n")
         self.bestLast_fitness.Start_Simulation("GUI")
+        
+    
+    def TotalFitnesstxt(self):
+        myFile = open('TotalFitnessArray.txt', 'w')
+        myFile.write(str(self.fitnessArray))
+        myFile.close()
