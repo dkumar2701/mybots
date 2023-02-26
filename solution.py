@@ -30,6 +30,8 @@ class SOLUTION:
         self.weights = (numpy.random.rand(self.numSensorNeurons,self.numMotorNeurons) *2) - 1
         self.myID = nextAvailableID
         self.availableBlocks = list(range(1)) #create a list of the available block IDS
+        #Create the connections:
+        self.Add_Connections()
 
 
     def Set_ID(self, ID):
@@ -117,8 +119,7 @@ class SOLUTION:
         
         return blockMiddle
     def Create_Body(self):
-        #Create the connections:
-        self.Add_Connections()
+        
         #Generate Robot
         zdiff = c.zdiff
         
@@ -181,11 +182,10 @@ class SOLUTION:
                         blockprevMiddle[2] = blockprevMiddle[2] - node.previousNode.zsize/2
                         node.jointPos = blockprevMiddle
                 thisAxisidx = random.randint(0,2)
-                pyrosim.Send_Joint(name = "Node"+ str(node.previousNode.ID) + "ID"+ str(self.myID)
-                                    + "_" + "Node" + str(node.ID) + "ID" + str(self.myID),
-                                    parent= "Node" + str(node.previousNode.ID) + "ID" + str(self.myID), child= "Node" + str(node.ID) + "ID" + str(self.myID),
+                pyrosim.Send_Joint(name = str(node.previousNode.ID) + "_" + str(node.ID),
+                                    parent= str(node.previousNode.ID), child= str(node.ID),
                                     type= "revolute", position= node.jointPos, jointAxis= jointDir[thisAxisidx])
-            pyrosim.Send_Cube(name= "Node" + str(node.ID) + "ID" + str(self.myID), pos=blockpos , size=[node.xsize, node.ysize , node.zsize], color = self.Determine_Color(node))
+            pyrosim.Send_Cube(name= str(node.ID), pos=blockpos , size=[node.xsize, node.ysize , node.zsize], color = self.Determine_Color(node))
 
             #lastSize = [xsize, ysize, zsize]
                 
@@ -216,19 +216,19 @@ class SOLUTION:
         motorCount = self.numSensorNeurons
         for node in self.nodeList:
             if node.isSensor:
-                pyrosim.Send_Sensor_Neuron(name = sensorCount, linkName = "Node" + str(node.ID) + "ID" + str(self.myID))
+                pyrosim.Send_Sensor_Neuron(name = sensorCount, linkName =str(node.ID))
                 sensorCount +=1
             if node.ID != 0:
-                pyrosim.Send_Motor_Neuron(name = motorCount, jointName= "Node" + str(node.previousNode.ID) + "ID" + str(self.myID) +"_"+ "Node" + str(node.ID) + "ID" + str(self.myID))
+                pyrosim.Send_Motor_Neuron(name = motorCount, jointName= str(node.previousNode.ID)+"_"+ str(node.ID))
                 motorCount += 1
 
         
-        """
+        
         for currentRow in range(self.numSensorNeurons):
             for currentColumn in range(self.numMotorNeurons):
                 pyrosim.Send_Synapse( sourceNeuronName= currentRow, targetNeuronName= currentColumn+self.numSensorNeurons, 
                     weight= self.weights[currentRow][currentColumn])
-        """
+        
         #pyrosim.Send_Sensor_Neuron(name = 5, linkName= "RightLower")
         
 
