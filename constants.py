@@ -15,8 +15,8 @@ preferattachY = 2
 
 numberOfGenerations = 2
 populationSize = 2
-numSensorNeurons = 5
-numMotorNeurons = 11
+#numSensorNeurons = 5
+#numMotorNeurons = 11
 motorJointRange = 0.5
 totalStep = 2500
 verticalWeight = 2
