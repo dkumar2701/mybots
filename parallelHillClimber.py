@@ -4,6 +4,7 @@ import copy
 import os
 import random
 import numpy as np
+import matplotlib.pyplot as plt
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
@@ -120,6 +121,15 @@ class PARALLEL_HILL_CLIMBER:
         bestFile = open('BestEachGen.txt', 'w')
         bestFile.write(str(self.bestEachGen))
         bestFile.close()
+        x = np.arange(c.numberOfGenerations + 1)
+        y = self.bestEachGen
+        #plotting
+        plt.title("Best Fitness of Each Generation")
+        plt.xlabel("Generation Number")
+        plt.ylabel("Fitness")
+        plt.plot(x, y, color = "green")
+        plt.show()
+        
 
     def TotalFitnesstxt(self):
         myFile = open('TotalFitnessArray.txt', 'w')
