@@ -7,7 +7,7 @@ import random
 
 searchNum = 5
 bestAcrossSearches = np.zeros((0, c.numberOfGenerations + 1))
-usingSeeds = True # Set to true or false if using your own seeds
+usingSeeds = False # Set to true or false if using your own seeds
 if usingSeeds == False:
     seedList = []
 else: 
@@ -54,14 +54,15 @@ plt.savefig("MultSearchFig.png")
 plt.show()
 plt.close()
 
+"""
 randomSolution = phc.bestFirst_fitness
 print("RANDOM FITNESS: ", randomSolution.fitness, "\n")
 randomSolution.Start_Simulation("GUI")
 randomSolution.Wait_For_Simulation_To_End()
 print("\nBEST OVERALL FITNESS: ", bestFitness, "   ", bestSOL.fitness , "\n")
 bestSOL.Start_Simulation("GUI")
-bestSOL.Wait_For_Simulation_To_End()
-
+#bestSOL.Wait_For_Simulation_To_End()
+"""
 bestPHC.Show_Best()
 
 print("SEEDLIST: ", seedList, "\n")
