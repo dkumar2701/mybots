@@ -60,7 +60,8 @@ class PARALLEL_HILL_CLIMBER:
     def Print(self, currentGeneration):
         print("\n")
         print("CURRENT GENERATION: ", currentGeneration)
-        for i in self.parents.keys():  
+        for i in self.parents.keys(): 
+            print("Blocknum: ", self.parents[i].blockNum)
             print("Parent Fitness_", i, ": ", self.parents[i].fitness, "  Child Fitness_", i, ": ", self.children[i].fitness)
             self.fitnessArray[currentGeneration, i] = self.parents[i].fitness
             

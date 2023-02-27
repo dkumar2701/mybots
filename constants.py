@@ -14,7 +14,7 @@ preferLastChain = 3
 preferattachY = 2
 
 numberOfGenerations = 5
-populationSize = 10
+populationSize = 1
 #numSensorNeurons = 5
 #numMotorNeurons = 11
 motorJointRange = 0.5

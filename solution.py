@@ -66,7 +66,7 @@ class SOLUTION:
         randomRow = random.randint(0, self.numSensorNeurons -1)
         randomColumn = random.randint(0, self.numMotorNeurons -1)
         self.weights[randomRow, randomColumn] = random.random() *2-1
-        #Add another block
+        #Add/Remove another block
         #self.AddNewNode()
         if self.blockNum > 3:
             self.DeleteNode()
