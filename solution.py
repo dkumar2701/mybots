@@ -68,8 +68,14 @@ class SOLUTION:
         self.weights[randomRow, randomColumn] = random.random() *2-1
         #Add/Remove another block
         #self.AddNewNode()
+        addOrRemove = random.randint(0, 1)
         if self.blockNum > 3:
-            self.DeleteNode()
+            if addOrRemove == 1:
+                self.DeleteNode()
+            else:
+                self.AddNewNode()
+        else:
+            self.AddNewNode()
 
     def DeleteNode(self):
         #Remove new node
