@@ -94,7 +94,7 @@ class ROBOT:
         xdist = self.xPositions[c.totalStep -1] - self.xPositions[100]
 
         #fitness = math.sqrt((xdist*xdist)+(ydist*ydist))
-        fitness = yPosition
+        fitness = ydist
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(fitness))
         f.close()
