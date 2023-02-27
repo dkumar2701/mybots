@@ -90,11 +90,11 @@ class ROBOT:
         #print("Airtime: ", airTime, "\n")
         #print(xCoordinateOfLinkZero)
         #print("Zposns: ", self.zPositions, "\n")
-        ydist = self.yPositions[c.totalStep -1] - self.yPositions[500]
-        xdist = self.xPositions[c.totalStep -1] - self.xPositions[500]
+        ydist = self.yPositions[c.totalStep -1] - self.yPositions[100]
+        xdist = self.xPositions[c.totalStep -1] - self.xPositions[100]
 
         #fitness = math.sqrt((xdist*xdist)+(ydist*ydist))
-        fitness = ydist
+        fitness = yPosition
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(fitness))
         f.close()

@@ -27,6 +27,9 @@ class NODE:
         sensorChoices = [0, 1]
         sensorweights = [1,2]
         self.isSensor = random.choices(sensorChoices, weights=sensorweights, k=1)[0] #2/3 chance block is a sensor
+        jointDir = ["1 0 0", "0 1 0", "0 0 1"]
+        thisAxisidx = random.randint(0,2)
+        self.jointDir = jointDir[thisAxisidx]
         
 
 

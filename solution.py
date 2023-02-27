@@ -189,7 +189,7 @@ class SOLUTION:
         #Generate Robot
         zdiff = c.zdiff
         
-        jointDir = ["1 0 0", "0 1 0", "0 0 1"]
+        
         #print("The Sensors: ", self.sensorTrue, "\n")
 
         pyrosim.Start_URDF("body" + str(self.myID) + ".urdf")
@@ -247,10 +247,10 @@ class SOLUTION:
                         blockprevMiddle = self.blockMiddle(node)
                         blockprevMiddle[2] = blockprevMiddle[2] - node.previousNode.zsize/2
                         node.jointPos = blockprevMiddle
-                thisAxisidx = random.randint(0,2)
+                
                 pyrosim.Send_Joint(name = str(node.previousNode.ID) + "_" + str(node.ID),
                                     parent= str(node.previousNode.ID), child= str(node.ID),
-                                    type= "revolute", position= node.jointPos, jointAxis= jointDir[thisAxisidx])
+                                    type= "revolute", position= node.jointPos, jointAxis= node.jointDir)
             pyrosim.Send_Cube(name= str(node.ID), pos=blockpos , size=[node.xsize, node.ysize , node.zsize], color = self.Determine_Color(node))
 
             #lastSize = [xsize, ysize, zsize]
