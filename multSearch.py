@@ -3,23 +3,22 @@ from parallelHillClimber import PARALLEL_HILL_CLIMBER
 import numpy as np
 import constants as c
 import matplotlib.pyplot as plt
-import random
 
-searchNum = 5
+searchNum = 2
 bestAcrossSearches = np.zeros((0, c.numberOfGenerations + 1))
-usingSeeds = False # Set to true or false if using your own seeds
+usingSeeds = True # Set to true or false if using your own seeds
 if usingSeeds == False:
     seedList = []
 else: 
-    seedList = [2, 1, 7, 4, 9] #Change this to list of seeds you want
+    seedList = [4, 5] #Change this to list of seeds you want
 for i in range(searchNum):
     if usingSeeds == False:
-        thisSeed = random.randint(0, searchNum *3)
+        thisSeed = np.random.randint(0, searchNum *3)
         seedList.append(thisSeed)
         
     else:
         thisSeed = seedList[i]
-    random.seed(thisSeed)
+    np.random.seed(thisSeed)
     print("Trial #: ", i, "\n")
     phc = PARALLEL_HILL_CLIMBER()
     phc.Evolve()
@@ -46,7 +45,7 @@ plt.title("Best Fitness of Each Generation")
 plt.xlabel("Generation Number")
 plt.ylabel("Fitness")
 x = np.arange(c.numberOfGenerations + 1)
-for i in range(5):
+for i in range(searchNum):
     y = bestAcrossSearches[i]
     plt.plot(x, y, label = "PHC #: "+ str(i))
 plt.legend()

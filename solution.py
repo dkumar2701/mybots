@@ -1,14 +1,14 @@
 import numpy
 import pyrosim.pyrosim as pyrosim
 import os
-import random
 import time
 import constants as c
 from node import NODE 
+import math
 
 class SOLUTION:
     def __init__(self, nextAvailableID):
-        self.blockNum = random.randint(c.minlen, c.maxlen)
+        self.blockNum = numpy.random.randint(c.minlen, c.maxlen+1)
         if(nextAvailableID < c.populationSize):
             print("Number of nodes", str(nextAvailableID), ": ", self.blockNum, "\n")
         self.sensorTrue = numpy.random.randint(0, 2, size=self.blockNum)
@@ -24,7 +24,7 @@ class SOLUTION:
             self.nodeList[i] = currentNode
             self.ID_node[i] = currentNode
         if self.numSensorNeurons == 0:
-            oneSensor = random.randint(0, self.blockNum - 1)
+            oneSensor = numpy.random.randint(0, self.blockNum)
             sensorNode = self.nodeList[oneSensor]
             sensorNode.isSensor = 1
             self.numSensorNeurons = 1
@@ -65,7 +65,7 @@ class SOLUTION:
     def Mutate(self):
         #Add/Remove another block
         #self.AddNewNode()
-        addOrRemove = random.randint(0, 1)
+        addOrRemove = numpy.random.randint(0, 2)
         if self.numSensorNeurons == 1:
             self.AddNewNode()
         elif self.blockNum > 3 and self.blockNum < c.maxlen + 3:
@@ -77,9 +77,9 @@ class SOLUTION:
             self.AddNewNode()
         elif self.blockNum >= c.maxlen + 3:
             self.DeleteNode()
-        randomRow = random.randint(0, self.numSensorNeurons -1)
-        randomColumn = random.randint(0, self.numMotorNeurons -1)
-        self.weights[randomRow, randomColumn] = random.random() *2-1
+        randomRow = numpy.random.randint(0, self.numSensorNeurons)
+        randomColumn = numpy.random.randint(0, self.numMotorNeurons)
+        self.weights[randomRow, randomColumn] = numpy.random.random() *2-1
         
     def DeleteNode(self):
         #Remove new node
@@ -151,7 +151,8 @@ class SOLUTION:
                 weightlist.append(c.preferLastChain)
             else:
                 weightlist.append(1)
-        nodeIDtoConnect = random.choices(self.availableBlocks, weights=weightlist, k=1)[0]
+        p = numpy.array(weightlist)/sum(weightlist)
+        nodeIDtoConnect = numpy.random.choice(self.availableBlocks, p=p)
         return nodeIDtoConnect
 
     #Call node.connect on each node after the first one

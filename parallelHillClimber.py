@@ -2,7 +2,6 @@ from solution import SOLUTION
 import constants as c
 import copy
 import os
-import random
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -91,7 +90,7 @@ class PARALLEL_HILL_CLIMBER:
                 solutions[i].Start_Simulation("DIRECT")
             for i in range(c.populationSize):
                 solutions[i].Wait_For_Simulation_To_End()
-            randomid = random.randrange(c.populationSize)
+            randomid = np.random.randint(c.populationSize)
             self.bestFirst_fitness = self.parents[randomid]
         else:
             for i in range(c.populationSize):
