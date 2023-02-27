@@ -34,6 +34,7 @@ x = np.arange(c.numberOfGenerations + 1)
 for i in range(5):
     y = bestAcrossSearches[i]
     plt.plot(x, y, label = "PHC #: "+ str(i))
+plt.legend()
 plt.savefig("MultSearchFig.png")
 plt.show()
 plt.close()

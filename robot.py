@@ -6,6 +6,7 @@ from pyrosim.neuralNetwork import NEURAL_NETWORK
 import os
 import constants as c
 import numpy as np
+import math
 
 class ROBOT:
     def __init__(self, solutionID):
@@ -19,6 +20,7 @@ class ROBOT:
     def Prepare_To_Sense(self):
         self.sensors = {}
         self.yPositions = np.zeros(c.totalStep)
+        self.xPositions = np.zeros(c.totalStep)
         
         for linkName in pyrosim.linkNamesToIndices:
             #print("Linkname: " + linkName + "\n")
@@ -30,6 +32,7 @@ class ROBOT:
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotID)
         basePosition = basePositionAndOrientation[0]
         self.yPositions[t] = basePosition[1]
+        self.xPositions[t] = basePosition[0]
 
 
     def Think(self):
@@ -87,9 +90,11 @@ class ROBOT:
         #print("Airtime: ", airTime, "\n")
         #print(xCoordinateOfLinkZero)
         #print("Zposns: ", self.zPositions, "\n")
-        
-        
-        fitness = self.yPositions[c.totalStep -1] - self.yPositions[50]
+        ydist = self.yPositions[c.totalStep -1] - self.yPositions[500]
+        #xdist = self.xPositions[c.totalStep -1] - self.xPositions[500]
+
+        #fitness = math.sqrt((xdist*xdist)+(ydist*ydist))
+        fitness = ydist
         f = open("tmp" + solutionID + ".txt", "w")
         f.write(str(fitness))
         f.close()
