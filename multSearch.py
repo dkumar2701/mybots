@@ -8,6 +8,7 @@ searchNum = 5
 bestAcrossSearches = np.zeros((0, c.numberOfGenerations + 1))
 
 for i in range(5):
+    print("Trial #: ", i, "\n")
     phc = PARALLEL_HILL_CLIMBER()
     phc.Evolve()
     phc.Show_Best(False)
