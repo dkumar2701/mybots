@@ -63,13 +63,12 @@ class SOLUTION:
         #print("Read: ", self.fitness)
 
     def Mutate(self):
-        randomRow = random.randint(0, self.numSensorNeurons -1)
-        randomColumn = random.randint(0, self.numMotorNeurons -1)
-        self.weights[randomRow, randomColumn] = random.random() *2-1
         #Add/Remove another block
         #self.AddNewNode()
         addOrRemove = random.randint(0, 1)
-        if self.blockNum > 3 and self.blockNum < c.maxlen + 3:
+        if self.numSensorNeurons == 1:
+            self.AddNewNode()
+        elif self.blockNum > 3 and self.blockNum < c.maxlen + 3:
             if addOrRemove == 1:
                 self.DeleteNode()
             else:
@@ -78,6 +77,10 @@ class SOLUTION:
             self.AddNewNode()
         elif self.blocknum >= c.maxlen + 3:
             self.DeleteNode()
+        randomRow = random.randint(0, self.numSensorNeurons -1)
+        randomColumn = random.randint(0, self.numMotorNeurons -1)
+        self.weights[randomRow, randomColumn] = random.random() *2-1
+        
     def DeleteNode(self):
         #Remove new node
         removedNode = self.nodeList.pop()
