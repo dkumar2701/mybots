@@ -15,6 +15,7 @@ class SOLUTION:
         self.numSensorNeurons = 0
         self.nodeList = list(range(self.blockNum))
         self.ID_node = {}
+        self.lastRemoved = 0
         #Add nodes to the nodeList
         for i in range(self.blockNum):
             currentNode = NODE(i)
@@ -66,7 +67,28 @@ class SOLUTION:
         randomColumn = random.randint(0, self.numMotorNeurons -1)
         self.weights[randomRow, randomColumn] = random.random() *2-1
         #Add another block
-        self.AddNewNode()
+        #self.AddNewNode()
+        if self.blockNum > 3:
+            self.DeleteNode()
+
+    def DeleteNode(self):
+        #Remove new node
+        removedNode = self.nodeList.pop()
+        self.ID_node.pop(self.blockNum - 1)
+        #remove column of size numSensors for the new motor neuron
+        self.weights = numpy.delete(self.weights, self.numMotorNeurons - 1, 1)
+        self.numMotorNeurons -= 1
+        if (removedNode.isSensor):
+            self.weights = numpy.delete(self.weights, self.numSensorNeurons -1, 0)
+            self.numSensorNeurons -= 1
+        #Remove connections
+        removedNode.disconnect()
+        self.availableBlocks.remove(removedNode.ID)
+        if not removedNode.previousNode.full:
+            self.availableBlocks.append(removedNode.previousNode.ID)
+        if len(self.availableBlocks) < 4 and self.lastRemoved != 0:
+            self.availableBlocks.append(self.lastRemoved.ID)
+        self.blockNum -=1
 
     def AddNewNode(self):
         #creating new node
@@ -88,7 +110,7 @@ class SOLUTION:
         if newNodetoConnect.full:
             self.availableBlocks.remove(newNodetoConnect.ID)
         if len(self.availableBlocks) ==5:
-            self.availableBlocks.pop(0)
+            self.lastRemoved = self.availableBlocks.pop(0)
         self.blockNum +=1
 
 

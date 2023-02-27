@@ -72,5 +72,14 @@ class NODE:
         otherNode.numConnections += 1 #Check if the otherNode is a full block
         if otherNode.numConnections == 3:
             otherNode.full = True
+
+    def disconnect(self):
+        otherNode = self.previousNode
+        if self.direction == 4 and otherNode.chainedto0:
+            otherNode.lastChain = True
+        otherNode.connections[self.direction] = 0
+        otherNode.numConnections -= 1
+        if otherNode.numConnections < 3:
+            otherNode.full = False
         
 
