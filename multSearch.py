@@ -4,13 +4,13 @@ import numpy as np
 import constants as c
 import matplotlib.pyplot as plt
 
-searchNum = 2
+searchNum = 5
 bestAcrossSearches = np.zeros((0, c.numberOfGenerations + 1))
 usingSeeds = True # Set to true or false if using your own seeds
 if usingSeeds == False:
     seedList = []
 else: 
-    seedList = [4, 5] #Change this to list of seeds you want
+    seedList = [9, 5, 13, 11, 12] #Change this to list of seeds you want
 for i in range(searchNum):
     if usingSeeds == False:
         thisSeed = np.random.randint(0, searchNum *3)

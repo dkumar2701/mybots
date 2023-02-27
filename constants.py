@@ -13,7 +13,7 @@ zdiff = 2
 preferLastChain = 3
 preferattachY = 2
 
-numberOfGenerations = 10
+numberOfGenerations = 30
 populationSize = 10
 #numSensorNeurons = 5
 #numMotorNeurons = 11
