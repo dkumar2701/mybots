@@ -3,11 +3,22 @@ from parallelHillClimber import PARALLEL_HILL_CLIMBER
 import numpy as np
 import constants as c
 import matplotlib.pyplot as plt
+import random
 
 searchNum = 5
 bestAcrossSearches = np.zeros((0, c.numberOfGenerations + 1))
-
-for i in range(5):
+usingSeeds = False
+if usingSeeds == False:
+    seedList = []
+else: 
+    seedList = list(np.arange(searchNum)) #Change this to list of seeds you want
+for i in range(searchNum):
+    if usingSeeds == False:
+        thisSeed = random.randint(0, searchNum *2)
+        seedList.append(thisSeed)
+        random.seed(thisSeed)
+    else:
+        random.seed(seedList[i])
     print("Trial #: ", i, "\n")
     phc = PARALLEL_HILL_CLIMBER()
     phc.Evolve()
@@ -47,4 +58,6 @@ randomSolution.Wait_For_Simulation_To_End()
 print("BEST OVERALL FITNESS: ", bestFitness, "\n")
 bestSOL.Start_Simulation("GUI")
 bestSOL.Wait_For_Simulation_To_End()
+
+print("SEEDLIST: ", seedList, "\n")
     
