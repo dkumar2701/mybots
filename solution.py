@@ -69,14 +69,15 @@ class SOLUTION:
         #Add/Remove another block
         #self.AddNewNode()
         addOrRemove = random.randint(0, 1)
-        if self.blockNum > 3:
+        if self.blockNum > 3 and self.blockNum < c.maxlen + 3:
             if addOrRemove == 1:
                 self.DeleteNode()
             else:
                 self.AddNewNode()
-        else:
+        elif self.blockNum <= 3:
             self.AddNewNode()
-
+        elif self.blocknum >= c.maxlen + 3:
+            self.DeleteNode()
     def DeleteNode(self):
         #Remove new node
         removedNode = self.nodeList.pop()
