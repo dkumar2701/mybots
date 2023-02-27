@@ -12,6 +12,7 @@ class PARALLEL_HILL_CLIMBER:
         os.system("del fitness*.txt")
         os.system("del array*.txt")
         os.system("del body*.urdf")
+        #random.seed(seed)
         self.parents = {}
         self.nextAvailableID = 0
         self.fitnessArray = np.zeros((c.numberOfGenerations+1, c.populationSize))

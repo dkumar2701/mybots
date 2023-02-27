@@ -7,18 +7,19 @@ import random
 
 searchNum = 5
 bestAcrossSearches = np.zeros((0, c.numberOfGenerations + 1))
-usingSeeds = False
+usingSeeds = True # Set to true or false if using your own seeds
 if usingSeeds == False:
     seedList = []
 else: 
-    seedList = list(np.arange(searchNum)) #Change this to list of seeds you want
+    seedList = [2, 1, 7, 4, 9] #Change this to list of seeds you want
 for i in range(searchNum):
     if usingSeeds == False:
-        thisSeed = random.randint(0, searchNum *2)
+        thisSeed = random.randint(0, searchNum *3)
         seedList.append(thisSeed)
-        random.seed(thisSeed)
+        
     else:
-        random.seed(seedList[i])
+        thisSeed = seedList[i]
+    random.seed(thisSeed)
     print("Trial #: ", i, "\n")
     phc = PARALLEL_HILL_CLIMBER()
     phc.Evolve()
@@ -28,10 +29,12 @@ for i in range(searchNum):
     if (i == 0):
         bestSOL = phc.bestLast_fitness
         bestFitness = phc.bestLast_fitness.fitness
+        bestPHC = phc
     else:
         if (phc.bestLast_fitness.fitness > bestFitness):
             bestSOL = phc.bestLast_fitness
             bestFitness = bestSOL.fitness
+            bestPHC = phc
     
 
 
@@ -55,9 +58,11 @@ randomSolution = phc.bestFirst_fitness
 print("RANDOM FITNESS: ", randomSolution.fitness, "\n")
 randomSolution.Start_Simulation("GUI")
 randomSolution.Wait_For_Simulation_To_End()
-print("BEST OVERALL FITNESS: ", bestFitness, "\n")
+print("\nBEST OVERALL FITNESS: ", bestFitness, "   ", bestSOL.fitness , "\n")
 bestSOL.Start_Simulation("GUI")
 bestSOL.Wait_For_Simulation_To_End()
+
+bestPHC.Show_Best()
 
 print("SEEDLIST: ", seedList, "\n")
     
