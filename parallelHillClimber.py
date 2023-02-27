@@ -114,8 +114,10 @@ class PARALLEL_HILL_CLIMBER:
             self.bestFirst_fitness.Start_Simulation("GUI")
             self.bestFirst_fitness.Wait_For_Simulation_To_End()
             print("\n BEST FITNESS: ", self.bestLast_fitness.fitness, "\n")
+            print("ARRAY: ", self.bestEachGen)
             self.bestLast_fitness.Start_Simulation("GUI")
-            self.bestLast_fitness.Wait_For_Simulation_To_End()
+            #self.bestLast_fitness.Wait_For_Simulation_To_End()
+            
         
 
     def plotTheBest(self, show):
