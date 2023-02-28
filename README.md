@@ -14,6 +14,8 @@ _multSearch.py_ has the functionality for you to be able to set random seeds. Ea
 
 NO SEEDING: Set **usingSeeds** to False. After _multSearch.py_ runs, the seeds used for that run will be printed in a list of size **searchNum**
 
+With SEEDING: Set **usingSeeds** to True. Set **seedList** to your list of seeds next to the comment on line 13
+
 My code is primarily in the solution.py and node.py files, and correspond to the SOLUTION class (which creates a random robot) and the NODE class (which creates a random link, this readme will use NODE and link interchangeably). Code for the rest of the files was completed following the ludobots tutorials at www.reddit.com/r/ludobots and pyrosim was used for robot simulations. 
 
 Below is a diagram showing conceptually how these brains and bodies are connected:
