@@ -52,7 +52,7 @@ Robots are evolved as in ludobots, where one of the synapse weights in the child
 
 <img src="https://user-images.githubusercontent.com/68355843/221766469-f5ae6f1d-c7bd-4f31-9d13-f6d0156314ef.jpg" width="49%" /><img src="https://user-images.githubusercontent.com/68355843/221766501-82f006b8-7f7e-4486-b318-82513687d3d4.jpg" width="49%" />
 
-Here is a link to a youtube video showing robot evolution: https://youtu.be/_U0uLyCg3BA
+Here is a link to a youtube video showing more robot evolution examples: https://youtu.be/_U0uLyCg3BA
 
 ## Extra information on the NODE class:
 
