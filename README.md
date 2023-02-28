@@ -23,7 +23,7 @@ Each child robot's fitness value is compared to its parent's value and the robot
 The direction of greatest fitness is the +Y direction, and is depicted by the black arrow below (x,y,z axis shown by red, green and blue arrows):
 ![image](https://user-images.githubusercontent.com/68355843/221733346-d9fa2968-86ae-41c3-9275-f1d821576e77.png)
 
-## Example MultSearch
+## Example MultSearch with Seed List: [9, 5, 13, 11, 12]
 ### Fitness Curves
 The following graph depicts 5 fitness curves from a multSearch with searchNum = 5. For each trial, the population size was 10 and the number of generations was 30.
 The fitness curves represents the best fitness from each generation of robots.
