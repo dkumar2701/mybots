@@ -16,12 +16,22 @@ NO SEEDING: Set **usingSeeds** to False. After _multSearch.py_ runs, the seeds u
 
 With SEEDING: Set **usingSeeds** to True. Set **seedList** to your list of seeds next to the comment on line 13
 
-## Fitness
+## Fitness Determination
 
 Each child robot's fitness value is compared to its parent's value and the robot with the larger fitness "survives." The fitness function used is the robot's $YPosition_(final) - YPosition_(100thFrame)$. The start position is at the 100th frame to account for the robot falling at the start of the simulation, where its initial position may not be 0.
 
 The direction of greatest fitness is the +Y direction, and is depicted by the black arrow below (x,y,z axis shown by red, green and blue arrows):
 ![image](https://user-images.githubusercontent.com/68355843/221733346-d9fa2968-86ae-41c3-9275-f1d821576e77.png)
+
+## Example MultSearch
+### Fitness Curves
+The following graph depicts 5 fitness curves from a multSearch with searchNum = 5. For each trial, the population size was 10 and the number of generations was 30.
+The fitness curves represents the best fitness from each generation of robots.
+<img src="https://user-images.githubusercontent.com/68355843/221740908-5389b6a3-39b4-4720-a067-baab802485c4.png" width="100%" />
+
+### Random Robot and Best Robot
+Below are gifs of a _random robot_ from **Gen 0** with **Fitness = d** and the _best robot_ from the 5 trials with **Fitness = d**
+
 
 
 My code is primarily in the solution.py and node.py files, and correspond to the SOLUTION class (which creates a random robot) and the NODE class (which creates a random link, this readme will use NODE and link interchangeably). Code for the rest of the files was completed following the ludobots tutorials at www.reddit.com/r/ludobots and pyrosim was used for robot simulations. 
