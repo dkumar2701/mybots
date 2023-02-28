@@ -41,10 +41,18 @@ My code is primarily in the solution.py and node.py files, and correspond to the
 Below is an example of a randomly generated robot with 5 links. Green links have sensor neurons and blue links do not. Links are connected to one another by revolute joints which contain motor neurons. Every link is connected to a joint: 
 <img src="https://user-images.githubusercontent.com/68355843/221752391-98ec4b5f-8f71-4f75-9f7f-4669f82e9b87.gif" width="50%">
 
-Below is a diagram showing conceptually how these brains and bodies are connected:
-![Long image 02-20-2023 17 31](https://user-images.githubusercontent.com/68355843/220213085-07b2da2f-8ddd-428a-8910-ea943626556f.jpg)
+Below is a diagram showing conceptually how these brains and bodies are connected with an example of a 4-link robot:
+<img src="https://user-images.githubusercontent.com/68355843/221765839-88beb42f-1afc-4276-825a-4ec8c60ec073.jpg" width="50%" />
 
 All joints have motor neurons and every sensor neuron is synapsed to all motor neurons.
+
+## How Robots are Evolved
+
+Robots are evolved as in ludobots, where one of the synapse weights in the child is changed randomly. Additionally, motors may evolve by adding or removing links. Adding or removing each has a 50% chance of occurring and only one may happen at a time. Below are diagrams depicting the addition/removal of link 4:
+
+<img src="https://user-images.githubusercontent.com/68355843/221766469-f5ae6f1d-c7bd-4f31-9d13-f6d0156314ef.jpg" width="49%" /><img src="https://user-images.githubusercontent.com/68355843/221766501-82f006b8-7f7e-4486-b318-82513687d3d4.jpg" width="49%" />
+
+## Extra information on the NODE class:
 
 Each NODE object has the following attributes:
 - numConnections = the number of other links attached to this NODE object.
