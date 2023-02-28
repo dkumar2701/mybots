@@ -2,7 +2,7 @@
 
 ## TO RUN THE CODE:
 ### Multiple Trials
-Run the _multSearch.py_ file to run **searchNum** number of parallel hill climber (**phc**) trials. This code runs the trials, generates fitness curves for each trial (which is saved in _MultSearchFig.png_, shows a random robot from generation 0, and shows a simulation of the best robot across all trials. 
+Run the _multSearch.py_ file to run **searchNum** number of parallel hill climber (**phc**) trials. This code runs the trials, generates fitness curves for each trial (which is saved in _MultSearchFig.png_), shows a random robot from generation 0, and shows a simulation of the best robot across all trials. The popup fitness curves must be closed for the simulations to show.
 
 If you want to run only one trial, set searchNum = 1
 
@@ -15,6 +15,13 @@ _multSearch.py_ has the functionality for you to be able to set random seeds. Ea
 NO SEEDING: Set **usingSeeds** to False. After _multSearch.py_ runs, the seeds used for that run will be printed in a list of size **searchNum**
 
 With SEEDING: Set **usingSeeds** to True. Set **seedList** to your list of seeds next to the comment on line 13
+
+## Fitness
+
+Each child robot's fitness value is compared to its parent's value and the robot with the larger fitness "survives." The fitness function used is the robot's $YPosition_(final) - YPosition_(100thFrame)$. The start position is at the 100th frame to account for the robot falling at the start of the simulation, where its initial position may not be 0.
+
+The direction of greatest fitness is depicted by the green arrow below:
+
 
 My code is primarily in the solution.py and node.py files, and correspond to the SOLUTION class (which creates a random robot) and the NODE class (which creates a random link, this readme will use NODE and link interchangeably). Code for the rest of the files was completed following the ludobots tutorials at www.reddit.com/r/ludobots and pyrosim was used for robot simulations. 
 
