@@ -1,7 +1,10 @@
 # Assignment 7
 
-TO RUN THE CODE:
-Run the _runRandomBody.py_ file. This creates a new solution class of ID 0 (a random robot) and plays a simulation for this robot. This assignment does not include evolution, so each time this file is run, a new random robot is created. The "preferLastChain" and "preferLastY" constants in constants.py can be changed to make the robot more or less elongated.
+## TO RUN THE CODE:
+### Multiple Trials
+Run the _multSearch.py_ file to run **searchNum** number of parallel hill climber trials. This code runs the trials, generates fitness curves for each trial (which is saved in _MultSearchFig.png_, shows a random robot from generation 0, and shows a simulation of the best robot across all trials. 
+
+If you want to run only one trial, set 
 
 My code is primarily in the solution.py and node.py files, and correspond to the SOLUTION class (which creates a random robot) and the NODE class (which creates a random link, this readme will use NODE and link interchangeably). Code for the rest of the files was completed following the ludobots tutorials at www.reddit.com/r/ludobots and pyrosim was used for robot simulations. 
 
