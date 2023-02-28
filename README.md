@@ -30,7 +30,9 @@ The fitness curves represents the best fitness from each generation of robots.
 <img src="https://user-images.githubusercontent.com/68355843/221740908-5389b6a3-39b4-4720-a067-baab802485c4.png" width="100%" />
 
 ### Random Robot and Best Robot
-Below are gifs of a _random robot_ from **Gen 0** with **Fitness = d** and the _best robot_ from the 5 trials with **Fitness = d**
+Below are gifs of a _random robot_ from **Gen 0** with **Fitness = 0.02801** and the _best robot_ from the 5 trials with **Fitness = 9.42344**
+<img src="https://user-images.githubusercontent.com/68355843/221749743-9e44e971-c242-441c-b057-83eb27fc8fe9.gif" width="45%" />
+<img src="https://user-images.githubusercontent.com/68355843/221749946-ce11bccc-18d5-4663-8609-45524225ed52.gif" width="45%" />
 
 
 
