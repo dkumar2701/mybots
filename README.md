@@ -48,9 +48,11 @@ All joints have motor neurons and every sensor neuron is synapsed to all motor n
 
 ## How Robots are Evolved
 
-Robots are evolved as in ludobots, where one of the synapse weights in the child is changed randomly. Additionally, motors may evolve by adding or removing links. Adding or removing each has a 50% chance of occurring and only one may happen at a time. Below are diagrams depicting the addition/removal of link 4:
+Robots are evolved as in ludobots, where one of the synapse weights in the child is changed randomly. Additionally, motors may evolve by adding or removing links. Adding or removing each has a 50% chance of occurring and only one may happen at a time during the mutation step. Below are diagrams depicting the addition/removal of link 4:
 
 <img src="https://user-images.githubusercontent.com/68355843/221766469-f5ae6f1d-c7bd-4f31-9d13-f6d0156314ef.jpg" width="49%" /><img src="https://user-images.githubusercontent.com/68355843/221766501-82f006b8-7f7e-4486-b318-82513687d3d4.jpg" width="49%" />
+
+Here is a link to a youtube video showing robot evolution: https://youtu.be/_U0uLyCg3BA
 
 ## Extra information on the NODE class:
 
