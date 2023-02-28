@@ -18,7 +18,7 @@ With SEEDING: Set **usingSeeds** to True. Set **seedList** to your list of seeds
 
 ## Fitness Determination
 
-Each child robot's fitness value is compared to its parent's value and the robot with the larger fitness "survives." The fitness function used is the robot's $YPosition_(final) - YPosition_(100thFrame)$. The start position is at the 100th frame to account for the robot falling at the start of the simulation, where its initial position may not be 0.
+Each child robot's fitness value is compared to its parent's value and the robot with the larger fitness "survives." The fitness function used is the robot's $YPosition_{final} - YPosition_{100thFrame}$. The start position is at the 100th frame to account for the robot falling at the start of the simulation, where its initial position may not be 0.
 
 The direction of greatest fitness is the +Y direction, and is depicted by the black arrow below (x,y,z axis shown by red, green and blue arrows):
 ![image](https://user-images.githubusercontent.com/68355843/221733346-d9fa2968-86ae-41c3-9275-f1d821576e77.png)
