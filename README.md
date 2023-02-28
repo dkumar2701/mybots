@@ -34,9 +34,12 @@ Below are gifs of a _random robot_ from **Gen 0** with **Fitness = 0.02801** and
 <img src="https://user-images.githubusercontent.com/68355843/221749743-9e44e971-c242-441c-b057-83eb27fc8fe9.gif" width="45%" />
 <img src="https://user-images.githubusercontent.com/68355843/221749946-ce11bccc-18d5-4663-8609-45524225ed52.gif" width="45%" />
 
+## Robot Generation:
 
+My code is primarily in the solution.py and node.py files, and correspond to the SOLUTION class (which creates a random robot) and the NODE class (which creates a random link, this readme will use NODE and link interchangeably). Code for the rest of the files was completed following the ludobots tutorials at www.reddit.com/r/ludobots and pyrosim was used for robot simulations. Inspiration for robotic evolution from Karl Sims's work.
 
-My code is primarily in the solution.py and node.py files, and correspond to the SOLUTION class (which creates a random robot) and the NODE class (which creates a random link, this readme will use NODE and link interchangeably). Code for the rest of the files was completed following the ludobots tutorials at www.reddit.com/r/ludobots and pyrosim was used for robot simulations. 
+Below is an example of a randomly generated robot with 5 links. Green links have sensor neurons and blue links do not. Links are connected to one another by revolute joints which contain motor neurons. Every link is connected to a joint: 
+<img src="https://user-images.githubusercontent.com/68355843/221752391-98ec4b5f-8f71-4f75-9f7f-4669f82e9b87.gif" width="50%">
 
 Below is a diagram showing conceptually how these brains and bodies are connected:
 ![Long image 02-20-2023 17 31](https://user-images.githubusercontent.com/68355843/220213085-07b2da2f-8ddd-428a-8910-ea943626556f.jpg)
