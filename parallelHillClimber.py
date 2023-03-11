@@ -112,6 +112,7 @@ class PARALLEL_HILL_CLIMBER:
             print("\nFIRST FITNESS: ", self.bestFirst_fitness.fitness, "\n")
             self.bestFirst_fitness.Start_Simulation("GUI")
             self.bestFirst_fitness.Wait_For_Simulation_To_End()
+            input("\nPRESS ANY KEY TO CONTINUE TO THE BEST SIMULATION\n\n")
             print("\n BEST FITNESS: ", self.bestLast_fitness.fitness, "\n")
             print("ARRAY: ", self.bestEachGen)
             self.bestLast_fitness.Start_Simulation("GUI")
