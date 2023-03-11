@@ -4,6 +4,7 @@ import numpy as np
 import constants as c
 import matplotlib.pyplot as plt
 
+os.system("del SeedNumber*.txt")
 searchNum = 5
 bestAcrossSearches = np.zeros((0, c.numberOfGenerations + 1))
 usingSeeds = True # Set to true or false if using your own seeds
@@ -18,6 +19,9 @@ for i in range(searchNum):
         
     else:
         thisSeed = seedList[i]
+    file = open("SeedNumber"+str(thisSeed)+".txt", "w")
+    file.write("The seed number is: "+str(thisSeed))
+    file.close()
     np.random.seed(thisSeed)
     print("Trial #: ", i, "\n")
     phc = PARALLEL_HILL_CLIMBER()
