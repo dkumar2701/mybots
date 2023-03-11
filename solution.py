@@ -102,7 +102,8 @@ class SOLUTION:
             if self.lastRemoved != removedNode.ID:
                 self.availableBlocks.append(self.lastRemoved)
             else:
-                newlist = self.removedfromAvailable.remove(removedNode.ID)
+                newlist = self.removedfromAvailable
+                newlist.remove(removedNode.ID)
                 self.availableBlocks.append(numpy.random.choice(newlist))
         self.blockNum -=1
 
