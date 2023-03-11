@@ -32,6 +32,7 @@ class SOLUTION:
         self.weights = (numpy.random.rand(self.numSensorNeurons,self.numMotorNeurons) *2) - 1
         self.myID = nextAvailableID
         self.availableBlocks = list(range(1)) #create a list of the available block IDS
+        self.removedfromAvailable = []
         #Create the connections:
         self.Add_Connections()
 
@@ -98,7 +99,11 @@ class SOLUTION:
         if removedNode.previousNode.full == False and removedNode.previousNode.ID not in self.availableBlocks:
             self.availableBlocks.append(removedNode.previousNode.ID)
         if len(self.availableBlocks) < 4 and self.lastRemoved != -1:
-            self.availableBlocks.append(self.lastRemoved)
+            if self.lastRemoved != removedNode.ID:
+                self.availableBlocks.append(self.lastRemoved)
+            else:
+                newlist = self.removedfromAvailable.remove(removedNode.ID)
+                self.availableBlocks.append(numpy.random.choice(newlist))
         self.blockNum -=1
 
     def AddNewNode(self):
@@ -123,6 +128,7 @@ class SOLUTION:
             self.availableBlocks.remove(newNodetoConnect.ID)
         if len(self.availableBlocks) ==5:
             self.lastRemoved = self.availableBlocks.pop(0)
+            self.removedfromAvailable.append(self.lastRemoved)
         self.blockNum +=1
 
 
