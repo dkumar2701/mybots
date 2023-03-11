@@ -27,6 +27,8 @@ class PARALLEL_HILL_CLIMBER:
         
         #self.parent.Evaluate("GUI")
         for currentGeneration in range (c.numberOfGenerations):
+            if currentGeneration == 40:
+                print("Pause here reeee\n")
             self.Evolve_For_One_Generation(currentGeneration)
         
 

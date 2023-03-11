@@ -7,7 +7,7 @@ for i in range(5):
     os.system("python3 simulate.py")
 """
 thisSeed = np.random.randint(0, 20)
-np.random.seed(thisSeed)
+np.random.seed(29)
 phc = PARALLEL_HILL_CLIMBER()
 phc.Evolve()
 print("The seed used was: ", thisSeed, "\n")
