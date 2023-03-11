@@ -83,7 +83,7 @@ class SOLUTION:
         
     def DeleteNode(self):
         #Remove new node
-        print("DELETING A NODE\n")
+        #print("DELETING A NODE\n")
         removedNode = self.nodeList.pop()
         self.ID_node.pop(self.blockNum - 1)
         #remove column of size numSensors for the new motor neuron
@@ -103,7 +103,7 @@ class SOLUTION:
 
     def AddNewNode(self):
         #creating new node
-        print("ADDING A NODE\n")
+        #print("ADDING A NODE\n")
         newNode = NODE(self.blockNum)
         self.nodeList.append(newNode)
         self.ID_node[self.blockNum] = newNode

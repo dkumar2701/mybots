@@ -5,9 +5,9 @@ import constants as c
 import matplotlib.pyplot as plt
 
 os.system("del SeedNumber*.txt")
-searchNum = 5
+searchNum = 10
 bestAcrossSearches = np.zeros((0, c.numberOfGenerations + 1))
-usingSeeds = True # Set to true or false if using your own seeds
+usingSeeds = False # Set to true or false if using your own seeds
 if usingSeeds == False:
     seedList = []
 else: 
