@@ -12,7 +12,8 @@ def multSearch(searchNum, usingSeeds, seedList):
     if usingSeeds == False:
         seedList = []
     else: 
-        seedList = [9, 5, 13, 11, 12] #Change this to list of seeds you want
+        #seedList = [9, 5, 13, 11, 12] #Change this to list of seeds you want
+        print("using seeds")
     for i in range(searchNum):
         if usingSeeds == False:
             thisSeed = np.random.randint(0, searchNum *3)
