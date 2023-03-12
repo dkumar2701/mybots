@@ -69,11 +69,11 @@ while(True):
                 print("You need to give me an integer")
             else:
                 break
-        
+        if int(stop)-int(start) < searchNum:
+            print("The range of seeds possible is too small, using default random seeds")
         for i in range(searchNum):
             rng = np.random.default_rng()
             if int(stop)-int(start) < searchNum:
-                print("The range of seeds possible is too small, using default random seeds")
                 seedList = list(rng.choice(searchNum*2, size=searchNum, replace=False))
             else:
                 seedList = list(rng.choice(np.arange(int(start), stop=int(stop)), size=searchNum, replace=False))

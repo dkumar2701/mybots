@@ -5,15 +5,15 @@ import constants as c
 import matplotlib.pyplot as plt
 def multSearch(searchNum, usingSeeds, seedList):
         
-    os.system("del SeedNumber*.txt")
+    os.system("del SeedNumbers.txt")
     
     bestAcrossSearches = np.zeros((0, c.numberOfGenerations + 1))
-    
+    file = open("SeedNumbers.txt", "w")
     for i in range(searchNum):
         thisSeed = seedList[i]
-        file = open("SeedNumber"+str(thisSeed)+".txt", "w")
-        file.write("The seed number is: "+str(thisSeed))
-        file.close()
+        
+        file.write("The "+ str(i)+"th trial's seed is: "+ str(thisSeed) + "\n")
+        
         np.random.seed(thisSeed)
         print("Trial #: ", i, "\n")
         phc = PARALLEL_HILL_CLIMBER()
@@ -30,7 +30,7 @@ def multSearch(searchNum, usingSeeds, seedList):
                 bestSOL = phc.bestLast_fitness
                 bestFitness = bestSOL.fitness
                 bestPHC = phc
-        
+    file.close()   
 
 
     f = open("MultSearchArray.txt", "w")
