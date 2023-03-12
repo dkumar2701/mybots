@@ -43,7 +43,7 @@ def multSearch(searchNum, usingSeeds, seedList):
     x = np.arange(c.numberOfGenerations + 1)
     for i in range(searchNum):
         y = bestAcrossSearches[i]
-        plt.plot(x, y, label = "PHC #: "+ str(i))
+        plt.plot(x, y, label = "PHC seed #: "+ str(seedList[i]))
     plt.legend()
     plt.savefig("MultSearchFig.png")
     plt.show()
