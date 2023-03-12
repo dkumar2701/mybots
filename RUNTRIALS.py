@@ -49,12 +49,12 @@ while(True):
 c.numberOfGenerations = int(genInput)
 
 while(True):
-    seedinp = input("Do you have a list of seeds to input for the trials? (y/n)")
+    seedinp = input("Do you have a list of seeds to input for the trials? (y/n)\n")
     if seedinp == "n":
         seedList = []
         usingSeeds = False
         while True:
-            start = input("Lowest possible seed value")
+            start = input("Lowest possible seed value:\n")
             try: 
                 val2 = int(start)
             except ValueError:
@@ -62,7 +62,7 @@ while(True):
             else:
                 break
         while True:
-            stop = input("Largest possible seed value")
+            stop = input("Largest possible seed value:\n")
             try: 
                 val2 = int(stop)
             except ValueError:
@@ -72,11 +72,11 @@ while(True):
         
         for i in range(searchNum):
             rng = np.random.default_rng()
-            if stop-start < searchNum:
+            if int(stop)-int(start) < searchNum:
                 print("The range of seeds possible is too small, using default random seeds")
                 seedList = list(rng.choice(searchNum*2, size=searchNum, replace=False))
             else:
-                seedList = list(rng.choice(np.arange(start, stop=stop), size=searchNum, replace=False))
+                seedList = list(rng.choice(np.arange(int(start), stop=int(stop)), size=searchNum, replace=False))
         break
     elif seedinp == "y":
         seedList = []
