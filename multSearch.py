@@ -8,19 +8,9 @@ def multSearch(searchNum, usingSeeds, seedList):
     os.system("del SeedNumber*.txt")
     
     bestAcrossSearches = np.zeros((0, c.numberOfGenerations + 1))
-    usingSeeds = False # Set to true or false if using your own seeds
-    if usingSeeds == False:
-        seedList = []
-    else: 
-        #seedList = [9, 5, 13, 11, 12] #Change this to list of seeds you want
-        print("using seeds")
+    
     for i in range(searchNum):
-        if usingSeeds == False:
-            thisSeed = np.random.randint(0, searchNum *3)
-            seedList.append(thisSeed)
-            
-        else:
-            thisSeed = seedList[i]
+        thisSeed = seedList[i]
         file = open("SeedNumber"+str(thisSeed)+".txt", "w")
         file.write("The seed number is: "+str(thisSeed))
         file.close()

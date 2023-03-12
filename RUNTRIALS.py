@@ -1,5 +1,6 @@
 from multSearch import multSearch
 import constants as c
+import numpy as np
 
 print("\nLet's Evolve some Robots!\n")
 while(True):
@@ -52,6 +53,9 @@ while(True):
     if seedinp == "n":
         seedList = []
         usingSeeds = False
+        for i in range(searchNum):
+            rng = np.random.default_rng()
+            seedList = list(rng.choice(searchNum*2, size=searchNum, replace=False))
         break
     elif seedinp == "y":
         seedList = []
