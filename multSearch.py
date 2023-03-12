@@ -3,7 +3,7 @@ from parallelHillClimber import PARALLEL_HILL_CLIMBER
 import numpy as np
 import constants as c
 import matplotlib.pyplot as plt
-def multSearch(searchNum):
+def multSearch(searchNum, usingSeeds, seedList):
         
     os.system("del SeedNumber*.txt")
     

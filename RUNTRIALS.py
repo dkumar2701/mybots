@@ -47,8 +47,24 @@ while(True):
 
 c.numberOfGenerations = int(genInput)
 
-
+while(True):
+    seedinp = input("Do you have a list of seeds to input for the trials? (y/n)")
+    if seedinp == "n":
+        seedList = []
+        usingSeeds = False
+        break
+    elif seedinp == "y":
+        seedList = []
+        usingSeeds = True
+        print("Write each integer seed and press ENTER")
+        for i in range(searchNum):
+            seedGiven = input("Type seed below: ")
+            seedList.append(seedGiven)
+        break
+    else:
+        print("Only type y or n")
+            
 print("\nLET'S START!!!\n")
 
-multSearch(searchNum)
+multSearch(searchNum, usingSeeds, seedList)
 
