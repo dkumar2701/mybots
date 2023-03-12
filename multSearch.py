@@ -3,10 +3,10 @@ from parallelHillClimber import PARALLEL_HILL_CLIMBER
 import numpy as np
 import constants as c
 import matplotlib.pyplot as plt
-def multSearch():
+def multSearch(searchNum):
         
     os.system("del SeedNumber*.txt")
-    searchNum = 10
+    
     bestAcrossSearches = np.zeros((0, c.numberOfGenerations + 1))
     usingSeeds = False # Set to true or false if using your own seeds
     if usingSeeds == False:

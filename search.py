@@ -10,5 +10,5 @@ for i in range(5):
 #np.random.seed(thisSeed)
 phc = PARALLEL_HILL_CLIMBER()
 phc.Evolve()
-print("The seed used was: ", thisSeed, "\n")
+#print("The seed used was: ", thisSeed, "\n")
 phc.Show_Best()
