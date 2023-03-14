@@ -7,8 +7,6 @@ mindim = 0.25
 minlen = 4
 maxlen = 7
 
-zdiff = 2
-
 #Constants for preferring last chain and preference of direction
 preferLastChain = 3
 preferattachY = 2
