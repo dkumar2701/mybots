@@ -8,6 +8,9 @@ Run the _RUNTRIALS.py_ file to run a number of parallel hill climber (**phc**) t
 
 You will be prompted to enter the **number of trials**, **robot population size**, and the **number of generations** to simulate. Each trial may take a seed, and this option is also prompted. If you choose not to input seeds, the program will choose random seeds for the trials. If you do opt to input seeds, you will be prompted to enter integer seeds to be used.
 
+### Viewing Simulations
+After running _RUNTRIALS.py_, the gen0 and best robot simulations you see are saved. These can be replayed by running 
+
 ## Fitness Determination
 
 Each child robot's fitness value is compared to its parent's value and the robot with the larger fitness "survives." The fitness function used is the robot's $YPosition_{final} - YPosition_{100thFrame}$. The start position is at the 100th frame to account for the robot falling at the start of the simulation, where its initial position may not be 0.
@@ -23,14 +26,16 @@ The fitness curves represents the best fitness from each generation of robots.
 
 ### Random Robot and Best Robot
 Below are gifs of a _random robot_ from **Gen 0** with **Fitness = 0.02801** and the _best robot_ from the 5 trials with **Fitness = 9.42344**
-<img src="https://user-images.githubusercontent.com/68355843/221749743-9e44e971-c242-441c-b057-83eb27fc8fe9.gif" width="45%" />
-<img src="https://user-images.githubusercontent.com/68355843/221749946-ce11bccc-18d5-4663-8609-45524225ed52.gif" width="45%" />
+
+<img src="https://user-images.githubusercontent.com/68355843/221749743-9e44e971-c242-441c-b057-83eb27fc8fe9.gif" width="45%" /><img src="https://user-images.githubusercontent.com/68355843/221749946-ce11bccc-18d5-4663-8609-45524225ed52.gif" width="45%" />
 
 ## METHODS:
 
 ### Parallel Hill Climber Evolution: 
 
 The evolution method used was parallel hill climber (phc). In phc, there is a permanent number of robots allowed in a population. In each generation, each of these robots has a "child", which is a copy of the parent with some mutation determined by the mutation function used. Fitness of parent and child are compared, and the robot with the greater fitness survives to create a child in the next generation. Below is a diagram of the phc process:
+
+<img src="https://user-images.githubusercontent.com/68355843/225105798-889bd3bb-7431-4a48-9fb1-f94f65e88eb3.png" width="50%" />
 
 
 ### Robot Generation:
