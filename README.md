@@ -78,7 +78,8 @@ NODE objects have a function connect(self, otherNode) that sets values such as t
 
 ## RESULTS
 
-By using the fitness function described above, I was able to evolve robots to move very well in the y-direction. Below is a simulation which used **10 trials**, **population 10**, and **500 generations**. The first video is of a robot in generation 0, without any evolution which had a fitness of **bruh**. The second video depicts the best robot, which had a fitness of **bruh**. The fitness curves are also shown below. You may replay this robot using the number 1 as an input for _RunGen0.py_ and _RunBestRobot.py_
+By using the fitness function described above, I was able to evolve robots to move very well in the y-direction. Below is a simulation which used **10 trials**, **population 10**, and **500 generations**. The first video is of a robot in generation 0, without any evolution which had a fitness of **bruh**. The second video depicts the best robot, which had a fitness of **bruh**. The fitness curves are also shown below. You may replay this robot using the number 1 as an input for _RunGen0.py_ and _RunBestRobot.py_.
+
 <img src="https://user-images.githubusercontent.com/68355843/225154258-671beb95-eeb3-46b0-8fd6-5add6f3497aa.gif" width="45%" /><img src="https://user-images.githubusercontent.com/68355843/225154371-2dded6d3-299e-4f57-bd50-cecceeee36e9.gif" width="45%" />
 ![Figure2](https://user-images.githubusercontent.com/68355843/225154515-ad9a5c6c-a440-4c23-ba2f-3589bdd29e5c.png)
 
