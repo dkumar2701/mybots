@@ -11,5 +11,6 @@ else:
 with open(robotString, 'rb') as f:
     data = pickle.load(f)
 
-print("Gen0 Fitness: " + str(data.fitness))
+
 data.Start_Simulation("GUI")
+print("\nGen0 Fitness: " + str(data.fitness) + "\n")
