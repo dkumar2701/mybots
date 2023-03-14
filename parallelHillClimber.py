@@ -4,6 +4,7 @@ import copy
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+import pickle
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
@@ -112,10 +113,14 @@ class PARALLEL_HILL_CLIMBER:
         self.plotTheBest(show)
         if(show):
             print("\nFIRST FITNESS: ", self.bestFirst_fitness.fitness, "\n")
+            with open('Gen0.pickle', 'wb') as f:
+                pickle.dump(self.bestFirst_fitness, f, pickle.HIGHEST_PROTOCOL)
             self.bestFirst_fitness.Start_Simulation("GUI")
             self.bestFirst_fitness.Wait_For_Simulation_To_End()
             input("\nPRESS ANY KEY TO CONTINUE TO THE BEST SIMULATION\n\n")
             print("\n BEST FITNESS: ", self.bestLast_fitness.fitness, "\n")
+            with open('BestRobot.pickle', 'wb') as b:
+                pickle.dump(self.bestLast_fitness, b, pickle.HIGHEST_PROTOCOL)
             #print("ARRAY: ", self.bestEachGen)
             self.bestLast_fitness.Start_Simulation("GUI")
             #self.bestLast_fitness.Wait_For_Simulation_To_End()
