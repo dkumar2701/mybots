@@ -33,6 +33,8 @@ class SIMULATION:
             self.robot.Act(i)
             
             if self.directOrGui == "GUI":
+                basePos, baseOrn = p.getBasePositionAndOrientation(self.robot.robotID)
+                p.resetDebugVisualizerCamera( cameraDistance = 5, cameraYaw=75, cameraPitch=-20, cameraTargetPosition = basePos)
                 time.sleep(1/c.totalStep)
             #print("Step Status: ", i)
 
