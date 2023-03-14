@@ -6,7 +6,7 @@
 ### Multiple Trials
 Run the _RUNTRIALS.py_ file to run a number of parallel hill climber (**phc**) trials. This code calls _multSearch.py_ to run the trials, generates fitness curves for each trial (which is saved in _MultSearchFig.png_), shows a random robot from generation 0, and shows a simulation of the best robot across all trials. The popup fitness curves must be closed for the simulations to show.
 
-You will be prompted to enter the **number of trials**, **robot population size**, and the **number of generations** to simulate. Each trial may take a seed, and this option is also prompted. If you choose not to input seeds, the program will choose random seeds for the trials. If you do opt to input seeds, you will be prompted to enter integer seeds to be used.
+You will be prompted to enter the **number of trials**, **robot population size**, and the **number of generations** to simulate. Each trial may take a seed, and this option is also prompted. If you choose not to input seeds, you may choose the lower and upper bounds of the randomly generated seeds. Seeds are later shown in the fitness graph and in SeedNumbers.txt. If you do opt to input seeds, you will be prompted to enter integer seeds to be used.
 
 ### Viewing Simulations
 After running _RUNTRIALS.py_, the gen0 and best robot simulations you see are saved. These can be replayed by running _RunGen0.py_ or _RunBestRobot.py_ respectively. If you want to see the simulation of the last _RUNTRIALS_ again, enter "n" into the input. Otherwise, you may input "y" and then a number (1 or 2) to see simulations of robots I have evolved.
