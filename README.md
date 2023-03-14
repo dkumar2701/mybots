@@ -91,7 +91,8 @@ Some other errors in evolution were due to bugs such as deleting limbs without d
 An interesting point to note in these simulations is the presence of cyclic movement in the robots. No pattern generators were encoded into the robots. Rather, they evolved to use periodic motion in order to achieve a high level of locomotion.
 
 ### Simulation 2:
-Here is another simulation with the same parameters. In this one, we see that the evolved robot again has periodic movement in its "hopping" leg, allowing it to move relatively quickly. Additionally, this fast movement causes some imbalance, resulting in the robot tipping forward. However, the evolved link at the front end of the robot also moves periodically to prevent it from falling over. You can see replay this simulation using the nubmer 2 as an input for _RunGen0.py_ and _RunBestRobot.py_
+Here is another simulation with the same parameters. In this one, we see that the evolved robot again has periodic movement in its "hopping" leg, allowing it to move relatively quickly. Additionally, this fast movement causes some imbalance, resulting in the robot tipping forward. However, the evolved link at the front end of the robot also moves periodically to prevent it from falling over. You can see replay this simulation using the nubmer 2 as an input for _RunGen0.py_ and _RunBestRobot.py_.
+
 <img src="https://user-images.githubusercontent.com/68355843/225159247-b8d053d7-285b-4af7-b007-08727fc687c6.gif" width="45%" /><img src="https://user-images.githubusercontent.com/68355843/225159808-c778ce36-2ec8-4e5d-8a3e-4be4c65d5a24.gif" width="45%" />
 
 ![Figure3](https://user-images.githubusercontent.com/68355843/225159862-3757f392-09a4-4e5f-8b8f-dde4a71d8103.png)
