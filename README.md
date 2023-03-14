@@ -9,7 +9,7 @@ Run the _RUNTRIALS.py_ file to run a number of parallel hill climber (**phc**) t
 You will be prompted to enter the **number of trials**, **robot population size**, and the **number of generations** to simulate. Each trial may take a seed, and this option is also prompted. If you choose not to input seeds, the program will choose random seeds for the trials. If you do opt to input seeds, you will be prompted to enter integer seeds to be used.
 
 ### Viewing Simulations
-After running _RUNTRIALS.py_, the gen0 and best robot simulations you see are saved. These can be replayed by running 
+After running _RUNTRIALS.py_, the gen0 and best robot simulations you see are saved. These can be replayed by running _RunGen0.py_ or _RunBestRobot.py_ respectively. If you want to see the simulation of the last _RUNTRIALS_ again, enter "n" into the input. Otherwise, you may input "y" and then a number (1 or 2) to see simulations of robots I have evolved.
 
 ## Fitness Determination
 
