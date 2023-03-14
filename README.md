@@ -78,8 +78,11 @@ NODE objects have a function connect(self, otherNode) that sets values such as t
 
 ## RESULTS
 
-By using the fitness function described above, I was able to evolve robots to move very well in the y-direction. Below is a simulation which used **10 trials**, **population 10**, and **500 generations**. The first video is of a robot in generation 0, without any evolution which had a fitness of **bruh**. The second video depicts the best robot, which had a fitness of **bruh**. The fitness curves are also shown below. 
+By using the fitness function described above, I was able to evolve robots to move very well in the y-direction. Below is a simulation which used **10 trials**, **population 10**, and **500 generations**. The first video is of a robot in generation 0, without any evolution which had a fitness of **bruh**. The second video depicts the best robot, which had a fitness of **bruh**. The fitness curves are also shown below. You may replay this robot using the number 1 as an input for _RunGen0.py_ and _RunBestRobot.py_
 <img src="https://user-images.githubusercontent.com/68355843/225154258-671beb95-eeb3-46b0-8fd6-5add6f3497aa.gif" width="45%" /><img src="https://user-images.githubusercontent.com/68355843/225154371-2dded6d3-299e-4f57-bd50-cecceeee36e9.gif" width="45%" />
+![Figure2](https://user-images.githubusercontent.com/68355843/225154515-ad9a5c6c-a440-4c23-ba2f-3589bdd29e5c.png)
 
+These results show that evolution was successful, and the robots added and removed limbs throughout the generations to create a final robot that had a noticeable hopping motion. Some earlier errors in evolution occurred due to the fitness function, which is based on the y-position of the robot's first link. Because of this, evolution sometimes lead to tall robots being created, allowing it to tip over and have a large y-value for the first link without locomotion. To prevent this, I changted the fitness function to the difference in y-positions, with the start position beginning 100 steps into the simulation to allow for the robot to fall first. After this, evolution worked smoothly.
+Some other errors in evolution were due to bugs such as deleting limbs without deleting the corresponding brain neurons and synapses, which resulted in keyerrors when the robot was being simulated. However, these were fixed to have evolution work smoothly. 
 
-
+An interesting point to note in these simulations is the presence of cyclic movement in the robots. No pattern generators were encoded into the robots. Rather, they evolved to use periodic motion in order to achieve a high level of locomotion.
