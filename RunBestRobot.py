@@ -12,4 +12,5 @@ else:
 with open(robotString, 'rb') as f:
     data = pickle.load(f)
 
+print("Best Fitness = "+ str(data.fitness))
 data.Start_Simulation("GUI")
