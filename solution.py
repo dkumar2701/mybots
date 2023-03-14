@@ -35,7 +35,7 @@ class SOLUTION:
         self.removedfromAvailable = []
         #Create the connections:
         self.Add_Connections()
-        self.zdiff = 2
+        self.initialZ = 2
 
 
     def Set_ID(self, ID):
@@ -198,7 +198,7 @@ class SOLUTION:
     def Create_Body(self):
         
         #Generate Robot
-        zdiff = self.zdiff
+        zdiff = self.initialZ
         
         
         #print("The Sensors: ", self.sensorTrue, "\n")

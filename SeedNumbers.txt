@@ -1,3 +1,5 @@
-The 0th trial's seed is: 1
-The 1th trial's seed is: 2
-The 2th trial's seed is: 0
+The 0th trial's seed is: 589
+The 1th trial's seed is: 378
+The 2th trial's seed is: 673
+The 3th trial's seed is: 678
+The 4th trial's seed is: 1109
