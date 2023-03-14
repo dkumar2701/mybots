@@ -1,4 +1,4 @@
-# Final Project (use 16pt scale)
+# Final Project (use 16pt scale, Engineer)
 
 ## VIDEO SUMMARY:
 
@@ -58,7 +58,7 @@ Robots are evolved as in ludobots, where one of the synapse weights in the child
 
 Here is a link to a youtube video showing more robot evolution examples: https://youtu.be/_U0uLyCg3BA
 
-## Extra information on the NODE class:
+### Extra information on the NODE class:
 
 Each NODE object has the following attributes:
 - numConnections = the number of other links attached to this NODE object.
@@ -76,7 +76,10 @@ Each NODE object has the following attributes:
 NODE objects have a function findDirection(self, otherNode) that assists in choosing an open direction on the otherNode to attach to.
 NODE objects have a function connect(self, otherNode) that sets values such as the previousNode, and direction.
 
+## RESULTS
 
+By using the fitness function described above, I was able to evolve robots to move very well in the y-direction. Below is a simulation which used **10 trials**, **population 10**, and **500 generations**. The first video is of a robot in generation 0, without any evolution which had a fitness of **bruh**. The second video depicts the best robot, which had a fitness of **bruh**. The fitness curves are also shown below. 
+<img src="https://user-images.githubusercontent.com/68355843/225154258-671beb95-eeb3-46b0-8fd6-5add6f3497aa.gif" width="45%" /><img src="https://user-images.githubusercontent.com/68355843/225154371-2dded6d3-299e-4f57-bd50-cecceeee36e9.gif" width="45%" />
 
 
 
