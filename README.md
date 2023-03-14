@@ -1,4 +1,6 @@
-# Assignment 7
+# Final Project
+
+## VIDEO SUMMARY:
 
 ## TO RUN THE CODE:
 ### Multiple Trials
