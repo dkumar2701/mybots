@@ -1,4 +1,4 @@
-# Final Project
+# Final Project (use 16pt scale)
 
 ## VIDEO SUMMARY:
 
