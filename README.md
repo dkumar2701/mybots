@@ -79,7 +79,7 @@ NODE objects have a function findDirection(self, otherNode) that assists in choo
 NODE objects have a function connect(self, otherNode) that sets values such as the previousNode, and direction.
 
 ## RESULTS
-
+### Simulation 1:
 By using the fitness function described above, I was able to evolve robots to move very well in the y-direction. Below is a simulation which used **10 trials**, **population 10**, and **500 generations**. The first video is of a robot in generation 0, without any evolution which had a fitness of **bruh**. The second video depicts the best robot, which had a fitness of **bruh**. The fitness curves are also shown below. You may replay this robot using the number 1 as an input for _RunGen0.py_ and _RunBestRobot.py_.
 
 <img src="https://user-images.githubusercontent.com/68355843/225154258-671beb95-eeb3-46b0-8fd6-5add6f3497aa.gif" width="45%" /><img src="https://user-images.githubusercontent.com/68355843/225154371-2dded6d3-299e-4f57-bd50-cecceeee36e9.gif" width="45%" />
@@ -89,3 +89,11 @@ These results show that evolution was successful, and the robots added and remov
 Some other errors in evolution were due to bugs such as deleting limbs without deleting the corresponding brain neurons and synapses, which resulted in keyerrors when the robot was being simulated. However, these were fixed to have evolution work smoothly. 
 
 An interesting point to note in these simulations is the presence of cyclic movement in the robots. No pattern generators were encoded into the robots. Rather, they evolved to use periodic motion in order to achieve a high level of locomotion.
+
+### Simulation 2:
+Here is another simulation with the same parameters. In this one, we see that the evolved robot again has periodic movement in its "hopping" leg, allowing it to move relatively quickly. Additionally, this fast movement causes some imbalance, resulting in the robot tipping forward. However, the evolved link at the front end of the robot also moves periodically to prevent it from falling over. You can see replay this simulation using the nubmer 2 as an input for _RunGen0.py_ and _RunBestRobot.py_
+<img src="https://user-images.githubusercontent.com/68355843/225159247-b8d053d7-285b-4af7-b007-08727fc687c6.gif" width="45%" /><img src="https://user-images.githubusercontent.com/68355843/225159808-c778ce36-2ec8-4e5d-8a3e-4be4c65d5a24.gif" width="45%" />
+
+![Figure3](https://user-images.githubusercontent.com/68355843/225159862-3757f392-09a4-4e5f-8b8f-dde4a71d8103.png)
+
+
