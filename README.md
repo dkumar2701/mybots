@@ -4,7 +4,8 @@
 
 ## VIDEO SUMMARY:
 
-Here is a link to a video summary of robotic evolution and this project: https://youtu.be/UEXP5d3ARoY
+[![Watch the video](https://img.youtube.com/vi/UEXP5d3ARoY/maxresdefault.jpg)](https://youtu.be/UEXP5d3ARoY)
+Here is a link to a video summary of robotic evolution and this project if the above doesn't work: https://youtu.be/UEXP5d3ARoY
 
 ## TO RUN THE CODE:
 ### Multiple Trials
