@@ -4,6 +4,8 @@
 
 ## VIDEO SUMMARY:
 
+Here is a link to a video summary of robotic evolution and this project: https://youtu.be/UEXP5d3ARoY
+
 ## TO RUN THE CODE:
 ### Multiple Trials
 Run the _RUNTRIALS.py_ file to run a number of parallel hill climber (**phc**) trials. This code calls _multSearch.py_ to run the trials, generates fitness curves for each trial (which is saved in _MultSearchFig.png_), shows a random robot from generation 0, and shows a simulation of the best robot across all trials. The popup fitness curves must be closed for the simulations to show. After the first simulation, press Enter to show the best robot simulation. 
