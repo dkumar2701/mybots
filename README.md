@@ -1,4 +1,4 @@
-# Final Project (use 16pt scale, Engineer)
+# Final Project
 ## Teaser:
 ![10secTeaser](https://user-images.githubusercontent.com/68355843/225172116-737ed831-718a-4353-84c0-31a770159faa.gif)
 
